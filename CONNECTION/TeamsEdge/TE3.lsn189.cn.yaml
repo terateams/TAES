@@ -1,0 +1,93 @@
+# TE3.lsn189.cn 实例配置契约
+# 定义该实例应遵循的 TAES 规范版本与菜单启用状态
+
+instance:
+  id: TE3
+  domain: te3.lsn189.cn
+  environment: production
+  created: 2026-01-21
+
+# 对齐的 TAES 规范版本
+spec:
+  version: v2.1
+  source: CONTEXT/TAES/TeamsEdge/Navigation-00.md
+  last_sync: 2026-01-21
+
+# L1 菜单启用状态
+# status: enabled | disabled | partial | planned
+menus:
+  - id: 1
+    name: EdgeTeams
+    taes: E
+    status: enabled
+    notes: null
+    
+  - id: 2
+    name: TeamsCamp
+    taes: T
+    status: enabled
+    notes: null
+    
+  - id: 3
+    name: Augment
+    taes: A
+    status: enabled
+    notes: null
+    
+  - id: 4
+    name: Mission
+    taes: S
+    status: partial
+    notes: MR Detail 功能开发中
+    
+  - id: 5
+    name: The Foundry
+    taes: S
+    status: partial
+    notes: Artifacts 已上线，Action 开发中
+    
+  - id: 6
+    name: AI Intelligence
+    taes: S
+    status: partial
+    notes: Knowledge 已上线，Eval 开发中
+    
+  - id: 7
+    name: Credits & Billing
+    taes: S
+    status: enabled
+    notes: null
+    
+  - id: 8
+    name: Notification
+    taes: "-"
+    status: partial
+    notes: Inbox 已上线，Approval 开发中
+    
+  - id: 9
+    name: System
+    taes: "-"
+    status: enabled
+    notes: null
+
+# 已知差异（规范 vs 实现）
+deviations:
+  - menu: Mission
+    item: Eval
+    spec: 应支持 Golden Set + LLM-as-Judge
+    actual: 仅支持基础评分
+    priority: P1
+    target_date: 2026-Q1
+    
+  - menu: System
+    item: Operator
+    spec: 应支持 L0-L4 权限层级
+    actual: 仅支持 L0-L2
+    priority: P2
+    target_date: 2026-Q2
+
+# 下次同步计划
+next_sync:
+  date: 2026-02-01
+  scope: 全量菜单对齐检查
+  owner: "@taes"
