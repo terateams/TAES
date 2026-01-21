@@ -48,22 +48,27 @@
 
 | L1 菜单 | L2 子菜单 | 路由 | TAES地址 | Te3.lsn189.cn (admin) |
 |---------|-----------|------|:--------:|----------------------|
-| **EdgeTeams** | Player 成员 | /admin/player | T3.1.1.1 | Player |
-| | Team E队 | /admin/teaminfo | T3.1.1.2 | Team E队 |
-| | TSG 组队 | /admin/tsg | T3.1.1.3 | TSG 组队 |
-| | Edge Profiles | /admin/profiles | T3.1.1.4 | Edge Profiles |
-| | Publisher 发布者 | /admin/publisher | T3.1.1.5 | Publisher |
-| **TeamsIdol** | Don | /admin/don | T3.1.2.1 | TeamsIdol.Don |
-| | ILYA | /admin/ilya | T3.1.2.2 | TeamsIdol.ILYA |
-| | Yuki | /admin/yuki | T3.1.2.3 | TeamsIdol.Yuki |
-| | Her | /admin/her | T3.1.2.4 | TeamsIdol.Her |
-| | Eva | /admin/eva | T3.1.2.5 | TeamsIdol.Eva |
-| | AL | /admin/al | T3.1.2.6 | TeamsIdol.AL |
-| | Rommel | /admin/rommel | T3.1.2.7 | TeamsIdol.Rommel |
-| | Smith | /admin/smith | T3.1.2.8 | TeamsIdol.Smith |
-| | Dora | /admin/dora | T3.1.2.9 | TeamsIdol.Dora |
-| | Marc | /admin/marc | T3.1.2.10 | TeamsIdol.Marc |
-| | Thales | /admin/thales | T3.1.2.11 | TeamsIdol.Thales |
+| **EdgeTeams** | Player 成员 | /Teams/player | T3.1.1.1 | Player |
+| | Team E队 | /Teams/teaminfo | T3.1.1.2 | Team E队 |
+| | TSG 组队 | /Teams/tsg | T3.1.1.3 | TSG 组队 |
+| | Edge Profiles | /Teams/profiles | T3.1.1.4 | Edge Profiles |
+| | Publisher 发布者 | /Teams/publisher | T3.1.1.5 | Publisher |
+
+> **Player 成员属性**：TeamsIdol 角色作为 Player 的属性列，而非独立菜单
+
+| Player 属性 | TeamsIdol 角色 | 说明 | Te3.lsn189.cn (admin) |
+|:-----------:|:---------------|------|----------------------|
+| idol=Don | Don | 战略导师 | TeamsIdol.Don |
+| idol=ILYA | ILYA | AI研究员 | TeamsIdol.ILYA |
+| idol=Yuki | Yuki | 产品设计 | TeamsIdol.Yuki |
+| idol=Her | Her | 情感连接 | TeamsIdol.Her |
+| idol=Eva | Eva | 执行官 | TeamsIdol.Eva |
+| idol=AL | AL | 算法专家 | TeamsIdol.AL |
+| idol=Rommel | Rommel | 战术指挥 | TeamsIdol.Rommel |
+| idol=Smith | Smith | 系统架构 | TeamsIdol.Smith |
+| idol=Dora | Dora | 探索者 | TeamsIdol.Dora |
+| idol=Marc | Marc | 市场专家 | TeamsIdol.Marc |
+| idol=Thales | Thales | 哲学顾问 | TeamsIdol.Thales |
 
 ---
 
@@ -234,7 +239,7 @@
 
 | 菜单类型 | TAES L1 数 | L2 子菜单总数 | 适用角色 |
 |---------|:----------:|:------------:|---------|
-| Admin | **11** | 81 | super |
+| Admin | **10** | 70 | super |
 | Operator | **3** | 10 | opr |
 
 ---
@@ -245,8 +250,7 @@
 
 | 地址段 | 范围 | 功能域 |
 |:------:|:----:|--------|
-| `T3.1.1.x` | 1-5 | EdgeTeams 团队管理 |
-| `T3.1.2.x` | 1-11 | TeamsIdol AI角色 |
+| `T3.1.1.x` | 1-5 | EdgeTeams 团队管理（含 TeamsIdol 属性） |
 | `T3.2.1.x` | 1-6 | TeamsCamp 资源管理 |
 | `T3.3.1.x` | 1-10 | Augment 托举设施 |
 | `T3.4.1.x` | 1-4 | Mission 任务定义 |
@@ -266,8 +270,7 @@
 
 | TAES 分区 | L1 菜单 | T营 (super) | E队 (member) | 操作员 (opr) |
 |:--------:|---------|:-----------:|:------------:|:------------:|
-| **E** | EdgeTeams | ✅ 可见 | ✅ 自助 | ❌ |
-| **E** | TeamsIdol | ✅ 管理 | ✅ 只读 | ❌ |
+| **E** | EdgeTeams (含 TeamsIdol) | ✅ 可见 | ✅ 自助 | ❌ |
 | **T** | TeamsCamp | ✅ 专属 | ❌ | ❌ |
 | **A** | Augment | ✅ 运维 | 👁️ 只读 | ❌ |
 | **S** | Mission | ✅ 审计 | ✅ 自助 | ❌ |
