@@ -1,6 +1,6 @@
 # TeamsEdge 菜单结构（TAES 对齐版）
 
-> **站点**: Te3.lsn189.cn | **版本**: v2.1-TAES | **更新**: 2026-01-21
+> **站点**: Te3.lsn189.cn | **版本**: v2.2-TAES | **更新**: 2026-01-21
 >
 > 数据来源：[assets/menu-admin.json](../assets/menu-admin.json) 和 [assets/menu-opr.json](../assets/menu-opr.json)
 
@@ -18,13 +18,16 @@
 │  [T] TeamsCamp     →  资源在哪？合同主体、算力池               │
 │  [A] Augment       →  如何连接？网络通道、AI托管               │
 │  [S] Scale 飞轮    →  Mission / Foundry / Intelligence / Credits │
-│  [—] 系统治理      →  Notification / System                     │
+├───────────────────────── 分 隔 线 ──────────────────────────────┤
+│  [—] 系统治理      →  Notification / System / Data             │
+├───────────────────────── 分 隔 线 ──────────────────────────────┤
+│  [R] 保留区        →  TeamsEdge Support / TeamsEdge System     │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
 ### TAES 地址段规范
 
-> **格式**: `T3.{TAES}.{L1}.{L2}` — T3=Te3站点, TAES分区=1-5, L1=菜单序号, L2=子菜单序号
+> **格式**: `T3.{TAES}.{L1}.{L2}` — T3=Te3站点, TAES分区=1-6, L1=菜单序号, L2=子菜单序号
 
 | TAES 分区 | 地址段 | 说明 |
 |:---------:|:------:|------|
@@ -33,6 +36,7 @@
 | **[A]** Augment | `T3.3.x.x` | 托举基础设施 |
 | **[S]** Scale | `T3.4.x.x` | 增长飞轮 |
 | **[—]** System | `T3.5.x.x` | 系统治理 |
+| **[R]** Reserved | `T3.6.x.x` | 保留区（平台级） |
 
 ---
 
@@ -148,7 +152,7 @@
 
 ---
 
-### ⚪ [—] 系统治理 — Notification / System
+### ⚪ [—] 系统治理 — Notification / System / Data
 
 > **权限**: T营专属 | **定位**: 平台运维 | **地址段**: `T3.5.x.x`
 
@@ -170,12 +174,41 @@
 | | Logging | /admin/logging | T3.5.2.5 | System.Logging |
 | **Data** | Table Dynamic | /admin/pgdata | T3.5.3.1 | Data.Table Dynamic |
 | | JSON Static | /admin/datasource | T3.5.3.2 | Data.JSON Static |
-| **TeamsEdge System** | Api Token | /admin/apitoken | T3.5.4.1 | TeamsEdge System.Api Token |
-| | Backup Data | /admin/backup | T3.5.4.2 | TeamsEdge System.Backup |
-| | Translate | /admin/translate | T3.5.4.3 | TeamsEdge System.Translate |
-| | File Manager | /admin/filemanager | T3.5.4.4 | TeamsEdge System.File Manager |
-| | DB Manager | /admin/tools/sqlexec | T3.5.4.5 | TeamsEdge System.DB Manager |
-| | System Status | /admin/sysstatus | T3.5.4.6 | TeamsEdge System.System Status |
+
+---
+
+### 🔴 [R] 保留区 — TeamsEdge Support / TeamsEdge System
+
+> **权限**: T营专属 | **定位**: 平台级功能（V1 兼容） | **地址段**: `T3.6.x.x`
+
+#### TeamsEdge Support — 平台支持
+
+| L1 菜单 | L2 子菜单 | 路由 | TAES地址 | Te3.lsn189.cn (admin) |
+|---------|-----------|------|:--------:|----------------------|
+| **TeamsEdge Support** | Customers | /admin/customer | T3.6.1.1 | TeamsEdge Support.Customers |
+| | Users | /admin/users | T3.6.1.2 | TeamsEdge Support.Users |
+| | Agreements | /admin/agreement | T3.6.1.3 | TeamsEdge Support.Agreements |
+| | Workplane | /admin/workplane | T3.6.1.4 | TeamsEdge Support.Workplane |
+| | Tickets | /admin/ticket | T3.6.1.5 | TeamsEdge Support.Tickets |
+| | Proxy Server | /admin/teamsedge/server | T3.6.1.6 | TeamsEdge Support.Proxy Server |
+| | Proxy Limiter | /admin/teamsedge/limiter | T3.6.1.7 | TeamsEdge Support.Proxy Limiter |
+| | Proxy Address | /admin/teamsedge/address | T3.6.1.8 | TeamsEdge Support.Proxy Address |
+| | Proxy Rule | /admin/teamsedge/rule | T3.6.1.9 | TeamsEdge Support.Proxy Rule |
+| | Proxy Sessions | /admin/teamsedge/session | T3.6.1.10 | TeamsEdge Support.Proxy Sessions |
+| | Tester Endpoints | /admin/teamsedge/tester | T3.6.1.11 | TeamsEdge Support.Tester |
+| | insight Eggs | /admin/insightimg | T3.6.1.12 | TeamsEdge Support.insight |
+
+#### TeamsEdge System — 平台系统
+
+| L1 菜单 | L2 子菜单 | 路由 | TAES地址 | Te3.lsn189.cn (admin) |
+|---------|-----------|------|:--------:|----------------------|
+| **TeamsEdge System** | Api Token | /admin/apitoken | T3.6.2.1 | TeamsEdge System.Api Token |
+| | Backup Data | /admin/backup | T3.6.2.2 | TeamsEdge System.Backup |
+| | Translate | /admin/translate | T3.6.2.3 | TeamsEdge System.Translate |
+| | Operation Log | /admin/oplog | T3.6.2.4 | TeamsEdge System.Operation Log |
+| | File Manager | /admin/filemanager | T3.6.2.5 | TeamsEdge System.File Manager |
+| | DB Manager | /admin/tools/sqlexec | T3.6.2.6 | TeamsEdge System.DB Manager |
+| | System Status | /admin/sysstatus | T3.6.2.7 | TeamsEdge System.System Status |
 
 ---
 
@@ -201,7 +234,7 @@
 
 | 菜单类型 | TAES L1 数 | L2 子菜单总数 | 适用角色 |
 |---------|:----------:|:------------:|---------|
-| Admin | **9** | 62 | super |
+| Admin | **11** | 81 | super |
 | Operator | **3** | 10 | opr |
 
 ---
@@ -224,7 +257,8 @@
 | `T3.5.1.x` | 1-2 | Notification 通知 |
 | `T3.5.2.x` | 1-5 | System 系统设置 |
 | `T3.5.3.x` | 1-2 | Data 数据管理 |
-| `T3.5.4.x` | 1-6 | TeamsEdge System 平台 |
+| `T3.6.1.x` | 1-12 | TeamsEdge Support 平台支持 |
+| `T3.6.2.x` | 1-7 | TeamsEdge System 平台系统 |
 
 ---
 
@@ -242,6 +276,9 @@
 | **S** | Credits & Billing | ✅ 管理 | 👁️ 只读 | ❌ |
 | **—** | Notification | ✅ 管理 | 👁️ 只读 | ✅ 只读 |
 | **—** | System | ✅ 专属 | ❌ | ✅ 受限 |
+| **—** | Data | ✅ 专属 | ❌ | ❌ |
+| **R** | TeamsEdge Support | ✅ 专属 | ❌ | ❌ |
+| **R** | TeamsEdge System | ✅ 专属 | ❌ | ✅ 受限 |
 
 ---
 
