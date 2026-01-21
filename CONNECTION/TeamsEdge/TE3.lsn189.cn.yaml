@@ -34,11 +34,12 @@ menus:
     name: TeamsCamp
     taes: T
     status: enabled
-    notes: "L2: AITC/BAS/AGE 付费资产链 (T3.2.1.1-3)"
+    notes: "L2: AITC/BAS/AGA/AWP 付费资产链 (T3.2.1.1-4)"
     submenus:
       - { id: T3.2.1.1, name: AITC, route: /Teamscamp/aitc, desc: "Allied Benefit Tenant 协同订阅" }
       - { id: T3.2.1.2, name: BAS, route: /Teamscamp/bas, desc: "Benefit Azure Subscription 赢力Azure" }
-      - { id: T3.2.1.3, name: AGE, route: /Teamscamp/age, desc: "Augmented Github Enterprise 席位+算力" }
+      - { id: T3.2.1.3, name: AGA, route: /Teamscamp/aga, desc: "Augmented Github Account 席位+算力（TC账号登录）" }
+      - { id: T3.2.1.4, name: AWP, route: /Teamscamp/awp, desc: "Augmented WorkPlane 网络可靠（Link Server + 站点）" }
     
   - id: 3
     name: Augment
