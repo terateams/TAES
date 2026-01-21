@@ -50,9 +50,11 @@
 |---------|-----------|------|:--------:|----------|----------------------|
 | **EdgeTeams** | E队 | /Teams/team | T3.1.1.1 | 以 E队番号 列出所有 E队 | Team E队 |
 | | 队员 | /Teams/player | T3.1.1.2 | 以 Player ID 列出所有队员 | Player |
-| | M365组团 | /Teams/tsg | T3.1.1.3 | M365 Group Policy 中的 Security Group ID | TSG 组队 |
-| | 番号域名 | /Teams/domain | T3.1.1.4 | E队的域名与番号（EdgeTeam Code） | Edge Profiles |
-| | Publisher | /Teams/publisher | T3.1.1.5 | E队软件发布者（E卡/O卡/V卡），默认个人 | Publisher |
+| | AO | /Teams/ao | T3.1.1.3 | Augmented Org（T营托付的E队信任边界） | E队 Org |
+| | AR | /Teams/ar | T3.1.1.4 | Augmented Repo（E队 Mission 载体，免费创建） | Mission Repo |
+| | M365组团 | /Teams/tsg | T3.1.1.5 | M365 Group Policy 中的 Security Group ID | TSG 组队 |
+| | 番号域名 | /Teams/domain | T3.1.1.6 | E队的域名与番号（EdgeTeam Code） | Edge Profiles |
+| | Publisher | /Teams/publisher | T3.1.1.7 | E队软件发布者（E卡/O卡/V卡），默认个人 | Publisher |
 
 > **Publisher 说明**：
 > - **E卡**：Microsoft Edge Extension（edge://extensions）
@@ -82,14 +84,47 @@
 
 > **权限**: T营专属 | **定位**: 资源持有方 | **地址段**: `T3.2.x.x`
 
-| L1 菜单 | L2 子菜单 | 路由 | TAES地址 | Te3.lsn189.cn (admin) |
-|---------|-----------|------|:--------:|----------------------|
-| **TeamsCamp** | Org 工坊 | /admin/github/org | T3.2.1.1 | Github 工坊.Org |
-| | Repo 仓库 | /admin/github/repo | T3.2.1.2 | Github 工坊.Repo |
-| | AI工场 Tenant | /admin/tenant | T3.2.1.3 | Team E队.AI工场 |
-| | Azure Credit | /admin/billing/azure | T3.2.1.4 | Github 工坊.Azure Credit |
-| | Agreements 合同 | /admin/agreement | T3.2.1.5 | TeamsEdge Support.Agreements |
-| | Customers 客户 | /admin/customer | T3.2.1.6 | TeamsEdge Support.Customers |
+| L1 菜单 | L2 子菜单 | 路由 | TAES地址 | 功能说明 | Te3.lsn189.cn (admin) |
+|---------|-----------|------|:--------:|----------|----------------------|
+| **TeamsCamp** | AITC | /Teamscamp/aitc | T3.2.1.1 | Allied Benefit Tenant 协同订阅 | AITC Tenant |
+| | BAS | /Teamscamp/bas | T3.2.1.2 | Benefit Azure Subscription 赢力Azure（支付M365/Github） | Azure Credit |
+| | AGE | /Teamscamp/age | T3.2.1.3 | Augmented Github Enterprise 席位+算力（GEO+Quota） | GH Enterprise |
+
+> **AGE 子能力**：
+> - **席位采购**：Enterprise + Copilot 席位购买
+> - **算力池**：Premium Quota 配额管理
+> - **席位分发**：向 AO (E队 Org) 分配席位
+> - **算力分发**：向 E队 分配 $X/月 配额
+> - **登录账号**：TeamsCamp 的 GitHub 账号
+
+#### 托举资产依赖链
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  托举资产依赖链                                                  │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  AITC ──→ BAS ──→ AGE ──→ AO ──→ AR                            │
+│   │        │       │       │      │                             │
+│   ↓        ↓       ↓       ↓      ↓                             │
+│  Tenant  Azure  席位+算力  E队边界  Mission                      │
+│                                                                 │
+│  ←───── T营 付费/持有 ─────→ ←── E队 运营/拥有 ──→              │
+│        【T】TeamsCamp             【E】EdgeTeams                │
+│                                                                 │
+│  登录账号：                                                      │
+│  AITC: M365 Admin    BAS: Azure Portal    AGE: GitHub TC账号    │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+#### 归属模型
+
+| 归属类型 | 主体 | 对象 | 说明 |
+|----------|------|------|------|
+| **持有** | T营 | AITC / BAS / AGE | 付费资产，法律归属 |
+| **托付** | T营 → E队 | AO (Augmented Org) | 信任边界，运营授权 |
+| **拥有** | E队 | AR (Augmented Repo) + 交付物 | 免费创建，自由处置 |
 
 ---
 
@@ -256,8 +291,8 @@
 
 | 地址段 | 范围 | 功能域 |
 |:------:|:----:|--------|
-| `T3.1.1.x` | 1-5 | EdgeTeams 团队管理（含 TeamsIdol 属性） |
-| `T3.2.1.x` | 1-6 | TeamsCamp 资源管理 |
+| `T3.1.1.x` | 1-7 | EdgeTeams 团队管理（含 AO/AR + TeamsIdol 属性） |
+| `T3.2.1.x` | 1-3 | TeamsCamp 付费资产（AITC/BAS/AGE） |
 | `T3.3.1.x` | 1-10 | Augment 托举设施 |
 | `T3.4.1.x` | 1-4 | Mission 任务定义 |
 | `T3.4.2.x` | 1-3 | The Foundry 工坊 |
