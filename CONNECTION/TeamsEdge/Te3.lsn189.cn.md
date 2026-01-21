@@ -50,9 +50,15 @@
 |---------|-----------|------|:--------:|----------|----------------------|
 | **EdgeTeams** | E队 | /Teams/team | T3.1.1.1 | 以 E队番号 列出所有 E队 | Team E队 |
 | | 队员 | /Teams/player | T3.1.1.2 | 以 Player ID 列出所有队员 | Player |
-| | TSG 组队 | /Teams/tsg | T3.1.1.3 | 团队技能组管理 | TSG 组队 |
-| | Edge Profiles | /Teams/profiles | T3.1.1.4 | E队画像与标签 | Edge Profiles |
-| | Publisher 发布者 | /Teams/publisher | T3.1.1.5 | 内容发布者管理 | Publisher |
+| | M365组团 | /Teams/tsg | T3.1.1.3 | M365 Group Policy 中的 Security Group ID | TSG 组队 |
+| | 番号域名 | /Teams/domain | T3.1.1.4 | E队的域名与番号（EdgeTeam Code） | Edge Profiles |
+| | Publisher | /Teams/publisher | T3.1.1.5 | E队软件发布者（E卡/O卡/V卡），默认个人 | Publisher |
+
+> **Publisher 说明**：
+> - **E卡**：Microsoft Edge Extension（edge://extensions）
+> - **O卡**：Microsoft Windows Apps（Microsoft Store）
+> - **V卡**：VS Code Marketplace（marketplace.visualstudio.com）
+> - 默认采用**个人**作为 Publisher，E队场景下可共享发布者身份
 
 > **队员属性**：TeamsIdol 角色作为队员的属性列
 
