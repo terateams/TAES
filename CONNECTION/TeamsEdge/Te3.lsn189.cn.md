@@ -46,15 +46,15 @@
 
 > **权限**: E队自助 + T营可见 | **定位**: 价值创造方 | **地址段**: `T3.1.x.x`
 
-| L1 菜单 | L2 子菜单 | 路由 | TAES地址 | Te3.lsn189.cn (admin) |
-|---------|-----------|------|:--------:|----------------------|
-| **EdgeTeams** | Player 成员 | /Teams/player | T3.1.1.1 | Player |
-| | Team E队 | /Teams/teaminfo | T3.1.1.2 | Team E队 |
-| | TSG 组队 | /Teams/tsg | T3.1.1.3 | TSG 组队 |
-| | Edge Profiles | /Teams/profiles | T3.1.1.4 | Edge Profiles |
-| | Publisher 发布者 | /Teams/publisher | T3.1.1.5 | Publisher |
+| L1 菜单 | L2 子菜单 | 路由 | TAES地址 | 功能说明 | Te3.lsn189.cn (admin) |
+|---------|-----------|------|:--------:|----------|----------------------|
+| **EdgeTeams** | E队 | /Teams/team | T3.1.1.1 | 以 E队番号 列出所有 E队 | Team E队 |
+| | 队员 | /Teams/player | T3.1.1.2 | 以 Player ID 列出所有队员 | Player |
+| | TSG 组队 | /Teams/tsg | T3.1.1.3 | 团队技能组管理 | TSG 组队 |
+| | Edge Profiles | /Teams/profiles | T3.1.1.4 | E队画像与标签 | Edge Profiles |
+| | Publisher 发布者 | /Teams/publisher | T3.1.1.5 | 内容发布者管理 | Publisher |
 
-> **Player 成员属性**：TeamsIdol 角色作为 Player 的属性列，而非独立菜单
+> **队员属性**：TeamsIdol 角色作为队员的属性列
 
 | Player 属性 | TeamsIdol 角色 | 说明 | Te3.lsn189.cn (admin) |
 |:-----------:|:---------------|------|----------------------|
