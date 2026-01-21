@@ -89,7 +89,7 @@
 | **TeamsCamp** | AITC | /Teamscamp/aitc | T3.2.1.1 | Allied Benefit Tenant 协同订阅 | AITC Tenant |
 | | BAS | /Teamscamp/bas | T3.2.1.2 | Benefit Azure Subscription 赢力Azure（支付M365/Github） | Azure Credit |
 | | AGA | /Teamscamp/aga | T3.2.1.3 | Augmented Github Account 席位+算力（TC账号登录） | GH Account |
-| | AWP | /Teamscamp/awp | T3.2.1.4 | Augmented WorkPlane 网络可靠（Link Server + 站点） | WorkPlane |
+| | Workplane | /Teamscamp/workplane | T3.2.1.4 | 网络可靠（Link Server + 站点） | Workplane |
 
 > **AGA 子能力**（Augmented Github Account）：
 > - **登录账号**：TeamsCamp 的 GitHub 账号（操作主体）
@@ -98,7 +98,7 @@
 > - **席位分发**：向 AO (E队 Org) 分配席位
 > - **算力分发**：向 E队 分配 $X/月 配额
 
-> **AWP 子能力**（Augmented WorkPlane）：
+> **Workplane 子能力**：
 > - **Link Server**：代理服务器（网络可达）
 > - **POP 站点**：网络接入点
 > - **Teamsbox**：边缘设备
@@ -111,10 +111,10 @@
 │  托举资产依赖链                                                  │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │
-│  AITC ──→ BAS ──→ AGA ──→ AWP ──→ AO ──→ AR                    │
-│   │        │       │       │       │      │                     │
-│   ↓        ↓       ↓       ↓       ↓      ↓                     │
-│  Tenant  Azure  账号+算力  网络可靠  E队边界  Mission            │
+│  AITC ──→ BAS ──→ AGA ──→ Workplane ──→ AO ──→ AR              │
+│   │        │       │          │          │      │               │
+│   ↓        ↓       ↓          ↓          ↓      ↓               │
+│  Tenant  Azure  账号+算力   网络可靠   E队边界  Mission          │
 │                                                                 │
 │  ←─────── T营 付费/持有 ────────→ ←── E队 运营/拥有 ──→         │
 │          【T】TeamsCamp                【E】EdgeTeams           │
@@ -124,7 +124,7 @@
 │  AWP: Te3 Admin（网络运维）                                      │
 │                                                                 │
 │  【T】vs【A】双重登记：                                          │
-│  【T】AWP = 财务持有（T营付了多少钱）                             │
+│  【T】Workplane = 财务持有（T营付了多少钱）                       │
 │  【A】Workplane = 技术运维（如何配置管理）                        │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
@@ -134,7 +134,7 @@
 
 | 归属类型 | 主体 | 对象 | 说明 |
 |----------|------|------|------|
-| **持有** | T营 | AITC / BAS / AGA / AWP | 付费资产，法律归属 |
+| **持有** | T营 | AITC / BAS / AGA / Workplane | 付费资产，法律归属 |
 | **托付** | T营 → E队 | AO (Augmented Org) | 信任边界，运营授权 |
 | **拥有** | E队 | AR (Augmented Repo) + 交付物 | 免费创建，自由处置 |
 
@@ -304,7 +304,7 @@
 | 地址段 | 范围 | 功能域 |
 |:------:|:----:|--------|
 | `T3.1.1.x` | 1-7 | EdgeTeams 团队管理（含 AO/AR + TeamsIdol 属性） |
-| `T3.2.1.x` | 1-4 | TeamsCamp 付费资产（AITC/BAS/AGA/AWP） |
+| `T3.2.1.x` | 1-4 | TeamsCamp 付费资产（AITC/BAS/AGA/Workplane） |
 | `T3.3.1.x` | 1-10 | Augment 托举设施 |
 | `T3.4.1.x` | 1-4 | Mission 任务定义 |
 | `T3.4.2.x` | 1-3 | The Foundry 工坊 |
