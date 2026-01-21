@@ -1,0 +1,136 @@
+# AITa 元数据
+# 供 AI Agent 读取和处理
+
+version: "1.1"
+updated: "2026-01-19"
+location: "CONNECTION/AITa/"  # 迁移后的新位置
+
+# 架构说明
+architecture:
+  rationale: |
+    AITa 从 AI/ 迁移至 CONNECTION/ 的原因：
+    - 托举效应 = 网络可靠 (Workplane) × AI可用 (AITa)
+    - 两者都是 T营 持有的基础设施
+    - 共同构成 TAES 中 A (Augment) 的物理实现
+  related:
+    - CONNECTION/Workplane/  # bit 可靠
+    - AI/AAI/                # 生产运维（仍在 AI/ 下）
+
+# AITa 清单
+aitas:
+  - name: GitHub Copilot
+    id: github-copilot
+    vendor: Microsoft
+    product: GitHub Copilot Business/Enterprise
+    status: active
+    
+    # 红利信息
+    benefit:
+      source: Azure IUR
+      type: subscription_credit
+      cost_to_user: 0
+    
+    # 模型信息
+    models:
+      primary: claude-sonnet-4
+      alternatives:
+        - gpt-4o
+        - gemini-2.0
+      user_selectable: true
+    
+    # 使用场景
+    scenarios:
+      - code_completion
+      - code_chat
+      - agent_mode
+    
+    # CONNECTION 依赖
+    connection:
+      required:
+        - Workpass/github
+      optional: []
+    
+    # 运维信息
+    operations:
+      complexity: 5  # 1-5
+      aai_path: AI/AAI/Microsoft/iur.md
+    
+    # 指标
+    metrics:
+      total_seats: 50
+      active_rate: 0.85
+      last_review: "2026-01-19"
+
+  - name: M365 Copilot
+    id: m365-copilot
+    vendor: Microsoft
+    product: Microsoft 365 Copilot
+    status: active
+    
+    benefit:
+      source: M365 Benefit
+      type: license_allocation
+      cost_to_user: 0
+    
+    models:
+      primary: gpt-4-turbo
+      alternatives: []
+      user_selectable: false
+    
+    scenarios:
+      - document_editing
+      - email_composition
+      - presentation_creation
+      - data_analysis
+    
+    connection:
+      required:
+        - Workpass/payment
+      optional: []
+    
+    operations:
+      complexity: 4
+      aai_path: AI/AAI/Microsoft/benefit.md
+    
+    metrics:
+      total_seats: 30
+      active_rate: 0.70
+      last_review: "2026-01-19"
+
+  - name: Google Gemini
+    id: google-gemini
+    vendor: Google
+    product: Gemini Advanced / API
+    status: active
+    
+    benefit:
+      source: Proxy Payment
+      type: centralized_procurement
+      cost_to_user: 0
+    
+    models:
+      primary: gemini-2.0-pro
+      alternatives:
+        - gemini-2.0-flash
+      user_selectable: true
+    
+    scenarios:
+      - long_document_analysis
+      - book_comprehension
+      - creative_writing
+      - multimodal_tasks
+    
+    connection:
+      required:
+        - Workpass/google
+        - Workplane
+      optional: []
+    
+    operations:
+      complexity: 3
+      aai_path: AI/AAI/Google/proxy.md
+    
+    metrics:
+      total_seats: 20
+      active_rate: 0.60
+      last_review: "2026-01-19"

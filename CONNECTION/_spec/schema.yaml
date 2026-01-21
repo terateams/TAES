@@ -1,0 +1,193 @@
+# CONNECTION Schema Definition
+# 数据模型定义 - TeamsEdge 可读取的结构化配置
+# Version: 1.0.0
+
+# ============================================================
+# 顶层 Connection 状态
+# ============================================================
+connection:
+  type: object
+  description: E队成员的完整连接状态
+  properties:
+    member_id:
+      type: string
+      description: 成员唯一标识
+      example: "zhang_san"
+    
+    workplace:
+      type: string
+      enum: [office, workshop, warehouse, home, mobile]
+      description: 当前工作场所
+      default: home
+    
+    worktime:
+      type: string
+      enum: [ACTIVE, STANDBY, OFFLINE]
+      description: 当前工作状态
+      default: STANDBY
+    
+    workbench:
+      type: object
+      properties:
+        device_id:
+          type: string
+          description: 设备标识
+        device_type:
+          type: string
+          enum: [desktop, laptop, tablet, phone]
+        os:
+          type: string
+          enum: [windows, macos, linux, ios, android]
+    
+    workplane:
+      type: object
+      properties:
+        channel:
+          type: string
+          enum: [direct, corp.vpn, self_hosted, commercial, mobile_fallback]
+        latency_ms:
+          type: integer
+          description: 当前延迟（毫秒）
+        status:
+          type: string
+          enum: [healthy, degraded, offline]
+    
+    Workpass:
+      type: object
+      properties:
+        nexuspass_id:
+          type: string
+          description: NexusPass 标识
+        level:
+          type: string
+          enum: [full, limited, guest]
+        providers:
+          type: array
+          items:
+            type: string
+            enum: [google, github, payment]
+
+# ============================================================
+# Workplace 配置
+# ============================================================
+workplace_config:
+  type: object
+  properties:
+    id:
+      type: string
+      enum: [office, workshop, warehouse, home, mobile]
+    name:
+      type: string
+    network_quality:
+      type: string
+      enum: [optimal, limited, basic, unstable]
+    default_workplane:
+      type: string
+    security_level:
+      type: string
+      enum: [high, medium, basic, paranoid]
+    features:
+      type: object
+      properties:
+        full_ai: { type: boolean }
+        github_full: { type: boolean }
+        large_files: { type: boolean }
+        video_call: { type: boolean }
+
+# ============================================================
+# Worktime 调度
+# ============================================================
+worktime_schedule:
+  type: object
+  properties:
+    timezone:
+      type: string
+      default: "Asia/Shanghai"
+    periods:
+      type: array
+      items:
+        type: object
+        properties:
+          name:
+            type: string
+          start:
+            type: string
+            format: time
+          end:
+            type: string
+            format: time
+          default_state:
+            type: string
+            enum: [ACTIVE, STANDBY, OFFLINE]
+    
+    # 示例
+    example:
+      timezone: "Asia/Shanghai"
+      periods:
+        - name: "早班"
+          start: "08:00"
+          end: "12:00"
+          default_state: ACTIVE
+        - name: "午休"
+          start: "12:00"
+          end: "13:30"
+          default_state: STANDBY
+        - name: "晚班"
+          start: "13:30"
+          end: "18:00"
+          default_state: ACTIVE
+        - name: "下班"
+          start: "18:00"
+          end: "08:00"
+          default_state: STANDBY
+
+# ============================================================
+# 团队状态汇总
+# ============================================================
+team_status:
+  type: object
+  properties:
+    timestamp:
+      type: string
+      format: date-time
+    summary:
+      type: object
+      properties:
+        active_count: { type: integer }
+        standby_count: { type: integer }
+        offline_count: { type: integer }
+    members:
+      type: array
+      items:
+        $ref: "#/connection"
+    cost:
+      type: object
+      properties:
+        today: { type: number }
+        budget: { type: number }
+        utilization: { type: number }
+
+# ============================================================
+# 健康检查
+# ============================================================
+health_check:
+  type: object
+  properties:
+    workplace:
+      type: string
+    checks:
+      type: array
+      items:
+        type: object
+        properties:
+          target:
+            type: string
+            description: 检查目标 (github.com, api.openai.com, etc.)
+          latency_ms:
+            type: integer
+          status:
+            type: string
+            enum: [ok, slow, timeout, blocked]
+    overall:
+      type: string
+      enum: [healthy, degraded, critical, offline]

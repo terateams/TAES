@@ -1,0 +1,265 @@
+# T营 发布网关 API 规范
+# 版本: v1.0
+# 日期: 2026-01-19
+
+openapi: "3.0.3"
+
+info:
+  title: T营 发布网关 API
+  description: |
+    MAR 仓库外部发布服务 API。
+    
+    ## 设计原则
+    - **AI 原生**: Copilot 可直接调用，完成"发布→验证"闭环
+    - **平台中立**: 后端可切换（Cloudflare/Vercel/Aliyun）
+    - **E队 透明**: E队 无需理解，T营 负责维护
+    
+    ## 认证方式
+    - GitHub App Token (推荐)
+    - Personal Access Token (开发用)
+  version: "1.0.0"
+  contact:
+    name: T营 技术支持
+    email: tech@lsn189.cn
+
+servers:
+  - url: https://publish.lsn189.cn
+    description: 生产环境
+  - url: https://publish-dev.lsn189.cn
+    description: 开发环境
+
+security:
+  - bearerAuth: []
+
+paths:
+  /api/publish:
+    post:
+      summary: 触发发布
+      description: |
+        触发指定 MAR 仓库的发布流程。
+        可由 GitHub Actions 自动调用，也可由 Copilot 手动触发。
+      operationId: triggerPublish
+      tags:
+        - 发布
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - repo
+              properties:
+                repo:
+                  type: string
+                  description: GitHub 仓库全名
+                  example: "E-Team-A/MAR-Hotel-Project"
+                ref:
+                  type: string
+                  description: Git 分支或引用
+                  default: "main"
+                  example: "main"
+                path:
+                  type: string
+                  description: 发布路径（相对于仓库根目录）
+                  default: "Teams/Channel/"
+                  example: "Teams/Channel/progress/"
+      responses:
+        "202":
+          description: 发布任务已接受
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PublishResponse"
+        "400":
+          description: 请求参数错误
+        "401":
+          description: 认证失败
+        "403":
+          description: 无权限访问该仓库
+
+  /api/status/{build_id}:
+    get:
+      summary: 查询构建状态
+      description: 查询指定构建任务的状态
+      operationId: getBuildStatus
+      tags:
+        - 发布
+      parameters:
+        - name: build_id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: 构建任务 ID
+          example: "build_abc123"
+      responses:
+        "200":
+          description: 构建状态
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BuildStatus"
+        "404":
+          description: 构建任务不存在
+
+  /api/verify:
+    get:
+      summary: 验证发布结果
+      description: |
+        验证指定 URL 是否可访问，返回页面元信息。
+        用于 Copilot 发布后的自动验证。
+      operationId: verifyPage
+      tags:
+        - 验证
+      parameters:
+        - name: url
+          in: query
+          required: true
+          schema:
+            type: string
+            format: uri
+          description: 要验证的页面 URL
+          example: "https://teams.suibe.org/progress/2026-W03"
+      responses:
+        "200":
+          description: 验证结果
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VerifyResponse"
+
+  /api/list:
+    get:
+      summary: 列出已发布页面
+      description: 获取指定仓库的所有已发布页面
+      operationId: listPages
+      tags:
+        - 查询
+      parameters:
+        - name: repo
+          in: query
+          required: true
+          schema:
+            type: string
+          description: GitHub 仓库全名
+          example: "E-Team-A/MAR-Hotel-Project"
+      responses:
+        "200":
+          description: 页面列表
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PageList"
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: GitHub App Token 或 PAT
+
+  schemas:
+    PublishResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [queued, building, published, failed]
+          example: "queued"
+        build_id:
+          type: string
+          example: "build_abc123"
+        preview_url:
+          type: string
+          format: uri
+          example: "https://teams.suibe.org/"
+        message:
+          type: string
+          example: "发布任务已加入队列"
+
+    BuildStatus:
+      type: object
+      properties:
+        build_id:
+          type: string
+          example: "build_abc123"
+        status:
+          type: string
+          enum: [queued, building, published, failed]
+          example: "published"
+        started_at:
+          type: string
+          format: date-time
+          example: "2026-01-19T10:30:00Z"
+        finished_at:
+          type: string
+          format: date-time
+          example: "2026-01-19T10:32:00Z"
+        duration_seconds:
+          type: integer
+          example: 120
+        logs_url:
+          type: string
+          format: uri
+          example: "https://publish.lsn189.cn/logs/build_abc123"
+        error:
+          type: string
+          description: 失败时的错误信息
+          example: null
+
+    VerifyResponse:
+      type: object
+      properties:
+        accessible:
+          type: boolean
+          example: true
+        url:
+          type: string
+          format: uri
+          example: "https://teams.suibe.org/progress/2026-W03"
+        title:
+          type: string
+          example: "2026 年第 3 周进展"
+        last_modified:
+          type: string
+          format: date-time
+          example: "2026-01-19T10:32:00Z"
+        content_length:
+          type: integer
+          example: 2048
+        screenshot_url:
+          type: string
+          format: uri
+          description: 页面截图 URL（可选）
+          example: "https://get.lsn189.cn/screenshots/build_abc123.png"
+
+    PageList:
+      type: object
+      properties:
+        repo:
+          type: string
+          example: "E-Team-A/MAR-Hotel-Project"
+        domain:
+          type: string
+          example: "teams.suibe.org"
+        pages:
+          type: array
+          items:
+            type: object
+            properties:
+              path:
+                type: string
+                example: "/progress/2026-W03"
+              url:
+                type: string
+                format: uri
+                example: "https://teams.suibe.org/progress/2026-W03"
+              title:
+                type: string
+                example: "2026 年第 3 周进展"
+              updated_at:
+                type: string
+                format: date-time
+                example: "2026-01-19T10:32:00Z"

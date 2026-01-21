@@ -1,0 +1,141 @@
+# AITa 元数据
+# 供 AI Agent 读取和处理
+
+version: "1.0"
+updated: "2026-01-14"
+
+# AITa 清单
+aitas:
+  - name: GitHub Copilot
+    id: github-copilot
+    vendor: Microsoft
+    product: GitHub Copilot Business/Enterprise
+    status: active
+    
+    # 红利信息
+    benefit:
+      source: Azure IUR
+      type: subscription_credit
+      cost_to_user: 0
+    
+    # 模型信息
+    models:
+      primary: claude-sonnet-4
+      alternatives:
+        - gpt-4o
+        - gemini-2.0
+      user_selectable: true
+    
+    # 使用场景
+    scenarios:
+      - code_completion
+      - code_chat
+      - agent_mode
+    
+    # CONNECTION 依赖
+    connection:
+      required:
+        - Workpass/github
+      optional: []
+    
+    # 运维信息
+    operations:
+      complexity: 5  # 1-5
+      aai_path: AAI/Microsoft/iur.md
+    
+    # 指标
+    metrics:
+      total_seats: 50
+      active_rate: 0.85
+      last_review: "2026-01-14"
+
+  - name: M365 Copilot
+    id: m365-copilot
+    vendor: Microsoft
+    product: Microsoft 365 Copilot
+    status: active
+    
+    benefit:
+      source: M365 Benefit
+      type: license_benefit
+      cost_to_user: 0
+    
+    models:
+      primary: gpt-4-turbo
+      alternatives: []
+      user_selectable: false
+    
+    scenarios:
+      - document_creation
+      - email_drafting
+      - presentation
+      - data_analysis
+    
+    connection:
+      required:
+        - Workpass/payment
+      optional: []
+    
+    operations:
+      complexity: 4
+      aai_path: AAI/Microsoft/benefit.md
+    
+    metrics:
+      total_seats: 30
+      active_rate: 0.80
+      last_review: "2026-01-14"
+
+  - name: Google Gemini
+    id: google-gemini
+    vendor: Google
+    product: Gemini Advanced
+    status: active
+    
+    benefit:
+      source: proxy_payment
+      type: centralized_purchase
+      cost_to_user: 0
+    
+    models:
+      primary: gemini-2.0-pro
+      alternatives:
+        - gemini-2.0-flash
+      user_selectable: true
+    
+    scenarios:
+      - long_document_analysis
+      - deep_research
+      - creative_writing
+    
+    connection:
+      required:
+        - Workpass/google
+        - Workplane
+      optional: []
+    
+    operations:
+      complexity: 3
+      aai_path: AAI/Google/proxy.md
+    
+    metrics:
+      total_seats: 20
+      active_rate: 0.70
+      last_review: "2026-01-14"
+
+# 汇总信息
+summary:
+  total_aitas: 3
+  vendors:
+    - name: Microsoft
+      aitas: 2
+    - name: Google
+      aitas: 1
+  total_seats: 100
+  average_active_rate: 0.78
+
+# AI Agent 指令
+agent_instructions:
+  - 可以读取此文件获取 AITa 当前状态
+  - 定期检查 metrics 中的 active_rate
+  - 当 active_rate < 0.5 时提醒管理员
+  - 当 last_review 超过 90 天时提醒更新
