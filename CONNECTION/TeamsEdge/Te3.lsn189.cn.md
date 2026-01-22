@@ -359,10 +359,17 @@ TAES 托举：AITC × BAS × AGA × L × S × N = 托举效应（乘法，缺一
 
 #### S4. Credits & Billing — 花了多少
 
+> **对齐实现**：本分区对应「Invoice → Entitlement（最小商业闭环）」的数据与接口规范：
+> - 数据结构：[CONNECTION/_spec/schema.yaml](../_spec/schema.yaml)
+> - 接口规范：[CONNECTION/_spec/api.md](../_spec/api.md)
+> - 工作流与边界（不存敏感信息）：[CONNECTION/WorkPass/billing.md](../WorkPass/billing.md)
+
 | L1 菜单 | L2 子菜单 | 路由 | TAES地址 | Te3.lsn189.cn (admin) |
 |---------|-----------|------|:--------:|----------------------|
 | **Credits & Billing** | Tickets 工单 | /admin/ticket | T3.4.5.1 | TeamsEdge Support.Tickets |
 | | Usage 用量 | /admin/billing/usage | T3.4.5.2 | (新增) |
+| | Entitlements 权益 | /admin/billing/entitlements | T3.4.5.3 | (新增) |
+| | Invoices 发票 | /admin/billing/invoices | T3.4.5.4 | (新增) |
 
 ---
 
@@ -466,7 +473,7 @@ TAES 托举：AITC × BAS × AGA × L × S × N = 托举效应（乘法，缺一
 | `T3.4.2.x` | 1-3 | The Foundry 工坊 |
 | `T3.4.3.x` | 1-7 | WorkSpace 工位 |
 | `T3.4.4.x` | 1-12 | AI Intelligence 认知 |
-| `T3.4.5.x` | 1-2 | Credits & Billing 权益 |
+| `T3.4.5.x` | 1-4 | Credits & Billing 权益 |
 | `T3.5.1.x` | 1-2 | Notification 通知 |
 | `T3.5.2.x` | 1-5 | System 系统设置 |
 | `T3.5.3.x` | 1-2 | Data 数据管理 |
@@ -485,7 +492,7 @@ TAES 托举：AITC × BAS × AGA × L × S × N = 托举效应（乘法，缺一
 | **S** | Mission | ✅ 审计 | ✅ 自助 | ❌ |
 | **S** | The Foundry | ✅ 审计 | ✅ 自助 | ❌ |
 | **S** | AI Intelligence | ✅ 审计 | ✅ 自助 | ✅ Knowledge |
-| **S** | Credits & Billing | ✅ 管理 | 👁️ 只读 | ❌ |
+| **S** | Credits & Billing（含 Invoice/Entitlement/Usage） | ✅ 管理 | 👁️ 只读 | ❌ |
 | **—** | Notification | ✅ 管理 | 👁️ 只读 | ✅ 只读 |
 | **—** | System | ✅ 专属 | ❌ | ✅ 受限 |
 | **—** | Data | ✅ 专属 | ❌ | ❌ |
