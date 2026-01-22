@@ -191,3 +191,197 @@ health_check:
     overall:
       type: string
       enum: [healthy, degraded, critical, offline]
+
+# ============================================================
+# Invoice → Entitlement（最小商业闭环）
+#
+# 设计目标：
+# - Invoice 可外部系统生成；TAES 仅登记（registry）
+# - Entitlement 必须可执行（用于分发席位/配额/网络能力）
+# - Usage/Ledger 用于对账与追溯（可选但强烈建议）
+# ============================================================
+
+taes_sku:
+  type: object
+  description: TAES SKU（可被 Invoice.line_items 引用的计费标的）
+  properties:
+    sku:
+      type: string
+      description: SKU 标识（稳定、可机器解析）
+      example: "TAES.T3.2.3.AGA.SEAT"
+    taes_addr:
+      type: string
+      description: TAES 地址段（用于路由与归类）
+      example: "T3.2.3"
+    domain:
+      type: string
+      enum: [AITC, BAS, AGA, TEAMSBOX, LINKSERVER, SERVICENODE]
+      description: 六根桥墩（T3.2.1-6）对应的领域
+    metric:
+      type: string
+      description: 计费维度
+      example: "SEAT"
+    unit:
+      type: string
+      enum: [tenant, subscription, seat, usd_per_month, device, instance, node, gb]
+      description: 计量单位
+    billing_model:
+      type: string
+      enum: [recurring, usage]
+      description: 计费模型（按周期/按量）
+
+billing_line_item:
+  type: object
+  description: 发票行项目（最小集：买什么/买多少/买多久/买给谁）
+  properties:
+    sku:
+      type: string
+      description: TAES SKU
+      example: "TAES.T3.2.3.AGA.QUOTA_USD"
+    taes_addr:
+      type: string
+      description: TAES 地址段
+      example: "T3.2.3"
+    qty:
+      type: number
+      description: 数量/额度
+      example: 100
+    unit:
+      type: string
+      enum: [tenant, subscription, seat, usd_per_month, device, instance, node, gb]
+    billing_model:
+      type: string
+      enum: [recurring, usage]
+    scope_owner:
+      type: string
+      description: 权益绑定对象（推荐绑定 AO）
+      example: "T3.1.3.suibe-org"
+    period_start:
+      type: string
+      format: date
+      example: "2026-01-01"
+    period_end:
+      type: string
+      format: date
+      example: "2026-01-31"
+
+billing_invoice:
+  type: object
+  description: Invoice 登记对象（可由外部开票系统生成；TAES 仅登记与对齐）
+  properties:
+    invoice_id:
+      type: string
+      description: 外部系统发票/账单主键
+      example: "INV-202601-0001"
+    payer:
+      type: string
+      description: 付款方（E队/AO）
+      example: "T3.1.3.suibe-org"
+    payee:
+      type: string
+      description: 收款方（T营/AITC/法人主体）
+      example: "T3.2.1.alliedai"
+    currency:
+      type: string
+      example: "USD"
+    amount_total:
+      type: number
+      example: 299.00
+    status:
+      type: string
+      enum: [draft, issued, paid, overdue, void, refunded]
+    issued_at:
+      type: string
+      format: date-time
+    paid_at:
+      type: string
+      format: date-time
+    line_items:
+      type: array
+      items:
+        $ref: "#/billing_line_item"
+
+entitlement:
+  type: object
+  description: 权益/授权对象（Invoice 的可执行解释；用于驱动分发与停服）
+  properties:
+    entitlement_id:
+      type: string
+      example: "ENT-202601-SUIBE-001"
+    source_invoice_id:
+      type: string
+      description: 来源 Invoice
+      example: "INV-202601-0001"
+    owner:
+      type: string
+      description: 权益归属（推荐 AO）
+      example: "T3.1.3.suibe-org"
+    effective_start:
+      type: string
+      format: date
+    effective_end:
+      type: string
+      format: date
+    status:
+      type: string
+      enum: [active, suspended, expired, terminated]
+    limits:
+      type: object
+      description: 权益上限（最小集）
+      properties:
+        seats_max:
+          type: integer
+          example: 20
+        quota_usd_per_month_max:
+          type: number
+          example: 100
+        devices_max:
+          type: integer
+          example: 1
+        linkserver_instances_max:
+          type: integer
+          example: 1
+        servicenodes_allowed:
+          type: array
+          items:
+            type: string
+          example: ["HK-RES", "SG-RES"]
+    policy:
+      type: object
+      properties:
+        overage:
+          type: string
+          enum: [block, throttle, allow_and_bill]
+          default: block
+        grace_period_days:
+          type: integer
+          default: 3
+
+usage_event:
+  type: object
+  description: 用量台账（用于对账与追溯；按需启用）
+  properties:
+    timestamp:
+      type: string
+      format: date-time
+    owner:
+      type: string
+      description: AO/ET
+      example: "T3.1.3.suibe-org"
+    subject:
+      type: string
+      description: 具体使用者（Player/系统）
+      example: "T3.1.2.p-zhang"
+    sku:
+      type: string
+      example: "TAES.T3.2.3.AGA.QUOTA_USD"
+    amount:
+      type: number
+      description: 消耗数量
+      example: 2.35
+    unit:
+      type: string
+      enum: [seat, usd, gb]
+    entitlement_id:
+      type: string
+      example: "ENT-202601-SUIBE-001"

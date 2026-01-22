@@ -291,9 +291,173 @@ ws://teamsedge.local/ws/connection
 
 ---
 
-## 5. 管理接口 (Admin Only)
+## 5. 账务与权益（Billing & Entitlement）
 
-### 5.1 紧急召回
+> 目标：允许外部系统开票（Invoice），但在 TAES 内部形成可执行的权益（Entitlement）。
+
+### 5.1 登记 Invoice（外部开票，TAES 仅登记）
+
+```http
+POST /billing/invoices
+```
+
+**Request Body**:
+```json
+{
+  "invoice_id": "INV-202601-0001",
+  "payer": "T3.1.3.suibe-org",
+  "payee": "T3.2.1.alliedai",
+  "currency": "USD",
+  "amount_total": 299.0,
+  "status": "issued",
+  "issued_at": "2026-01-05T10:00:00+08:00",
+  "line_items": [
+    {
+      "sku": "TAES.T3.2.3.AGA.QUOTA_USD",
+      "taes_addr": "T3.2.3",
+      "qty": 100,
+      "unit": "usd_per_month",
+      "billing_model": "recurring",
+      "scope_owner": "T3.1.3.suibe-org",
+      "period_start": "2026-01-01",
+      "period_end": "2026-01-31"
+    }
+  ]
+}
+```
+
+**Response**:
+```json
+{
+  "success": true,
+  "invoice_id": "INV-202601-0001",
+  "message": "Invoice 已登记（未激活权益）"
+}
+```
+
+**Errors**:
+- `AUTH_REQUIRED` / `ADMIN_ONLY`
+- `WORKPLACE_INVALID`（用于无效 scope_owner/地址段等）
+
+### 5.2 查询 Invoice
+
+```http
+GET /billing/invoices/{invoice_id}
+```
+
+**Response**:
+```json
+{
+  "invoice_id": "INV-202601-0001",
+  "payer": "T3.1.3.suibe-org",
+  "payee": "T3.2.1.alliedai",
+  "currency": "USD",
+  "amount_total": 299.0,
+  "status": "paid",
+  "issued_at": "2026-01-05T10:00:00+08:00",
+  "paid_at": "2026-01-06T09:00:00+08:00",
+  "line_items": []
+}
+```
+
+### 5.3 标记已支付并生成/激活 Entitlement
+
+```http
+POST /billing/invoices/{invoice_id}/paid
+```
+
+**Request Body**:
+```json
+{
+  "paid_at": "2026-01-06T09:00:00+08:00"
+}
+```
+
+**Response**:
+```json
+{
+  "success": true,
+  "invoice_id": "INV-202601-0001",
+  "entitlements": [
+    {
+      "entitlement_id": "ENT-202601-SUIBE-001",
+      "source_invoice_id": "INV-202601-0001",
+      "owner": "T3.1.3.suibe-org",
+      "effective_start": "2026-01-01",
+      "effective_end": "2026-01-31",
+      "status": "active",
+      "limits": {
+        "quota_usd_per_month_max": 100
+      },
+      "policy": {
+        "overage": "block",
+        "grace_period_days": 3
+      }
+    }
+  ]
+}
+```
+
+**Errors**:
+- `QUOTA_EXCEEDED`（当存在冲突权益且策略禁止叠加）
+
+### 5.4 查询 Entitlements（按 owner）
+
+```http
+GET /billing/entitlements?owner={taes_owner}
+```
+
+**Response**:
+```json
+{
+  "owner": "T3.1.3.suibe-org",
+  "entitlements": [
+    {
+      "entitlement_id": "ENT-202601-SUIBE-001",
+      "source_invoice_id": "INV-202601-0001",
+      "status": "active",
+      "effective_start": "2026-01-01",
+      "effective_end": "2026-01-31",
+      "limits": {
+        "quota_usd_per_month_max": 100
+      }
+    }
+  ]
+}
+```
+
+### 5.5 记一条用量（可选）
+
+```http
+POST /billing/usage
+```
+
+**Request Body**:
+```json
+{
+  "timestamp": "2026-01-13T14:32:00+08:00",
+  "owner": "T3.1.3.suibe-org",
+  "subject": "T3.1.2.p-zhang",
+  "sku": "TAES.T3.2.3.AGA.QUOTA_USD",
+  "amount": 2.35,
+  "unit": "usd",
+  "entitlement_id": "ENT-202601-SUIBE-001"
+}
+```
+
+**Response**:
+```json
+{
+  "success": true,
+  "message": "usage_event 已入账"
+}
+```
+
+---
+
+## 6. 管理接口 (Admin Only)
+
+### 6.1 紧急召回
 
 ```http
 POST /admin/recall
@@ -308,7 +472,7 @@ POST /admin/recall
 }
 ```
 
-### 5.2 强制降级
+### 6.2 强制降级
 
 ```http
 POST /admin/degrade
@@ -323,7 +487,7 @@ POST /admin/degrade
 }
 ```
 
-### 5.3 成本报表
+### 6.3 成本报表
 
 ```http
 GET /admin/cost/report?period=weekly

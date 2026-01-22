@@ -159,6 +159,7 @@ CONNECTION/
 │
 ├── Workpass/               # Who: 身份层 (⊕ 元枢证)
 │   ├── README.md           # "One account, Nexus all"
+│   ├── billing.md           # 🆕 账务与权益（Invoice → Entitlement）
 │   ├── providers/          # 供应商实现
 │   │   ├── google.md       # Google Account
 │   │   ├── github.md       # GitHub 账号

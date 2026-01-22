@@ -47,12 +47,19 @@
 
 > **权限**: E队自助 + T营可见 | **定位**: 价值创造方 | **地址段**: `T3.1.x`
 
+> **关键洞见（E 分区三件套）**：
+> - **E队（EdgeTeam）**：业务主体（“这是谁的队伍”）
+> - **AO（Augmented Org）**：信任边界（“用哪个 Org 承载协作”）
+> - **AR（Augmented Repo）**：Mission 载体（“在哪个 Repo 里把事做完”）
+>
+> **推荐默认视图**：先定位 **E队** → 找到绑定的 **AO** → 在 AO 下管理 **AR**。
+
 | L1 菜单 | L2 子菜单 | 路由 | TAES地址 | 功能说明 | 实例地址示例 |
 |---------|-----------|------|:--------:|----------|----------------|
 | **EdgeTeams** | E队 | /Teams/team | T3.1.1 | 以 E队番号 列出所有 E队 | T3.1.1.et-001 |
 | | 队员 | /Teams/player | T3.1.2 | 以 Player ID 列出所有队员 | T3.1.2.p-zhang |
-| | AO | /Teams/ao | T3.1.3 | Augmented Org（T营托付的E队信任边界） | T3.1.3.suibe-org |
-| | AR | /Teams/ar | T3.1.4 | Augmented Repo（E队 Mission 载体，免费创建） | T3.1.4.mar-001 |
+| | AO | /Teams/ao | T3.1.3 | Augmented Org（默认与 E队 1:1 绑定的信任边界） | T3.1.3.suibe-org |
+| | AR | /Teams/ar | T3.1.4 | Augmented Repo（归属 AO 的 Mission 载体，默认免费创建） | T3.1.4.mar-001 |
 | | M365组团 | /Teams/tsg | T3.1.5 | M365 Group Policy 中的 Security Group ID | T3.1.5.sg-sales |
 | | 番号域名 | /Teams/domain | T3.1.6 | E队的域名与番号（EdgeTeam Code） | T3.1.6.et001.com |
 | | Publisher | /Teams/publisher | T3.1.7 | E队软件发布者（E卡/O卡/V卡），默认个人 | T3.1.7.pub-001 |
@@ -110,12 +117,12 @@
 
 | L1 菜单 | L2 子菜单 | 路由 | TAES地址 | 功能说明 | 实例地址示例 |
 |---------|-----------|------|:--------:|----------|----------------|
-| **TeamsCamp** | AITC | /Teamscamp/aitc | T3.2.1 | Allied Intelligent Tenant Contract 协同租户 | T3.2.1.alliedai |
-| | BAS | /Teamscamp/bas | T3.2.2 | Benefit Azure Subscription 赢力订阅 | T3.2.2.sub-001 |
-| | AGA | /Teamscamp/aga | T3.2.3 | Augmented GitHub Account 托举账号 | T3.2.3.teamscamp |
-| | Teamsbox | /Teamscamp/teamsbox | T3.2.4 | CPE 边缘设备（L层，账单确权） | T3.2.4.066217 |
-| | Link Server | /Teamscamp/linkserver | T3.2.5 | VPN/Proxy 隧道服务器（S层，订阅确权） | T3.2.5.CN-SH-01 |
-| | Service Node | /Teamscamp/servicenode | T3.2.6 | Apps Gateway 出口节点（N层，用量确权） | T3.2.6.HK-RES |
+| **TeamsCamp** | AITC | /admin/teamscamp/aitc | T3.2.1 | Allied Intelligent Tenant Contract 协同租户 | T3.2.1.alliedai |
+| | BAS | /admin/teamscamp/bas | T3.2.2 | Benefit Azure Subscription 赢力订阅 | T3.2.2.sub-001 |
+| | AGA | /admin/teamscamp/aga | T3.2.3 | Augmented GitHub Account 托举账号 | T3.2.3.teamscamp |
+| | Teamsbox | /admin/teamscamp/teamsbox | T3.2.4 | CPE 边缘设备（L层，账单确权） | T3.2.4.066217 |
+| | Link Server | /admin/teamscamp/linkserver | T3.2.5 | VPN/Proxy 隧道服务器（S层，订阅确权） | T3.2.5.CN-SH-01 |
+| | Service Node | /admin/teamscamp/servicenode | T3.2.6 | Apps Gateway 出口节点（N层，用量确权） | T3.2.6.HK-RES |
 
 #### 双线汇聚：AITa + Workplane
 
@@ -423,7 +430,7 @@ TAES 托举：AITC × BAS × AGA × L × S × N = 托举效应（乘法，缺一
 
 | TAES | L1 菜单 | L2 子菜单 | 路由 | TAES地址 |
 |:---:|---------|-----------|------|:--------:|
-| **E** | **Users** | - | /admin/user | T3.1.1 |
+| **E** | **Players** | - | /admin/user | T3.1.2 |
 | **S** | **Knowledge** | Knowledge Base | /admin/knowledge | T3.4.10 |
 | | | Index Document | /admin/idocument | T3.4.4.11 |
 | | | Search Document | /admin/knowledge/docsearch | T3.4.4.12 |

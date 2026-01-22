@@ -50,6 +50,7 @@
 ```
 Workpass/
 ├── README.md          # 本文件 - 概述
+├── billing.md          # 账务与权益（Invoice → Entitlement）
 ├── providers/         # 供应商实现
 │   ├── google.md      # Google Account 配置
 │   ├── github.md      # GitHub 账号管理
