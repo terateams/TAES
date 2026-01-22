@@ -180,12 +180,12 @@ MAR/
 
 ## 🎯 技能包 (Skills)
 
-> 💡 **口诀**：框架用 **MAR**，启动用 **CLEAR**，执行用 **ICE** 🧊
+> 💡 **口诀**：框架用 **MAR**，启动用 **CLEAR**，执行用 **ICE** 🧊，日清用 **Today**
 
 ```
-MAR (I know)      →    CLEAR (I plan)    →    ICE (I do)
- 战略层                 任务层                执行层
-理解框架            定义任务              追踪执行
+MAR (I know)  →  CLEAR (I plan)  →  ICE (I do)  →  Today (I clear)
+   战略层           任务层            执行层          运营层
+  理解框架         定义任务          追踪执行         日清归档
 ```
 
 | 技能 | 定位 | 使用时机 | 路径 |
@@ -193,6 +193,7 @@ MAR (I know)      →    CLEAR (I plan)    →    ICE (I do)
 | **MAR** | 战略层 | 理解框架、设计菜单、建模对象 | `.github/skills/MAR/SKILL.md` |
 | **CLEAR** | 任务层 | 任务启动前的五要素检查 | `.github/skills/CLEAR/SKILL.md` |
 | **ICE** | 执行层 | 任务启动后的追踪留痕 | `.github/skills/ICE/SKILL.md` |
+| **Today** | 运营层 | 跨任务的日清工作流 | `.github/skills/Today/SKILL.md` |
 
 ### CLEAR 五要素速查
 
@@ -211,6 +212,14 @@ MAR (I know)      →    CLEAR (I plan)    →    ICE (I do)
 | **I** | Intent | 想做什么？ |
 | **C** | Condition | 条件满足吗？ |
 | **E** | Eval | 怎么验收？ |
+
+### Today 三体速查
+
+| 文件 | 动作 | 核心问题 |
+|:---:|:---:|----------|
+| **in.md** | 收 | 今天收到了什么？ |
+| **out.md** | 发 | 今天产出了什么？ |
+| **log.md** | 存 | 值得留下什么？ |
 
 ---
 
