@@ -5,5 +5,20 @@
 ---
 
 <!-- 在此追加输入 -->
-![alt text](image.png)
 
+关于东京浅草（Asakusa）地区的 NTT 服务
+
+根据调查，浅草地区作为东京的核心旅游区，NTT（主要是 NTT East / NTT BP）的服务覆盖非常全面。
+
+1. 核心设施 (NTT East)
+NTT 藏前大楼 (NTT Kuramae Building)
+位于浅草站往南步行约 10-15 分钟的藏前区域。这是该地区最显眼的电信交换局大楼，负责周边区域的基础通信网络。
+服务覆盖：作为核心商业区，NTT East 的光纤网络（FLET'S Hikari）在浅草全域覆盖良好。
+2. Wi-Fi 服务 (NTT BP)
+由于浅草是国际游客密集的区域，NTT 的子公司 NTT BP 在此铺设了密集的基础设施：
+
+公共 Wi-Fi：浅草寺（Senso-ji）、仲见世通（Nakamise-dori）等核心景点的 TOKYO FREE Wi-Fi 或 Japan Connected-free Wi-Fi 大多由 NTT BP 提供底层支持。
+车站/便利店：周边的浅草车站及便利店的热点通常也接入 NTT 的光纤网络。
+3. 公用设施
+公用电话：由于游客众多，浅草寺及仲见世通周边仍保留了较多 NTT 运营的绿色或灰色公用电话。
+总结：在浅草，你不仅能享受到 NTT 的基础光纤服务，更是 NTT 免费公共 Wi-Fi 覆盖最密集的区域之一。如果你是寻找具体的营业厅，通常在上野 (Ueno) 区域会有更大的服务中心。
