@@ -128,13 +128,15 @@ Resolution:
 | **[—]** System | `T3.5.x` | 系统治理 | T3.5.2.settings |
 | **[R]** Reserved | `T3.6.x` | 保留区（平台级） | T3.6.1.support |
 
-#### [A] Augment 子分区
+#### [A] Augment 子分区（精简版 v2.4）
 
-| 子分区 | 地址段 | 说明 | 实例示例 |
-|:------:|:------:|------|----------|
-| **Workplane** | `T3.3.1.x` | 网络通路（bit 可靠） | T3.3.1.5.066217 |
-| **AITa** | `T3.3.2.x` | 算力接入（Token 可用） | T3.3.2.1.claude-opus |
-| **AC** | `T3.3.3.x` | 语境托举（Context 可懂） | T3.3.3.2.acc-001 |
+> **精简原则**：用户操作 TU，不需要看到运维细节。每支柱 1-2 个核心入口。
+
+| 子分区 | 地址段 | 核心菜单 | 状态 | 说明 |
+|:------:|:------:|----------|:----:|------|
+| **Workplane** | `T3.3.1.x` | Dashboard + Teamsbox | ✅ 现有 | 网络通路（bit 可靠） |
+| **AITa** | `T3.3.2.x` | Dashboard | 🔄 规划 | 算力接入（Token 可用） |
+| **AC** | `T3.3.3.x` | Dashboard + CA Registry | 🔄 规划 | 语境托举（Context 可懂） |
 
 ---
 
@@ -433,31 +435,59 @@ TAES 托举：AITC × BAS × AGA × L × S × N = 托举效应（乘法，缺一
 
 #### A1. Workplane — 网络通路 (T3.3.1)
 
-| L1 菜单 | L2 子菜单 | 路由 | TAES地址 | Te3.lsn189.cn (admin) |
-|---------|-----------|------|:--------:|----------------------|
-| **Augment** | Workplane 工做面 | /admin/workplane | T3.3.1.1 | WorkPlane.Workplane |
-| | Link Server | /admin/link_server | T3.3.1.2 | WorkPlane.Link Server |
-| | Service Node | /admin/service_node | T3.3.1.3 | WorkPlane.Service Node |
-| | POP 站点 | /admin/pop_site | T3.3.1.4 | WorkPlane.POP 站点 |
-| | Teamsbox | /admin/teamsbox | T3.3.1.5 | WorkPlane.Teamsbox |
-| | Proxy Server | /admin/teamsedge/server | T3.3.1.6 | TeamsEdge Support.Proxy Server |
-| | Proxy Limiter | /admin/teamsedge/limiter | T3.3.1.7 | TeamsEdge Support.Proxy Limiter |
-| | Proxy Address | /admin/teamsedge/address | T3.3.1.8 | TeamsEdge Support.Proxy Address |
-| | Proxy Rule | /admin/teamsedge/rule | T3.3.1.9 | TeamsEdge Support.Proxy Rule |
-| | Proxy Sessions | /admin/teamsedge/session | T3.3.1.10 | TeamsEdge Support.Proxy Sessions |
+> **精简原则**：用户操作 TU，不需要看到运维细节。Proxy 系列已归入 [R] Reserved。
+
+| L2 子菜单 | 路由 | TAES地址 | 状态 | 功能说明 |
+|-----------|------|:--------:|:----:|----------|
+| **Workplane Dashboard** | /admin/workplane | T3.3.1.1 | ✅ | 网络通路总览（含 L-S-N 拓扑） |
+| **Teamsbox** | /admin/teamsbox | T3.3.1.2 | ✅ | CPE 边缘设备管理 |
+
+<details>
+<summary>📁 Workplane Dashboard 内含子页面（原 T3.3.1.2-5）</summary>
+
+| 子页面 | 原路由 | 说明 |
+|--------|--------|------|
+| Link Server | /admin/link_server | VPN/Proxy 隧道服务器 |
+| Service Node | /admin/service_node | Apps Gateway 出口节点 |
+| POP 站点 | /admin/pop_site | 边缘节点地理分布 |
+
+</details>
+
+<details>
+<summary>📁 已归入 [R] Reserved 的运维菜单（原 T3.3.1.6-10）</summary>
+
+| 菜单 | 路由 | 新地址 |
+|------|------|:------:|
+| Proxy Server | /admin/teamsedge/server | T3.6.1.6 |
+| Proxy Limiter | /admin/teamsedge/limiter | T3.6.1.7 |
+| Proxy Address | /admin/teamsedge/address | T3.6.1.8 |
+| Proxy Rule | /admin/teamsedge/rule | T3.6.1.9 |
+| Proxy Sessions | /admin/teamsedge/session | T3.6.1.10 |
+
+</details>
 
 ---
 
 #### A2. AITa — 算力接入 (T3.3.2)
 
 > **AITa** = AI Token Allocation，管理 AI 模型的可用性与配额
+>
+> **精简原则**：单一 Dashboard 入口，子功能作为页面 Tab。
 
-| L2 子菜单 | 路由 | TAES地址 | 功能说明 |
-|-----------|------|:--------:|----------|
-| AITa Dashboard | /admin/aita | T3.3.2.1 | 算力配额总览 |
-| Model Registry | /admin/aita/models | T3.3.2.2 | 可用模型清单 |
-| Quota Management | /admin/aita/quota | T3.3.2.3 | 配额分配与监控 |
-| Usage Analytics | /admin/aita/usage | T3.3.2.4 | 用量分析与预警 |
+| L2 子菜单 | 路由 | TAES地址 | 状态 | 功能说明 |
+|-----------|------|:--------:|:----:|----------|
+| **AITa Dashboard** | /admin/aita | T3.3.2.1 | 🔄 规划 | 算力管理总览 |
+
+<details>
+<summary>📁 AITa Dashboard 内含 Tab（v2.5 实现）</summary>
+
+| Tab | 功能 |
+|-----|------|
+| Models | 可用模型清单 |
+| Quota | 配额分配与监控 |
+| Usage | 用量分析与预警 |
+
+</details>
 
 ---
 
@@ -566,13 +596,23 @@ Examples:
 
 ##### AC 菜单清单
 
-| L2 子菜单 | 路由 | TAES地址 | 功能说明 |
-|-----------|------|:--------:|----------|
-| AC Dashboard | /admin/ac | T3.3.3.1 | 语境管理总览 |
-| ACC Cards | /admin/ac/cards | T3.3.3.2 | 语境卡片管理 |
-| ACD Data | /admin/ac/data | T3.3.3.3 | 语境数据管理 |
-| CA Registry | /admin/ac/address | T3.3.3.4 | 语境地址注册表 |
-| Context Template | /admin/markdown/template | T3.3.3.5 | 语境模板（原 Data.Context Template） |
+> **精简原则**：AC Dashboard + CA Registry 两个核心入口，其余作为子页面。
+
+| L2 子菜单 | 路由 | TAES地址 | 状态 | 功能说明 |
+|-----------|------|:--------:|:----:|----------|
+| **AC Dashboard** | /admin/ac | T3.3.3.1 | 🔄 规划 | 语境管理总览 |
+| **CA Registry** | /admin/ac/address | T3.3.3.2 | 🔄 规划 | 语境地址注册表 |
+
+<details>
+<summary>📁 AC Dashboard 内含 Tab（v2.5 实现）</summary>
+
+| Tab | 功能 |
+|-----|------|
+| ACC Cards | 语境卡片管理 |
+| ACD Data | 语境数据管理 |
+| Templates | 语境模板（原 Context Template） |
+
+</details>
 
 ##### ACD 四象限（3W+1H）
 
