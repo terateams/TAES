@@ -1,8 +1,97 @@
 # TeamsEdge 菜单结构（TAES 对齐版）
 
-> **站点**: Te3.lsn189.cn | **版本**: v2.3-TAES | **更新**: 2026-01-23
+> **站点**: Te3.lsn189.cn | **版本**: v2.4-TAES | **更新**: 2026-01-23
 >
 > 数据来源：[assets/menu-admin.json](../assets/menu-admin.json) 和 [assets/menu-opr.json](../assets/menu-opr.json)
+
+---
+
+## TeamsEdge 核心价值
+
+> **ATP 聚焦后，人操作的是 TU（任务单元）**
+>
+> TeamsEdge 的价值 = **优化 TU** + **发掘 TU**
+
+### TU (Task Unit) — 任务单元
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  TU (Task Unit) — TeamsEdge 核心操作对象                         │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  定义：用户在 TeamsEdge 中操作的最小业务单元                    │
+│                                                                 │
+│  属性：                                                         │
+│  ├── tu_id: string        // 任务单元标识                       │
+│  ├── ca: ContextAddress   // 语境地址（引用，非内嵌）            │
+│  ├── status: enum         // 状态                               │
+│  └── payload: object      // 业务数据                           │
+│                                                                 │
+│  核心洞见：                                                     │
+│  • TU 不内嵌 Context，而是通过 CA 引用                          │
+│  • 用户操作 TU，不需要理解 AC 结构                              │
+│  • Context Tab 已去除，改为 CA 自动解析                         │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### CA (Context Address) — 语境地址
+
+> **CA 之于 Context，如同 IP 之于 Host**
+
+```
+Context Protocol Specification v1.0
+
+URI Scheme: ca://
+
+Format: ca://{namespace}/{type}/{id}
+
+Components:
+  - namespace: AC 所属的命名空间（org, repo, system）
+  - type:      AC 类型（player, mission, framework, etc.）
+  - id:        AC 实例标识
+
+Examples:
+  ca://suibe-org/player/zhang      → 队员张三的 Context
+  ca://mar-001/mission/outline     → MAR-001 的 Mission 大纲
+  ca://taes/framework/clear        → TAES 的 CLEAR 框架
+  ca://system/template/report      → 系统级报告模板
+
+Resolution:
+  CA → AC Resolver → ACD (Data) → ACC (Card)
+```
+
+### TU + CA + AC 关系
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  TU + CA + AC 架构                                               │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  用户操作                                                       │
+│      ↓                                                          │
+│  ┌─────────┐    ca://...    ┌─────────┐    存储    ┌─────────┐ │
+│  │   TU    │ ─────────────→ │   CA    │ ────────→ │   AC    │ │
+│  │任务单元 │    引用地址    │语境地址 │   解析    │托举语境 │ │
+│  └─────────┘                └─────────┘           └─────────┘ │
+│                                                       │         │
+│                                                       ↓         │
+│                                              ┌──────────────┐  │
+│                                              │ ACD (Data)   │  │
+│                                              │ ACC (Card)   │  │
+│                                              └──────────────┘  │
+│                                                                 │
+│  类比：HTTP Request → IP Address → Server/Host                 │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+| 术语 | 全称 | 定位 | 类比 |
+|:----:|------|------|------|
+| **TU** | Task Unit | 核心操作对象 | HTTP Request |
+| **CA** | Context Address | 语境寻址标识 | IP Address |
+| **AC** | Augment Context | 语境内容实体 | Server/Host |
+| **CP** | Context Protocol | 寻址协议规范 | TCP/IP |
 
 ---
 
@@ -375,6 +464,40 @@ TAES 托举：AITC × BAS × AGA × L × S × N = 托举效应（乘法，缺一
 #### A3. AC — 语境托举 (T3.3.3)
 
 > **AC** = Augment Context，让 AI 理解 E队 的业务语境
+>
+> **核心洞见**：TU 通过 CA 引用 AC，而非内嵌 Context。Context Tab 已去除。
+
+##### AC 与 TU 的关系
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  TU → CA → AC 引用链                                            │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ┌─────────┐                                                   │
+│  │   TU    │  Task Unit（任务单元）                            │
+│  │         │  用户操作的核心对象                               │
+│  └────┬────┘                                                   │
+│       │                                                         │
+│       │ ca://suibe-org/player/zhang                            │
+│       ↓                                                         │
+│  ┌─────────┐                                                   │
+│  │   CA    │  Context Address（语境地址）                      │
+│  │         │  类似 IP 地址，定位 AC                            │
+│  └────┬────┘                                                   │
+│       │                                                         │
+│       │ 解析                                                    │
+│       ↓                                                         │
+│  ┌─────────┐                                                   │
+│  │   AC    │  Augment Context（托举语境）                      │
+│  │         │  实际的语境内容                                   │
+│  └─────────┘                                                   │
+│       │                                                         │
+│       ├──→ ACD (Data)  结构化数据                              │
+│       └──→ ACC (Card)  可展示卡片                              │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
 
 ##### AC 术语体系
 
@@ -383,7 +506,21 @@ TAES 托举：AITC × BAS × AGA × L × S × N = 托举效应（乘法，缺一
 | **AC** | Augment Context | 托举语境 | 顶层概念 | T3.3.3 |
 | **ACC** | AC Card | 语境卡片 | 展示层（可分享的语境快照） | T3.3.3.1.{hash} |
 | **ACD** | AC Data | 语境数据 | 存储层（结构化的语境内容） | T3.3.3.2.{hash} |
-| **CA** | Context Address | 语境地址 | 定位层（AC 实例的唯一地址） | CA:{namespace}.{id} |
+| **CA** | Context Address | 语境地址 | 定位层（AC 实例的唯一地址） | ca://{ns}/{type}/{id} |
+
+##### CA 格式规范 (Context Protocol)
+
+```
+URI Scheme: ca://
+
+Format: ca://{namespace}/{type}/{id}
+
+Examples:
+  ca://suibe-org/player/zhang      → 队员张三
+  ca://mar-001/mission/outline     → Mission 大纲
+  ca://taes/framework/clear        → CLEAR 框架
+  ca://system/template/report      → 系统模板
+```
 
 ##### AC 架构图
 
@@ -419,9 +556,9 @@ TAES 托举：AITC × BAS × AGA × L × S × N = 托举效应（乘法，缺一
 │  ┌─────────────────────────────────────────────────────────┐   │
 │  │  CA (Context Address) — 定位层                           │   │
 │  │  ─────────────────────────────────────────────────────   │   │
-│  │  格式：CA:{namespace}.{type}.{id}                        │   │
-│  │  例：CA:suibe-org.player.zhang                           │   │
-│  │      CA:mar-001.mission.outline                          │   │
+│  │  格式：ca://{namespace}/{type}/{id}                      │   │
+│  │  例：ca://suibe-org/player/zhang                         │   │
+│  │      ca://mar-001/mission/outline                        │   │
 │  └─────────────────────────────────────────────────────────┘   │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
@@ -462,6 +599,30 @@ AR (Augmented Repo)
 ```
 
 > **洞见**：AC 是 AR 的**语境层**。AR 是容器，AC 是容器里让 AI "读懂业务"的关键内容。
+
+##### TU 与 TeamsEdge 价值
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  TeamsEdge 核心价值 = 优化 TU + 发掘 TU                          │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ┌─────────────────────┐     ┌─────────────────────┐           │
+│  │     优化 TU         │     │     发掘 TU         │           │
+│  ├─────────────────────┤     ├─────────────────────┤           │
+│  │ • 简化操作流程      │     │ • 识别潜在任务      │           │
+│  │ • CA 自动解析       │     │ • 推荐下一步        │           │
+│  │ • 批量处理          │     │ • 模式识别          │           │
+│  │ • 状态追踪          │     │ • 智能分解          │           │
+│  └─────────────────────┘     └─────────────────────┘           │
+│                                                                 │
+│  关键变化：                                                     │
+│  ✅ Context Tab 已去除（TU 不内嵌 Context）                     │
+│  ✅ TU 通过 CA 引用 AC（引用思维取代内嵌思维）                  │
+│  ✅ AC 集中管理（复用、一致、可维护）                           │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
 
 ---
 
