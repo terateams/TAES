@@ -43,7 +43,7 @@
 │                                                                         │
 │  包含:                                                                  │
 │  ├── MISSION.md + MISSION/  # 本次 Mission 的全生命周期                  │
-│  └── Teams/                 # 本次 Mission 的交付物                      │
+│  └── Working/              # 本次 Mission 的工作空间与交付物               │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -201,7 +201,7 @@ $$E = M \times C^2 \times AI$$
 │  潜在功能:                                                               │
 │  ├── Mission 仪表盘: 当前 Mission 状态、进度、E系数                       │
 │  ├── Token 用量: 本队 AITa 消耗监控                                      │
-│  ├── 交付物清单: Teams/Artifacts 快速入口                                │
+│  ├── 交付物清单: Working/artifacts 快速入口                              │
 │  └── 飞轮追踪: Mission 完成率 × 能力沉淀 × 规模复用                       │
 │                                                                         │
 │  当前状态: ⏳ 待定义                                                      │
@@ -223,7 +223,7 @@ $$E = M \times C^2 \times AI$$
 │  MAR Repo（实例仓库）                                                    │
 │  ├── 配套软件: E卡软件（待定义）                                          │
 │  ├── 主体定义: CONTEXT/Parties/EdgeTeam/                            │
-│  └── Mission 执行: MISSION.md + MISSION/ + Teams/                        │
+│  └── Mission 执行: MISSION.md + MISSION/ + Working/                     │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -235,7 +235,7 @@ $$E = M \times C^2 \times AI$$
 |------|------|------|
 | **作为 TAES 实体** | E队是 TAES 生态中的"操作单元" | `CONTEXT/Parties/EdgeTeam/` |
 | **作为产品定义** | E队的 Playbook（生命周期、托举关系、毕业目标） | `CONTEXT/Products/EdgeTeam-playbook.md` |
-| **作为 MAR 主体** | E队是 MAR 实例仓库的 Owner | `Teams/` 产出归属于 E队 |
+| **作为 MAR 主体** | E队是 MAR 实例仓库的 Owner | `Working/` 产出归属于 E队 |
 
 E队不是软件，而是**被软件服务的主体**：
 - 在 TAES 层面：E队 被 TeamsEdge 管理
@@ -305,7 +305,7 @@ taes-framework (权威)    →    mar-template (引用)    →    mar-instance (
 | **TAES** | `.github/skills/` | CLEAR/ICE/MAR 技能包 |
 | **TAES** | `.github/copilot-instructions.md` | AI 宪法 |
 | **MAR** | `MISSION.md` + `MISSION/` | Mission 执行空间 |
-| **MAR** | `Teams/` | 交付物归档 |
+| **MAR** | `Working/` | 统一工作空间（日清 + 交付） |
 | **MAR** | `README.md` | 实例说明（需重写为模板说明） |
 | **MAR** | `TEMPLATE.md` | 模板契约 |
 | **MAR** | `CONTEXT/Players/` | 本次 Mission 的参与者 |

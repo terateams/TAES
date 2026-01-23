@@ -38,8 +38,12 @@ TAES/
 ├── CONTEXT/             # 业务语境（T营 参考实例）
 ├── CONNECTION/          # 基础设施配置
 ├── AI/                  # Agent 定义
-├── Teams/               # E队 交付
-└── .github/skills/      # CLEAR/ICE/MAR 技能包
+├── Working/             # 统一工作空间（日清 + 交付）
+│   ├── in.md            #   收：今日输入
+│   ├── out.md           #   发：今日输出
+│   ├── log.md           #   存：永久日志
+│   └── artifacts/       #   交付物：持久产出
+└── .github/skills/      # CLEAR/ICE/MAR/Working 技能包
 ```
 
 ---

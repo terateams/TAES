@@ -129,8 +129,8 @@ MAR 架构完整支撑这个双向流：
 
 | 流向 | 目录路径 | 作用 |
 |------|----------|------|
-| **顺流** | CONNECTION → CONTEXT → AI → MISSION → Teams | 价值生产 |
-| **逆流** | Teams/Metrics → AI/Eval → CONTEXT → (新 MISSION) | 能力积累 |
+| **顺流** | CONNECTION → CONTEXT → AI → MISSION → Working | 价值生产 |
+| **逆流** | Working/log → AI/Eval → CONTEXT → (新 MISSION) | 能力积累 |
 
 ### 边界洞见：五层边界模型
 
@@ -159,7 +159,7 @@ MAR 架构完整支撑这个双向流：
 | 负载参数 | C² (Context) | 3W+1H 语境 | `CONTEXT/` |
 | 控制器 | AI (Allied AI) | 智能中枢 | `AI/` |
 | 电器 | M (Mission) | 被托举的任务 | `MISSION/` |
-| 输出 | E (Empower) | 价值产出 | `Teams/` |
+| 输出 | E (Empower) | 价值产出 | `Working/` |
 
 **洞见**：这解释了为什么 CONNECTION 必须在 CONTEXT 之前——**没有导线和电源，负载参数再精确也无用**。
 
@@ -198,9 +198,9 @@ MAR 架构完整支撑这个双向流：
 
 | 飞轮 | 驱动力 | 产出 | MAR 落地 |
 | :--- | :--- | :--- | :--- |
-| **Mission** | AM 完成率 | 交付物 + 客户价值 | `Teams/Artifacts/` |
+| **Mission** | AM 完成率 | 交付物 + 客户价值 | `Working/artifacts/` |
 | **能力** | 实践频次 | 团队成长 + 方法论 | `AI/Eval/` + `CONTEXT/` |
-| **规模** | 能力复用 | 更多 E队 + 更多 AM | `Teams/Metrics/` |
+| **规模** | 能力复用 | 更多 E队 + 更多 AM | `Working/log.md` |
 
 ### 核心结论
 
@@ -390,7 +390,7 @@ Mission-Repo/
 │   └── assets/         # 资产
 ├── CONTEXT/            # 语境容器
 ├── AI/                 # 智能中枢
-└── Teams/              # EdgeTeams 交付
+└── Working/            # 统一工作空间（日清 + 交付）
 ```
 
 > **结论**："營"不是组织架构图，而是 **GitHub Org + Mission Repo** 的经营体系——AI Agent 有边界、可审计地为 E隊 工作。
@@ -973,7 +973,7 @@ TAES 不替代敏捷，而是**给敏捷加一层 AI 执行底座**：
 | :--- | :--- | :--- |
 | **Mission (Intent)** | 定义小说创作的意图与大纲 | `MISSION.md`, `MISSION/outline/` |
 | **Context (语境)** | 角色小传、世界观设定 | `CONTEXT/Players/`, `MISSION/outline/characters/` |
-| **Evidence (证据)** | 章节草稿、最终成稿、多媒体素材 | `MISSION/chapters/`, `Teams/Artifacts/` |
+| **Evidence (证据)** | 章节草稿、最终成稿、多媒体素材 | `MISSION/chapters/`, `Working/artifacts/` |
 | **Eval (评估)** | 剧情连贯性检查、文风评估 | `AI/Agents/` (Critic Agent) |
 | **Agent (智能)** | 编剧、导演、批评家等专用角色 | `.github/copilot-instructions.md` |
 
@@ -995,7 +995,7 @@ TAES 不替代敏捷，而是**给敏捷加一层 AI 执行底座**：
 | :--- | :--- | :--- |
 | **Mission (Intent)** | 定义小说创作的意图与大纲 | `MISSION.md`, `MISSION/outline/` |
 | **Context (语境)** | 角色小传、世界观设定 | `CONTEXT/Players/`, `MISSION/outline/characters/` |
-| **Evidence (证据)** | 章节草稿、最终成稿、多媒体素材 | `MISSION/chapters/`, `Teams/Artifacts/` |
+| **Evidence (证据)** | 章节草稿、最终成稿、多媒体素材 | `MISSION/chapters/`, `Working/artifacts/` |
 | **Eval (评估)** | 剧情连贯性检查、文风评估 | `AI/Agents/` (Critic Agent) |
 | **Agent (智能)** | 编剧、导演、批评家等专用角色 | `.github/copilot-instructions.md` |
 

@@ -11,7 +11,7 @@
 **EdgeTeam（E队）** 是 TAES 中的主体（Principal）：
 - 在组织关系中：E队是 **服务消费方**（接受 TeamsCamp 的托举能力与资源）。
 - 在执行关系中：E队是 **任务执行方**（执行 Mission，产出交付物）。
-- 在责任关系中：E队是 **结果责任方**（对 Teams/ 中的交付质量、可追溯性负责）。
+- 在责任关系中：E队是 **结果责任方**（对 Working/ 中的交付质量、可追溯性负责）。
 
 ---
 
@@ -19,7 +19,7 @@
 
 在单个 Mission Repo（MAR）中，E队的"可见投影"主要体现在两处：
 - **意图与边界**：`MISSION.md` + `MISSION/`（定义本次 Mission 的 CLEAR/ICE 信息）
-- **价值沉淀**：`Teams/`（Artifacts / Metadata / Metrics / Channel）
+- **工作与交付**：`Working/`（in/out/log + artifacts）
 
 > **重要**：E队是"长期对象"，Repo 是"Mission 的原子载体"。因此 **E队不等于某个 repo 根目录下的一个文件夹名**，而是跨 Repo 可运营的主体。
 
@@ -52,10 +52,10 @@ E队的验收不看"说了什么"，只看"交付能否被证明"：
 
 | 验收维度 | 落地位置 | 验证问题 |
 |----------|----------|----------|
-| 可验证交付物 | `Teams/Artifacts/` | 交付物是否齐备？ |
-| 证据链 | `Teams/Metadata/` | 过程是否可追溯？ |
-| 效果度量 | `Teams/Metrics/` | E系数/ROI 是否可度量？ |
-| 对外发布 | `Teams/Channel/` | 是否合规（无敏感信息）？ |
+| 可验证交付物 | `Working/artifacts/` | 交付物是否齐备？ |
+| 证据链 | `Working/log.md` | 过程是否可追溯？ |
+| 效果度量 | `AI/Eval/` | E系数/ROI 是否可度量？ |
+| 对外发布 | `Working/out.md` | 是否合规（无敏感信息）？ |
 
 ---
 

@@ -45,7 +45,7 @@ $$ E = M \times C^2 \times AI $$
 | **C¹** | Connection（连结） | `CONNECTION/` | 确认可达性 |
 | **C²** | Context（语境） | `CONTEXT/` | 吸收上下文 |
 | **AI** | Allied AI（协同智能） | `AI/` | 托举执行 |
-| **E** | Empower（赋能） | `Teams/` | 产出价值 |
+| **E** | Empower（赋能） | `Working/` | 产出价值 |
 
 > 📚 **深度解读**：[E=MC²AI.md](../E=MC2AI.md) — 价值方程完整解析与 TAES 映射
 
@@ -66,11 +66,11 @@ MAR/
 ├── CONNECTION/            # [C¹] 连结平面：可达性基础设施
 ├── CONTEXT/               # [C²] 语境容器：3W+1H 上下文
 ├── AI/                    # [AI] 智能中枢：Agent、Eval、治理
-└── Teams/                 # [E] E队交付：价值的具象化
-    ├── Artifacts/         #     资产层：可验证交付物
-    ├── Channel/           #     频道层：对外发布通道
-    ├── Metadata/          #     溯源层：AI 生成日志
-    └── Metrics/           #     度量层：E系数追踪
+└── Working/               # [E] 统一工作空间：日清 + 交付
+    ├── in.md              #     收：今日输入
+    ├── out.md             #     发：今日输出
+    ├── log.md             #     存：永久日志
+    └── artifacts/         #     交付物：持久产出
 ```
 
 ---
@@ -180,12 +180,12 @@ MAR/
 
 ## 🎯 技能包 (Skills)
 
-> 💡 **口诀**：框架用 **MAR**，启动用 **CLEAR**，执行用 **ICE** 🧊，日清用 **Today**
+> 💡 **口诀**：框架用 **MAR**，启动用 **CLEAR**，执行用 **ICE** 🧂，工作用 **Working**
 
 ```
-MAR (I know)  →  CLEAR (I plan)  →  ICE (I do)  →  Today (I clear)
-   战略层           任务层            执行层          运营层
-  理解框架         定义任务          追踪执行         日清归档
+MAR (I know)  →  CLEAR (I plan)  →  ICE (I do)  →  Working (I work)
+   战略层           任务层            执行层          工作层
+  理解框架         定义任务          追踪执行         日清+交付
 ```
 
 | 技能 | 定位 | 使用时机 | 路径 |
@@ -193,7 +193,7 @@ MAR (I know)  →  CLEAR (I plan)  →  ICE (I do)  →  Today (I clear)
 | **MAR** | 战略层 | 理解框架、设计菜单、建模对象 | `.github/skills/MAR/SKILL.md` |
 | **CLEAR** | 任务层 | 任务启动前的五要素检查 | `.github/skills/CLEAR/SKILL.md` |
 | **ICE** | 执行层 | 任务启动后的追踪留痕 | `.github/skills/ICE/SKILL.md` |
-| **Today** | 运营层 | 跨任务的日清工作流 | `.github/skills/Today/SKILL.md` |
+| **Working** | 工作层 | 日清收发存 + 交付物管理 | `.github/skills/Working/SKILL.md` |
 
 ### CLEAR 五要素速查
 
@@ -213,7 +213,7 @@ MAR (I know)  →  CLEAR (I plan)  →  ICE (I do)  →  Today (I clear)
 | **C** | Condition | 条件满足吗？ |
 | **E** | Eval | 怎么验收？ |
 
-### Today 三体速查
+### Working 三体速查
 
 | 文件 | 动作 | 核心问题 |
 |:---:|:---:|----------|
@@ -228,17 +228,17 @@ MAR (I know)  →  CLEAR (I plan)  →  ICE (I do)  →  Today (I clear)
 - 使用中文进行文档编写和注释
 - Issue 和 PR 描述需要清晰完整
 - 遵循 CLEAR 定义任务，按 ICE 留痕执行
-- 交付物归档到 `Teams/`，按子目录分类
+- 工作在 `Working/` 目录，交付物存入 `Working/artifacts/`
 
 ## 🔧 常用命令
 
 | 命令 | 说明 | Agent |
 |------|------|-------|
 | "用 CLEAR 检查这个任务" | 五要素完整性检查 | @taes |
-| "生成本周进展报告" | 从 ICE 提取，存入 Channel/ | @pm |
+| "生成本周进展报告" | 从 ICE 提取，存入 Working/out.md | @pm |
 | "分析这个任务的 E系数" | 评估 Quality/Speed/Cost 增益 | @eval |
 | "从这次任务提取可复用模式" | 能力沉淀到 CONTEXT/ | @pattern |
 
 ---
 
-*版本: v3.0 | 更新日期: 2026-01-20 | 维护者: @taes*
+*版本: v3.1 | 更新日期: 2026-01-23 | 维护者: @taes*
