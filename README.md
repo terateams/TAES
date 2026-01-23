@@ -34,8 +34,9 @@ TAES/
 ├── TAES.md              # TAES 四字定义（核心入口）
 ├── E=MC2AI.md           # 价值方程（宪法）
 ├── TeamsCamp.md         # T营 商业洞见
-├── Framework/           # 框架方法论
+├── Framework/           # 方法论（Playbooks / 规范 / 模板）
 ├── CONTEXT/             # 业务语境（T营 参考实例）
+│   └── TeamsEdge/        # TeamsEdge（配套软件）规格与信息架构入口
 ├── CONNECTION/          # 基础设施配置
 ├── AI/                  # Agent 定义
 ├── Working/             # 统一工作空间（日清 + 交付）
@@ -45,6 +46,11 @@ TAES/
 │   └── artifacts/       #   交付物：持久产出
 └── .github/skills/      # CLEAR/ICE/MAR/Working 技能包
 ```
+
+**快速入口**
+
+- TAES 方法论主入口：`TAES.md`
+- TeamsEdge（配套软件）规格入口：`CONTEXT/TeamsEdge/README.md`
 
 ---
 
