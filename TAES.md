@@ -130,7 +130,7 @@ MAR 架构完整支撑这个双向流：
 | 流向 | 目录路径 | 作用 |
 |------|----------|------|
 | **顺流** | CONNECTION → CONTEXT → AI → MISSION → Teams | 价值生产 |
-| **逆流** | Teams/Metrics → AI/Eval → CONTEXT/TAES → (新 MISSION) | 能力积累 |
+| **逆流** | Teams/Metrics → AI/Eval → CONTEXT → (新 MISSION) | 能力积累 |
 
 ### 边界洞见：五层边界模型
 

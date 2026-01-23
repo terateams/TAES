@@ -2,7 +2,7 @@
 
 > **定位**：TAES 四层指标体系的完整定义与计算方法  
 > 版本：v1.0 | 更新日期：2026-01-03 | 维护者：QA Architect  
-> 来源：[Taes.md §6](../../Framework/Taes.md)
+> 来源：[TAES.md §6](../../../TAES.md)
 
 ---
 
@@ -559,7 +559,7 @@ alerts:
 
 | 文档 | 关系 |
 |------|------|
-| [Taes.md §6](../../Framework/Taes.md) | 本文档是 §6 的详细展开 |
+| [TAES.md §6](../../../TAES.md) | 本文档是 §6 的详细展开 |
 | [qc-playbook.md](../qc-playbook.md) | 引用本文档的指标定义 |
 | [evidence-schema.md](../Acceptance/evidence-schema.md) | 指标值存储在 Evidence 中 |
 | [execution-gates.md](../Checkpoints/execution-gates.md) | 门禁检查引用指标阈值 |

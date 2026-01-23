@@ -62,15 +62,16 @@ TAES/
 
 ## 📚 Framework/ — 方法论核心
 
-| 文档 | 描述 | 版本 |
+> **注意**：Framework 已迁移至根目录 `/Framework/`，TAES 主文档为 `/TAES.md`
+
+| 文档 | 描述 | 位置 |
 |------|------|------|
-| [Taes.md](Framework/Taes.md) | TAES 方法论主文档 | v2.6 |
-| [Taes-Lite.md](Framework/Taes-Lite.md) | TAES 轻量版 | - |
-| [MR-playbook.md](Framework/MR-playbook.md) | Mission Repo 操作手册 | - |
-| [MR-Architecture.md](Framework/MR-Architecture.md) | MR 架构设计 | - |
-| [MR-Function.md](Framework/MR-Function.md) | MR 功能说明 | - |
-| [Mission-playbook.md](Framework/Mission-playbook.md) | 任务执行手册 | v1.0 |
-| [IP-playbook.md](Framework/IP-playbook.md) | IP 管理手册 | v1.0 |
+| [TAES.md](../TAES.md) | TAES 方法论主文档 | 根目录 |
+| [Augment.md](../Framework/Augment.md) | 托举效应的组织化实现 | Framework/ |
+| [Team-Augment.md](../Framework/Team-Augment.md) | 团队托举的桥与路 | Framework/ |
+| [MR-playbook.md](../Framework/MR-playbook.md) | Mission Repo 操作手册 | Framework/ |
+| [Mission-playbook.md](../Framework/Mission-playbook.md) | 任务执行手册 | Framework/ |
+| [IP-playbook.md](../Framework/IP-playbook.md) | IP 管理手册 | Framework/ |
 
 ---
 

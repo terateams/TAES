@@ -22,7 +22,7 @@
 |------|------|
 | [Market-2026.md](Market-2026.md) | 2026 AI 市场趋势分析 |
 | [Core-Insights.md](Core-Insights.md) | TAES 核心洞见评估 |
-| [TAES Framework](../Framework/Taes.md) | 方法论主文档 |
+| [TAES Framework](../../TAES.md) | 方法论主文档 |
 | [TeamsCamp playbook](../Products/TeamsCamp-playbook.md) | T营产品定义 |
 | [EdgeTeam playbook](../Products/EdgeTeam-playbook.md) | E队产品定义 |
 

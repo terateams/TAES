@@ -222,7 +222,7 @@
 
 ### 6.1 四层指标定义
 
-> 与 [Taes.md §6](../Framework/Taes.md) 保持一致
+> 与 [TAES.md §6](../../TAES.md) 保持一致
 
 #### Layer 1: Workplane Connectivity（网络底座）
 

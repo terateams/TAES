@@ -2,7 +2,7 @@
 
 > **Version**: 1.0 | **Date**: 2026-01-02  
 > **Source**: 拆分自 [ChinaJapan-GTM.md](ChinaJapan-GTM.md)  
-> **Related**: [Market-2026.md](Market-2026.md) | [Core-Insights.md](Core-Insights.md) | [TAES Framework](../Framework/Taes.md)
+> **Related**: [Market-2026.md](Market-2026.md) | [Core-Insights.md](Core-Insights.md) | [TAES Framework](../../TAES.md)
 
 ---
 
@@ -138,7 +138,7 @@
 
 ## 五、产品架构
 
-> 参见 [TAES Framework §产品架构](../Framework/Taes.md)
+> 参见 [TAES Framework §产品架构](../../TAES.md)
 
 ```
 ┌─────────────────────────────────────────────────────────────┐

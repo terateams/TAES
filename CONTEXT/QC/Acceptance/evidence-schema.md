@@ -507,7 +507,7 @@ ORDER BY week DESC;
 |------|------|------|
 | [qc-playbook.md](../qc-playbook.md) | 引用 | 验收标准引用本 Schema |
 | [MR-playbook.md](../../Framework/MR-playbook.md) | 对齐 | 路径规范与 MR 架构一致 |
-| [Taes.md §6](../../Framework/Taes.md) | 来源 | 指标定义来自 TAES 主文档 |
+| [TAES.md §6](../../../TAES.md) | 来源 | 指标定义来自 TAES 主文档 |
 
 ---
 

@@ -2,7 +2,7 @@
 
 > **Version**: 1.0 | **Date**: 2026-01-02  
 > **Source**: 拆分自 [ChinaJapan-GTM.md](ChinaJapan-GTM.md)  
-> **Related**: [Market-2026.md](Market-2026.md) | [Core-Insights.md](Core-Insights.md) | [TAES Framework](../Framework/Taes.md)
+> **Related**: [Market-2026.md](Market-2026.md) | [Core-Insights.md](Core-Insights.md) | [TAES Framework](../../TAES.md)
 
 ---
 
@@ -102,7 +102,7 @@
 
 | 項目 | 優先度 | 説明 |
 |------|--------|------|
-| **Playbook** | 🔴 高 | [TAES Framework](../Framework/Taes.md) 完全日本語版 |
+| **Playbook** | 🔴 高 | [TAES Framework](../../TAES.md) 完全日本語版 |
 | **UI/UX** | 🔴 高 | Dashboard、レポート |
 | **ドキュメント** | 🟡 中 | ヘルプ、FAQ |
 | **コース教材** | 🟡 中 | 基礎コース日本語版 |
@@ -198,7 +198,7 @@
 
 | ドキュメント | 説明 |
 |--------------|------|
-| [TAES Framework](../Framework/Taes.md) | 方法論コアドキュメント |
+| [TAES Framework](../../TAES.md) | 方法論コアドキュメント |
 | [TeamsCamp playbook](../Products/TeamsCamp-playbook.md) | T営 製品定義 |
 | [EdgeTeam playbook](../Products/EdgeTeam-playbook.md) | E隊 製品定義 |
 | [NexusPass playbook](../Products/NexusPass-playbook.md) | 認証システム |
