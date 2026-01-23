@@ -457,7 +457,7 @@ Server/Host     ←→        AC (Augment Context)
 | [E=MC²AI.md](../E=MC2AI.md) | 价值方程完整解析 |
 | [Augment.md](Augment.md) | 托举效应的组织化实现 |
 | [TAES.md](../TAES.md) | TAES 方法论框架 |
-| [Te3.lsn189.cn.md](../CONNECTION/TeamsEdge/Te3.lsn189.cn.md) | TeamsEdge 菜单结构（[A] 实现） |
+| [Te3.lsn189.cn.md](../CONTEXT/TeamsEdge/Te3.lsn189.cn.md) | TeamsEdge 菜单结构（[A] 实现） |
 
 ---
 
