@@ -77,9 +77,9 @@ QC/
 | 模块 | 关系 | 说明 |
 |------|------|------|
 | [TAES.md §6](../../TAES.md) | 指标来源 | QC 指标 = TAES Layer 1-4 指标 |
-| [Framework/MR-playbook.md](../Framework/MR-playbook.md) | Evidence 规范 | 证据存放路径与格式定义 |
-| [Framework/Mission-playbook.md](../Framework/Mission-playbook.md) | 生命周期 | 任务各阶段的检查点嵌入 |
-| [Framework/IP-playbook.md](../Framework/IP-playbook.md) | 资产保护 | QC 文档本身的 IP 归属 |
+| [Framework/MR-playbook.md](../../Framework/MR-playbook.md) | Evidence 规范 | 证据存放路径与格式定义 |
+| [Framework/Mission-playbook.md](../../Framework/Mission-playbook.md) | 生命周期 | 任务各阶段的检查点嵌入 |
+| [Framework/IP-playbook.md](../../Framework/IP-playbook.md) | 资产保护 | QC 文档本身的 IP 归属 |
 
 ---
 

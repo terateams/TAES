@@ -124,7 +124,7 @@ MAR/
 | **BYOK** | Bring Your Own Key | ✅ | 自带 API Key |
 | **Copilot SDK** | Extension SDK | 🔄 | 扩展开发（Preview） |
 
-> 📋 **深度展开**：[CONNECTION/Augment.md](../CONNECTION/Augment.md) — A 的组织化实现
+> 📋 **深度展开**：[Framework/Augment.md](../Framework/Augment.md) — A 的组织化实现
 
 ---
 

@@ -3,7 +3,7 @@
 > **Status**: Active | **Version**: 1.0 | **Date**: 2026-01-02
 > **Scope**: TAES 方法论中 Mission 的定义、五要素、状态流转与实战案例
 > **ERP Module**: TeamsEdge > TAES > Mission Management
-> **Related**: [TAES playbook](../Taes%20Playbook/Taes.md) | [IP playbook](IP%20playbook.md) | [EdgeTeam playbook](EdgeTeam%20playbook.md)
+> **Related**: [TAES playbook](../TAES.md) | [IP playbook](IP-playbook.md) | [EdgeTeam playbook](../CONTEXT/Products/EdgeTeam-playbook.md)
 
 ---
 
@@ -323,9 +323,9 @@
 
 | 文档 | 说明 |
 | :--- | :--- |
-| [TAES playbook](../Taes%20Playbook/Taes.md) | TAES 方法论完整定义 |
-| [IP playbook](IP%20playbook.md) | Mission 五要素知识产权 |
-| [EdgeTeam playbook](EdgeTeam%20playbook.md) | E队 定义与 Mission 驱动工作方式 |
+| [TAES playbook](../TAES.md) | TAES 方法论完整定义 |
+| [IP playbook](IP-playbook.md) | Mission 五要素知识产权 |
+| [EdgeTeam playbook](../CONTEXT/Products/EdgeTeam-playbook.md) | E队 定义与 Mission 驱动工作方式 |
 
 ---
 

@@ -21,7 +21,7 @@
 
 ### 0.0.1 元枢证 (Nexus Pass)
 
-> ⊕ 详见独立文档: **[Nexus Pass playbook](Nexus%20Pass%20playbook.md)**
+> ⊕ 详见独立文档: **[Nexus Pass playbook](NexusPass-playbook.md)**
 >
 > **品牌叙事**: *"One account, Nexus all"* — 一个枢纽账号，全连接
 >

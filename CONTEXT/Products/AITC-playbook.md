@@ -3,7 +3,7 @@
 > **Status**: Active | **Version**: 1.4 | **Date**: 2026-01-02
 > **Scope**: AI Integrated Tenant Compute (AITC) 祘力资产管理
 > **ERP Module**: TeamsEdge > TeamsCamp Management > AITC Assets
-> **Parent**: [TeamsCamp playbook](TeamsCamp%20playbook.md) §5.4
+> **Parent**: [TeamsCamp playbook](TeamsCamp-playbook.md) §5.4
 
 ---
 
@@ -630,11 +630,11 @@
 
 | 文档 | 说明 |
 | :--- | :--- |
-| [TeamsCamp playbook](TeamsCamp%20playbook.md) | T营 业务主体定义 (父文档) |
-| [EdgeTeam playbook](EdgeTeam%20playbook.md) | E队 操作单元定义 (消费方) |
-| [POP playbook](POP%20playbook.md) | POP 站点资产 (姊妹文档) |
-| [Nexus Pass playbook](Nexus%20Pass%20playbook.md) | NP 身份凭证体系 |
-| [EdgeTeam Code playbook](EdgeTeam%20Code%20playbook.md) | E队 番号体系 |
+| [TeamsCamp playbook](TeamsCamp-playbook.md) | T营 业务主体定义 (父文档) |
+| [EdgeTeam playbook](EdgeTeam-playbook.md) | E队 操作单元定义 (消费方) |
+| [POP playbook](POP-playbook.md) | POP 站点资产 (姊妹文档) |
+| [Nexus Pass playbook](NexusPass-playbook.md) | NP 身份凭证体系 |
+| [EdgeTeam Code playbook](EdgeTeam-Code-playbook.md) | E队 番号体系 |
 
 ---
 

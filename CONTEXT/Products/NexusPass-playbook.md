@@ -492,8 +492,8 @@
 
 | 文档 | 说明 |
 | :--- | :--- |
-| [EdgeTeam Code playbook](EdgeTeam%20Code%20playbook.md) | E队 番号体系 |
-| [EdgeTeam domain playbook](EdgeTeam%20domain%20playbook.md) | 域名资产治理主文档 |
+| [EdgeTeam Code playbook](EdgeTeam-Code-playbook.md) | E队 番号体系 |
+| [EdgeTeam domain playbook](EdgeTeam-Domain-playbook.md) | 域名资产治理主文档 |
 | [cdn@Cloudflare playbook](cdn@Cloudflare%20playbook.md) | Cloudflare 实施手册 |
 | [cdn@Aliyun playbook](cdn@Aliyun%20playbook.md) | 阿里云实施手册 |
 | [cdn@Tencent playbook](cdn@Tencent%20playbook.md) | 腾讯云实施手册 |

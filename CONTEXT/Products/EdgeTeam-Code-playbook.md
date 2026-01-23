@@ -320,8 +320,8 @@
 
 | 文档 | 说明 |
 | :--- | :--- |
-| [Nexus Pass playbook](Nexus%20Pass%20playbook.md) | NP 身份凭证体系 |
-| [EdgeTeam domain playbook](EdgeTeam%20domain%20playbook.md) | 域名资产治理主文档 |
+| [Nexus Pass playbook](NexusPass-playbook.md) | NP 身份凭证体系 |
+| [EdgeTeam domain playbook](EdgeTeam-Domain-playbook.md) | 域名资产治理主文档 |
 
 ---
 

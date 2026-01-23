@@ -220,15 +220,15 @@ MAR 架构完整支撑这个双向流：
 | :--- | :--- |
 | **业务决策者** | §0 术语定义 → §1 一句话定义 → §7 适用场景 → §8 定位句 |
 | **项目经理** | §4 落地路径 → §5 交付物清单 → §6 指标体系 |
-| **AI 工程师** | §9 工程化规范 → [MR Playbook](../MR%20playbook.md)（完整规范） |
+| **AI 工程师** | §9 工程化规范 → [MR Playbook](Framework/MR-playbook.md)（完整规范） |
 | **投资人** | §8.4 VC 视角 → 附录：理论依据 |
-| **一线执行者** | §0 TAES 作业方式 → [MR Playbook](../MR%20playbook.md) |
+| **一线执行者** | §0 TAES 作业方式 → [MR Playbook](Framework/MR-playbook.md) |
 
 ---
 
 ## 0) 术语定义（Glossary）
 
-> 📋 **知识产权完整定义**: 商标、方法论 IP、品牌资产等详见 [IP playbook](../Issue/IP%20playbook.md)
+> 📋 **知识产权完整定义**: 商标、方法论 IP、品牌资产等详见 [IP playbook](Framework/IP-playbook.md)
 
 ### 注册商标
 
@@ -247,15 +247,15 @@ MAR 架构完整支撑这个双向流：
 
 | 术语 | 中文 | 定义 | 备注 |
 | :--- | :--- | :--- | :--- |
-| **TAES** | — | TeamsCamp Augments EdgeTeams Scale 的缩写。一套可验收的 AI 原生增长交付方法论。 | 方法论 IP（详见 [IP playbook](../Issue/IP%20playbook.md)） |
-| **Mission** | 任务 | 一个满足五要素（输入、输出、验收、AI 可介入、范围约束）的工作单元，其产出可被 AI 生成或辅助生成。Mission 是 E队 在 Scale 路径上的成长步骤。 | 详见 [Mission playbook](../Issue/Mission%20playbook.md) |
-| **Mission Repo (MR)** | 任务仓库 | 一个 Mission = 一个 GitHub Repo。MR 是 TAES 的核心执行载体，定义了 Intent/Constraints/Evidence 的存放结构与协作规范。详见 [MR Playbook](../MR%20playbook.md)。 | 方法论（可独立使用） |
+| **TAES** | — | TeamsCamp Augments EdgeTeams Scale 的缩写。一套可验收的 AI 原生增长交付方法论。 | 方法论 IP（详见 [IP playbook](Framework/IP-playbook.md)） |
+| **Mission** | 任务 | 一个满足五要素（输入、输出、验收、AI 可介入、范围约束）的工作单元，其产出可被 AI 生成或辅助生成。Mission 是 E队 在 Scale 路径上的成长步骤。 | 详见 [Mission playbook](Framework/Mission-playbook.md) |
+| **Mission Repo (MR)** | 任务仓库 | 一个 Mission = 一个 GitHub Repo。MR 是 TAES 的核心执行载体，定义了 Intent/Constraints/Evidence 的存放结构与协作规范。详见 [MR Playbook](Framework/MR-playbook.md)。 | 方法论（可独立使用） |
 | **Scale** | 成长 | E队 的双维度成长：①Mission 完成质量 ②AI 协同能力成长。两者形成飞轮效应。 | 详见 §6 Layer 4 指标 |
 | **Augment** | 托举 | 口语表述为 Lift。托举效应 = 网络可靠（bit）× AI可用（Token），乘法关系，缺一则归零。 | TAES 四字之 A，详见 [Augment.md](Framework/Augment.md) |
 | **AITa** | AI托管 | Allied AI 托管服务。LLM 特性传承 · 常年支付稳定 · 季度能力更新。 | A 的核心组件 |
 | **Workplane** | 工作平面 | 合规网络通道。IPv6/56 固定出口 · SLA 保障 · 7×24 运维。 | A 的基础设施 |
 
-> 💡 **内部术语"装备"**: 仅限内部使用，对外统一用 Package/交付物 表述。详见 [IP playbook §5](../Issue/IP%20playbook.md)
+> 💡 **内部术语"装备"**: 仅限内部使用，对外统一用 Package/交付物 表述。详见 [IP playbook §5](Framework/IP-playbook.md)
 
 ### ICE 三要素（任务执行框架）
 
@@ -267,7 +267,7 @@ MAR 架构完整支撑这个双向流：
 
 ### Mission 的五要素
 
-> 📋 **完整定义**: Mission 五要素、状态流转、ICE 框架、实战案例详见 [Mission playbook](../Issue/Mission%20playbook.md)
+> 📋 **完整定义**: Mission 五要素、状态流转、ICE 框架、实战案例详见 [Mission playbook](Framework/Mission-playbook.md)
 
 | # | 要素 | 说明 |
 | :-- | :--- | :--- |
@@ -865,11 +865,7 @@ TAES 适合以下类型组织：
 
 ## 9) 工程化规范（摘要）
 
-> **完整技术规范请参阅 [MR Playbook §5 工程化规范](../MR%20playbook.md#5-工程化规范)**。
-> 
-> 本章仅提供面向业务决策者的摘要。
-
-TAES 的工程化落地依赖三项关键规范：
+> **完整技术规范请参阅 [MR Playbook §5 工程化规范](Framework/MR-playbook.md#5-工程化规范)**。
 
 | 规范 | 核心问题 | 业务价值 | 详见 |
 | :--- | :--- | :--- | :--- |
@@ -903,7 +899,7 @@ MISSION.md 验收标准 → 推导 Golden Set → Eval 验证 → Mission 验收
 
 ## 10) TAES 成熟度模型（简版）
 
-> **完整成熟度评估标准请参阅 [MR Playbook §5.4 成熟度模型](../MR%20playbook.md#54-mr-成熟度模型)**。
+> **完整成熟度评估标准请参阅 [MR Playbook §5.4 成熟度模型](Framework/MR-playbook.md#54-mr-成熟度模型)**。
 
 | Level | 名称 | 特征 | 业务标志 |
 | :--- | :--- | :--- | :--- |

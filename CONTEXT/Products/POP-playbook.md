@@ -3,7 +3,7 @@
 > **Status**: Active | **Version**: 1.0 | **Date**: 2026-01-01
 > **Scope**: Point of Presence (POP) 物理/云化站点资产管理
 > **ERP Module**: TeamsEdge > TeamsCamp Management > POP Assets
-> **Parent**: [TeamsCamp playbook](TeamsCamp%20playbook.md) §5
+> **Parent**: [TeamsCamp playbook](TeamsCamp-playbook.md) §5
 
 ---
 
@@ -484,10 +484,10 @@
 
 | 文档 | 说明 |
 | :--- | :--- |
-| [TeamsCamp playbook](TeamsCamp%20playbook.md) | T营 业务主体定义 (父文档) |
-| [AITC playbook](AITC%20playbook.md) | AITC 软件订阅资产 (姊妹文档) |
-| [Nexus Pass playbook](Nexus%20Pass%20playbook.md) | NP 身份凭证体系 |
-| [EdgeTeam domain playbook](EdgeTeam%20domain%20playbook.md) | 域名资产治理 |
+| [TeamsCamp playbook](TeamsCamp-playbook.md) | T营 业务主体定义 (父文档) |
+| [AITC playbook](AITC-playbook.md) | AITC 软件订阅资产 (姊妹文档) |
+| [Nexus Pass playbook](NexusPass-playbook.md) | NP 身份凭证体系 |
+| [EdgeTeam domain playbook](EdgeTeam-Domain-playbook.md) | 域名资产治理 |
 
 ---
 

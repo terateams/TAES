@@ -318,7 +318,7 @@
 
 > 🌟 **AITC** = AI Integrated Tenant Compute (AI祘力订阅)，基于微软订阅体系的托举型全球AI算力资产。
 >
-> 📢 **口语**: AITC祘力 | 📖 **详细规范**: [AITC playbook](AITC%20playbook.md)
+> 📢 **口语**: AITC祘力 | 📖 **详细规范**: [AITC playbook](AITC-playbook.md)
 
 #### 祘力三层架构
 
@@ -433,7 +433,7 @@
 | **安全配置** | Tenant 安全策略维护 | T营 运维 | 月度 |
 | **额度监控** | Azure Credits 消耗跟踪 | T营 运维 | 每周 |
 
-> ⚠️ **合规风险提示**: IUR 仅限内部使用，EDU 仅限教育目的，NGO 需年度重认证。详见 [AITC playbook §10](AITC%20playbook.md#10-许可证合规-license-compliance)
+> ⚠️ **合规风险提示**: IUR 仅限内部使用，EDU 仅限教育目的，NGO 需年度重认证。详见 [AITC playbook §10](AITC-playbook.md#10-许可证合规-license-compliance)
 
 ---
 
@@ -677,12 +677,12 @@ Service (服务维度):
 
 | 文档 | 说明 |
 | :--- | :--- |
-| [EdgeTeam playbook](EdgeTeam%20playbook.md) | E队 操作单元定义 (子文档) |
-| [AITC playbook](AITC%20playbook.md) | AITC 祘力资产管理 (子文档) |
-| [POP playbook](POP%20playbook.md) | POP 站点资产管理 (子文档) |
-| [Nexus Pass playbook](Nexus%20Pass%20playbook.md) | NP 身份凭证体系 |
-| [EdgeTeam Code playbook](EdgeTeam%20Code%20playbook.md) | E队 番号体系 |
-| [EdgeTeam domain playbook](EdgeTeam%20domain%20playbook.md) | 域名资产治理主文档 |
+| [EdgeTeam playbook](EdgeTeam-playbook.md) | E队 操作单元定义 (子文档) |
+| [AITC playbook](AITC-playbook.md) | AITC 祘力资产管理 (子文档) |
+| [POP playbook](POP-playbook.md) | POP 站点资产管理 (子文档) |
+| [Nexus Pass playbook](NexusPass-playbook.md) | NP 身份凭证体系 |
+| [EdgeTeam Code playbook](EdgeTeam-Code-playbook.md) | E队 番号体系 |
+| [EdgeTeam domain playbook](EdgeTeam-Domain-playbook.md) | 域名资产治理主文档 |
 
 ---
 

@@ -3,7 +3,7 @@
 > **Status**: Active | **Version**: 1.3 | **Date**: 2026-01-02
 > **Scope**: TeamsEdge 生态的 E队 定义、生命周期与托举关系
 > **ERP Module**: TeamsEdge > EdgeTeam Management > ET
-> **Related**: [TeamsCamp playbook](TeamsCamp%20playbook.md) | [EdgeTeam Code playbook](EdgeTeam%20Code%20playbook.md) | [TAES playbook](../Taes%20Playbook/Taes.md)
+> **Related**: [TeamsCamp playbook](TeamsCamp-playbook.md) | [EdgeTeam Code playbook](EdgeTeam-Code-playbook.md) | [TAES playbook](../../TAES.md)
 
 ---
 
@@ -132,7 +132,7 @@
 
 ### 3.1 Mission 五要素
 
-基于 [TAES 方法论](../Taes%20Playbook/Taes.md)，E队 的每个 Mission 必须具备以下五要素：
+基于 [TAES 方法论](../../TAES.md)，E队 的每个 Mission 必须具备以下五要素：
 
 | # | 要素 | 英文 | 说明 | 示例 |
 | :--- | :--- | :--- | :--- | :--- |
@@ -928,11 +928,11 @@
 
 | 文档 | 说明 |
 | :--- | :--- |
-| [TeamsCamp playbook](TeamsCamp%20playbook.md) | T营 业务主体定义 (托举方) |
-| [EdgeTeam Code playbook](EdgeTeam%20Code%20playbook.md) | E队 番号体系 |
-| [AITC playbook](AITC%20playbook.md) | AITC祠力资产管理 |
-| [Nexus Pass playbook](Nexus%20Pass%20playbook.md) | NP 身份凭证体系 |
-| [TAES playbook](../Taes%20Playbook/Taes.md) | TAES 方法论 (协力营托举 E队增长) |
+| [TeamsCamp playbook](TeamsCamp-playbook.md) | T营 业务主体定义 (托举方) |
+| [EdgeTeam Code playbook](EdgeTeam-Code-playbook.md) | E队 番号体系 |
+| [AITC playbook](AITC-playbook.md) | AITC祠力资产管理 |
+| [Nexus Pass playbook](NexusPass-playbook.md) | NP 身份凭证体系 |
+| [TAES playbook](../../TAES.md) | TAES 方法论 (协力营托举 E队增长) |
 
 ---
 

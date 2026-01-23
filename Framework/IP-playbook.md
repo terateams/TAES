@@ -3,7 +3,7 @@
 > **Status**: Active | **Version**: 1.0 | **Date**: 2026-01-02
 > **Scope**: TeamsEdge 生态的商标、专利、软著等知识产权管理
 > **ERP Module**: TeamsEdge > IP Management > TM/PAT/CR
-> **Related**: [TAES playbook](../Taes%20Playbook/Taes.md) | [TeamsCamp playbook](TeamsCamp%20playbook.md)
+> **Related**: [TAES playbook](../TAES.md) | [TeamsCamp playbook](../CONTEXT/Products/TeamsCamp-playbook.md)
 
 ---
 
@@ -162,9 +162,9 @@
 
 | 文档 | 说明 |
 | :--- | :--- |
-| [TAES playbook](../Taes%20Playbook/Taes.md) | TAES 方法论完整定义 |
-| [TeamsCamp playbook](TeamsCamp%20playbook.md) | 協力營 业务主体定义 |
-| [EdgeTeam playbook](EdgeTeam%20playbook.md) | E队 操作单元定义 |
+| [TAES playbook](../TAES.md) | TAES 方法论完整定义 |
+| [TeamsCamp playbook](../CONTEXT/Products/TeamsCamp-playbook.md) | 協力营 业务主体定义 |
+| [EdgeTeam playbook](../CONTEXT/Products/EdgeTeam-playbook.md) | E队 操作单元定义 |
 
 ---
 
