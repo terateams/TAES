@@ -211,49 +211,52 @@
 
 ---
 
-### 🟣 [S] Scale 飞轮 — Mission / Foundry / Intelligence / Credits
+### 🟣 [S] Scale 飞轮 — Mission / Foundry / Intelligence / Usage
 
-> **权限**: E队自助 + T营审计 | **定位**: 增长引擎 | **地址段**: `T3.4.x.x`
+> **权限**: E队自助 + T营审计 | **定位**: 增长引擎（MU 生命周期） | **地址段**: `T3.4.x.x`
+>
+> 📖 **[S] 深层洞见与 MU 生命周期重构**：见 [Te3.lsn189.cn.S.explainer.md](Te3.lsn189.cn.S.explainer.md)
+>
+> **核心 MU**：Mission（做什么）→ Artifact（交付什么）→ Intelligence（学到什么）→ 飞轮循环
 
-#### S1. Mission — 做什么
+#### S1. Mission — 做什么（MU₁ 定义层）
 
-| L1 菜单 | L2 子菜单 | 路由 | TAES地址 | Te3.lsn189.cn (admin) |
-|---------|-----------|------|:--------:|----------------------|
-| **Mission** | EdgeTeam ET卡 | /admin/addons_new | T3.4.1.1 | EdgeTeam Kard.ET卡 |
-| | EdgeTeam VSC Kard | /admin/vsckard | T3.4.1.2 | EdgeTeam Kard.VSC Kard |
-| | EdgeTeam OS Kard | /admin/oskard | T3.4.1.3 | EdgeTeam Kard.OS Kard |
-| | Context Template | /admin/markdown/template | T3.4.1.4 | Data.Context Template |
+| L1 菜单 | L2 子菜单 | 路由 | TAES地址 | 说明 |
+|---------|-----------|------|:--------:|------|
+| **Mission** | Board | /admin/mission/board | T3.4.1.0 | 📊 Mission 看板（生命周期视图） |
+| | EdgeTeam ET卡 | /admin/addons_new | T3.4.1.1 | Mission 载体 |
+| | EdgeTeam VSC Kard | /admin/vsckard | T3.4.1.2 | Mission 载体 |
+| | EdgeTeam OS Kard | /admin/oskard | T3.4.1.3 | Mission 载体 |
+| | Templates | /admin/mission/templates | T3.4.1.4 | Mission 模板库 |
 
-#### S2. The Foundry — 交付什么
+> ⚠️ **迁移**: Context Template 已迁移至 [A] AC（T3.3.3.x）
 
-| L1 菜单 | L2 子菜单 | 路由 | TAES地址 | Te3.lsn189.cn (admin) |
-|---------|-----------|------|:--------:|----------------------|
-| **The Foundry** | Workplace | /admin/task/workplace | T3.4.2.1 | Task.Workplace |
-| | Workbench | /admin/task/workbench | T3.4.2.2 | Task.Workbench |
-| | Functions | /admin/task/functions | T3.4.2.3 | Task.Functions |
-| **WorkSpace** | Azure VM | /admin/teamsedge/vm | T3.4.3.1 | WorkSpace.Azure VM |
-| | WFM TeamsBox | /admin/workspace/teamsbox | T3.4.3.2 | WorkSpace.WFM TeamsBox |
-| | RD Remote Desktop | /admin/workspace/rd | T3.4.3.3 | WorkSpace.RD |
-| | Windows OS | /admin/workspace/windows | T3.4.3.4 | WorkSpace.Windows |
-| | Mac OS | /admin/workspace/mac | T3.4.3.5 | WorkSpace.Mac |
-| | iPhone/iPad | /admin/workspace/ios | T3.4.3.6 | WorkSpace.iOS |
-| | Android | /admin/workspace/android | T3.4.3.7 | WorkSpace.Android |
+#### S2. Foundry — 交付什么（MU₂ 交付层）
 
-#### S3. AI Intelligence — 学到什么
+| L1 菜单 | L2 子菜单 | 路由 | TAES地址 | 说明 |
+|---------|-----------|------|:--------:|------|
+| **Foundry** | Workplace | /admin/task/workplace | T3.4.2.1 | 工作场所 |
+| | Workbench | /admin/task/workbench | T3.4.2.2 | 工作台 |
+| | Functions | /admin/task/functions | T3.4.2.3 | 功能模块 |
+| | Deliverables | /admin/task/deliverables | T3.4.2.4 | 交付物管理（新增） |
 
-| L1 菜单 | L2 子菜单 | 路由 | TAES地址 | Te3.lsn189.cn (admin) |
-|---------|-----------|------|:--------:|----------------------|
-| **AI Intelligence** | Context Prompt | /admin/ai/prompt | T3.4.4.1 | AI Task advisor.Context Prompt |
-| | Teams Ta | /admin/teamsbot | T3.4.4.2 | AI Task advisor.Teams Ta |
-| | Teams Ta Rag | /admin/teamsbot/ragfiles | T3.4.4.3 | AI Task advisor.Teams Ta Rag |
-| | Azure AI | /admin/ai/azure | T3.4.4.4 | AI Task advisor.Azure AI |
-| | Globe AI | /admin/ai/globe | T3.4.4.5 | AI Task advisor.Globe AI |
-| | China AI | /admin/ai/china | T3.4.4.6 | AI Task advisor.China AI |
-| | AI Appreciate | /admin/teamsedge/apps | T3.4.4.7 | AI Task advisor.AI Appreciate |
-| | Tester Endpoints | /admin/teamsedge/tester | T3.4.4.8 | TeamsEdge Support.Tester |
-| | insight Eggs | /admin/insightimg | T3.4.4.9 | TeamsEdge Support.insight |
+> ⚠️ **迁移**: WorkSpace（设备管理）已迁移至 [A] Workplane（T3.3.1.x）
 
-#### S4. Credits & Billing — 花了多少
+#### S3. Intelligence — 学到什么（MU₃ 沉淀层）
+
+| L1 菜单 | L2 子菜单 | 路由 | TAES地址 | 说明 |
+|---------|-----------|------|:--------:|------|
+| **Intelligence** | Knowledge | /admin/teamsbot/ragfiles | T3.4.4.1 | 知识库（RAG） |
+| | Agents | /admin/teamsbot | T3.4.4.2 | AI Agent（Teams Ta） |
+| | Apps | /admin/teamsedge/apps | T3.4.4.3 | AI 应用 |
+| | Patterns | /admin/intelligence/patterns | T3.4.4.4 | 可复用模式（新增） |
+
+> ⚠️ **迁移**:
+> - Context Prompt 已迁移至 [A] AC（T3.3.3.x）
+> - Azure AI/Globe AI/China AI 已迁移至 [A] AITa（T3.3.2.x）
+> - Tester/insight 已迁移至 [R] 保留区（T3.6.x）
+
+#### S4. Usage — 花了多少（只读投影层）
 
 > **定位（关键治理）**：Billing 的“真相层”在 **[T]**，**[S]** 只做“投影视图”。
 >
@@ -265,12 +268,15 @@
 > - 接口规范：[CONNECTION/_spec/api.md](../_spec/api.md)
 > - 工作流与边界（不存敏感信息）：[CONNECTION/WorkPass/billing.md](../WorkPass/billing.md)
 
-| L1 菜单 | L2 子菜单 | 路由 | TAES地址 | Te3.lsn189.cn (admin) |
-|---------|-----------|------|:--------:|----------------------|
-| **Credits & Billing** | Tickets 工单 | /admin/ticket | T3.4.5.1 | TeamsEdge Support.Tickets |
-| | Usage 用量 | /admin/billing/usage | T3.4.5.2 | (新增) |
-| | Entitlements 权益 | /admin/billing/entitlements | T3.4.5.3 | (新增) |
-| | Invoices 发票 | /admin/billing/invoices | T3.4.5.4 | (新增) |
+| L1 菜单 | L2 子菜单 | 路由 | TAES地址 | 说明 |
+|---------|-----------|------|:--------:|------|
+| **Usage** | Dashboard 总览 | /admin/billing/usage | T3.4.5.1 | 用量看板（只读投影） |
+| | Analytics 分析 | /admin/billing/analytics | T3.4.5.2 | 趋势/预测/告警 |
+
+> ⚠️ **迁移说明**：
+> - **Tickets 工单**：已迁移至 [N] Notify（T3.N.x）—— 工单是通知的一种形态
+> - **Entitlements 权益**（写操作）：保留在 [T] 结算层 —— 涉及资产变更
+> - **Invoices 发票**（写操作）：保留在 [T] 结算层 —— 涉及财务确认
 
 ---
 
