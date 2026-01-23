@@ -12,17 +12,17 @@
 
 本目录包含 TAES 中 **A (Augment)** 的**物理配置**（Workplane、AITa 等）。
 
-框架文档已迁移至 `CONTEXT/TAES/Framework/`：
+框架文档已迁移至 `Framework/`：
 
 | 文档 | 位置 | 说明 |
 |------|------|------|
-| **Augment.md** | [Framework/Augment.md](../CONTEXT/TAES/Framework/Augment.md) | A 的组织化实现 |
-| **Team-Augment.md** | [Framework/Team-Augment.md](../CONTEXT/TAES/Framework/Team-Augment.md) | 团队托举的桥与路 |
+| **Augment.md** | [Framework/Augment.md](../Framework/Augment.md) | A 的组织化实现 |
+| **Team-Augment.md** | [Framework/Team-Augment.md](../Framework/Team-Augment.md) | 团队托举的桥与路 |
 
 ```
 TAES 四字归位：
 T → TeamsCamp.md (根目录)
-A → CONTEXT/TAES/Framework/Augment.md ← 框架文档
+A → Framework/Augment.md ← 框架文档
     CONNECTION/*                       ← 配置实现
 E → Teams/README.md
 S → Teams/Metrics/

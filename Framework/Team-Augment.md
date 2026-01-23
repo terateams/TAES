@@ -161,7 +161,7 @@ AC 增强后（对 AI 可理解）：
 
 | 文档 | 定位 | 层级 |
 |------|------|:----:|
-| [E=MC²AI.md](../../../E=MC2AI.md) | 价值方程（宪法） | 哲学层 |
+| [E=MC²AI.md](../E=MC2AI.md) | 价值方程（宪法） | 哲学层 |
 | [Augment.md](Augment.md) | 托举效应的组织化实现 | 架构层 |
 | **本文档** | **团队托举的普适性与实操** | **实操层** |
 
@@ -454,10 +454,10 @@ Server/Host     ←→        AC (Augment Context)
 
 | 文档 | 内容 |
 |------|------|
-| [E=MC²AI.md](../../../E=MC2AI.md) | 价值方程完整解析 |
+| [E=MC²AI.md](../E=MC2AI.md) | 价值方程完整解析 |
 | [Augment.md](Augment.md) | 托举效应的组织化实现 |
-| [Taes.md](Taes.md) | TAES 方法论框架 |
-| [Te3.lsn189.cn.md](../TeamsEdge/Te3.lsn189.cn.md) | TeamsEdge 菜单结构（[A] 实现） |
+| [TAES.md](../TAES.md) | TAES 方法论框架 |
+| [Te3.lsn189.cn.md](../CONNECTION/TeamsEdge/Te3.lsn189.cn.md) | TeamsEdge 菜单结构（[A] 实现） |
 
 ---
 

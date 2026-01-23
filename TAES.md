@@ -199,7 +199,7 @@ MAR 架构完整支撑这个双向流：
 | 飞轮 | 驱动力 | 产出 | MAR 落地 |
 | :--- | :--- | :--- | :--- |
 | **Mission** | AM 完成率 | 交付物 + 客户价值 | `Teams/Artifacts/` |
-| **能力** | 实践频次 | 团队成长 + 方法论 | `AI/Eval/` + `CONTEXT/TAES/` |
+| **能力** | 实践频次 | 团队成长 + 方法论 | `AI/Eval/` + `CONTEXT/` |
 | **规模** | 能力复用 | 更多 E队 + 更多 AM | `Teams/Metrics/` |
 
 ### 核心结论
@@ -251,7 +251,7 @@ MAR 架构完整支撑这个双向流：
 | **Mission** | 任务 | 一个满足五要素（输入、输出、验收、AI 可介入、范围约束）的工作单元，其产出可被 AI 生成或辅助生成。Mission 是 E队 在 Scale 路径上的成长步骤。 | 详见 [Mission playbook](../Issue/Mission%20playbook.md) |
 | **Mission Repo (MR)** | 任务仓库 | 一个 Mission = 一个 GitHub Repo。MR 是 TAES 的核心执行载体，定义了 Intent/Constraints/Evidence 的存放结构与协作规范。详见 [MR Playbook](../MR%20playbook.md)。 | 方法论（可独立使用） |
 | **Scale** | 成长 | E队 的双维度成长：①Mission 完成质量 ②AI 协同能力成长。两者形成飞轮效应。 | 详见 §6 Layer 4 指标 |
-| **Augment** | 托举 | 口语表述为 Lift。托举效应 = 网络可靠（bit）× AI可用（Token），乘法关系，缺一则归零。 | TAES 四字之 A，详见 [Augment.md](../../../CONNECTION/Augment.md) |
+| **Augment** | 托举 | 口语表述为 Lift。托举效应 = 网络可靠（bit）× AI可用（Token），乘法关系，缺一则归零。 | TAES 四字之 A，详见 [Augment.md](Framework/Augment.md) |
 | **AITa** | AI托管 | Allied AI 托管服务。LLM 特性传承 · 常年支付稳定 · 季度能力更新。 | A 的核心组件 |
 | **Workplane** | 工作平面 | 合规网络通道。IPv6/56 固定出口 · SLA 保障 · 7×24 运维。 | A 的基础设施 |
 

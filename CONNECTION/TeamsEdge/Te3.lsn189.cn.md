@@ -679,7 +679,7 @@ Examples:
 | **Who** | ACD-P | ACD Players | 谁参与？ | CONTEXT/Players/ |
 | **What** | ACD-S | ACD Story | 做什么？ | CONTEXT/Story/ |
 | **When** | ACD-T | ACD Times | 何时何地？ | CONTEXT/Times/ |
-| **How** | ACD-M | ACD Methods | 怎么做？ | CONTEXT/TAES/ |
+| **How** | ACD-M | ACD Methods | 怎么做？ | CONTEXT/ |
 
 ##### AC 与 AR 的关系
 

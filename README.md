@@ -31,12 +31,15 @@ $$ E = M \times C^2 \times AI Measure-Object
 
 ```
 TAES/
-├── CONTEXT/TAES/        # 框架方法论
-├── CONNECTION/          # 基础设施定义模板
-├── AI/                  # Agent 定义模板
-├── .github/skills/      # CLEAR/ICE/MAR 技能包
-├── E=MC2AI.md           # 价值方程核心文档
-└── TeamsCamp.md         # 商业架构洞见
+├── TAES.md              # TAES 四字定义（核心入口）
+├── E=MC2AI.md           # 价值方程（宪法）
+├── TeamsCamp.md         # T营 商业洞见
+├── Framework/           # 框架方法论
+├── CONTEXT/             # 业务语境（T营 参考实例）
+├── CONNECTION/          # 基础设施配置
+├── AI/                  # Agent 定义
+├── Teams/               # E队 交付
+└── .github/skills/      # CLEAR/ICE/MAR 技能包
 ```
 
 ---

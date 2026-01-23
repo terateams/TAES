@@ -2,7 +2,7 @@
 
 > **定位**：TAES 规范与 TeamsEdge 软件实例的协同契约层
 >
-> 规范源头：[CONTEXT/TAES/TeamsEdge/](../../CONTEXT/TAES/TeamsEdge/README.md)
+> 规范源头：[CONTEXT/TeamsEdge/](../../CONTEXT/TeamsEdge/README.md)
 
 ---
 
@@ -11,7 +11,7 @@
 ```
 TAES Repo                          TeamsEdge Repo              运行实例
 ───────────                        ──────────────              ────────
-CONTEXT/TAES/TeamsEdge/    ──→    源代码实现        ──→      TE3.lsn189.cn
+CONTEXT/TeamsEdge/         ──→    源代码实现        ──→      TE3.lsn189.cn
 (规范定义)                         (软件开发)                  (生产环境)
         │
         ↓
@@ -53,9 +53,9 @@ CONNECTION/TeamsEdge/      ←────────────────�
 
 | 文档 | 说明 |
 |------|------|
-| [Navigation-00.md](../../CONTEXT/TAES/TeamsEdge/Navigation-00.md) | 9 个 L1 菜单定义 |
-| [ATP框架.md](../../CONTEXT/TAES/TeamsEdge/ATP框架.md) | AI 托举界面框架 |
-| [Personas-10.md](../../CONTEXT/TAES/TeamsEdge/Personas-10.md) | 用户角色定义 |
+| [Navigation-00.md](../../CONTEXT/TeamsEdge/Navigation-00.md) | 9 个 L1 菜单定义 |
+| [ATP框架.md](../../CONTEXT/TeamsEdge/ATP框架.md) | AI 托举界面框架 |
+| [Personas-10.md](../../CONTEXT/TeamsEdge/Personas-10.md) | 用户角色定义 |
 
 ---
 

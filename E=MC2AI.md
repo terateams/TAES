@@ -188,7 +188,7 @@ Copilot Enterprise 提供的不是"一个 AI"，而是**认知民主化**：
 
 E队 Player 可以根据任务**选择思维伙伴**，而不是被单一 AI 的偏见锁定。
 
-> 📋 **深度展开**：详见 [CONTEXT/TAES/Framework/Augment.md](CONTEXT/TAES/Framework/Augment.md) — A 的组织化实现
+> 📋 **深度展开**：详见 [Framework/Augment.md](Framework/Augment.md) — A 的组织化实现
 
 ---
 
@@ -655,8 +655,8 @@ E = MC²A
 | 资源 | 路径 | 说明 |
 |------|------|------|
 | MAR 架构总览 | [README.md](README.md) | 完整架构说明 |
-| TAES 框架 | [CONTEXT/TAES/Framework/Taes.md](CONTEXT/TAES/Framework/Taes.md) | 组织运营方法论 |
-| TAES 核心洞见 | [CONTEXT/TAES/Strategy/Core-Insights.md](CONTEXT/TAES/Strategy/Core-Insights.md) | 战略分析 |
+| TAES 框架 | [TAES.md](TAES.md) | 组织运营方法论 |
+| TAES 核心洞见 | [CONTEXT/Strategy/Core-Insights.md](CONTEXT/Strategy/Core-Insights.md) | 战略分析 |
 | Mission 定义 | [MISSION.md](MISSION.md) | 当前任务看板 |
 | AI 智能中枢 | [AI/README.md](AI/README.md) | AI 能力说明 |
 | Taes Agent | [AI/Taes/README.md](AI/Taes/README.md) | TAES 框架教练 |

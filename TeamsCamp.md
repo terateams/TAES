@@ -28,9 +28,10 @@
 │  关注点: 框架定义、模板维护、品控体系、E队运营                           │
 │                                                                         │
 │  包含:                                                                  │
-│  ├── CONTEXT/TAES/         # 框架方法论                                 │
-│  ├── CONNECTION/           # 基础设施定义（模板）                        │
-│  └── AI/                   # Agent 定义（模板）                          │
+│  ├── Framework/               # 框架方法论                                 │
+│  ├── CONTEXT/                 # 业务语境                                   │
+│  ├── CONNECTION/              # 基础设施定义（模板）                        │
+│  └── AI/                      # Agent 定义（模板）                          │
 └─────────────────────────────────────────────────────────────────────────┘
                           ↓ fork/template
 ┌─────────────────────────────────────────────────────────────────────────┐
@@ -163,7 +164,7 @@ $$E = M \times C^2 \times AI$$
 
 | 层面 | 配套软件 | 仓库位置 | 状态 | 说明 |
 |------|----------|----------|:----:|------|
-| **TAES** | TeamsEdge | `CONTEXT/TAES/TeamsEdge/` | ✅ 已定义 | T营的"元协力软件"，承载 TAES 数字化平台 |
+| **TAES** | TeamsEdge | `CONTEXT/TeamsEdge/` | ✅ 已定义 | T营的"元协力软件"，承载 TAES 数字化平台 |
 | **MAR** | E卡软件 | — | ⏳ 待定义 | E队的自用软件/工具（当前不存在） |
 
 ### TeamsEdge — TAES 的配套软件
@@ -183,7 +184,7 @@ $$E = M \times C^2 \times AI$$
 │  ├── Foundry 菜单: 交付物与证据链                                        │
 │  └── Credits & Billing: 算力计费与结算                                   │
 │                                                                         │
-│  文档入口: CONTEXT/TAES/TeamsEdge/README.md                              │
+│  文档入口: CONTEXT/TeamsEdge/README.md                              │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -214,14 +215,14 @@ $$E = M \times C^2 \times AI$$
 ┌─────────────────────────────────────────────────────────────────────────┐
 │  TAES Repo（元仓库）                                                     │
 │  ├── 配套软件: TeamsEdge                                                 │
-│  ├── 软件定义: CONTEXT/TAES/TeamsEdge/                                   │
-│  └── 产品 Playbook: CONTEXT/TAES/Products/                               │
+│  ├── 软件定义: CONTEXT/TeamsEdge/                                   │
+│  └── 产品 Playbook: CONTEXT/Products/                               │
 │                                                                         │
 │                         ↓ fork/template                                  │
 │                                                                         │
 │  MAR Repo（实例仓库）                                                    │
 │  ├── 配套软件: E卡软件（待定义）                                          │
-│  ├── 主体定义: CONTEXT/TAES/Parties/EdgeTeam/                            │
+│  ├── 主体定义: CONTEXT/Parties/EdgeTeam/                            │
 │  └── Mission 执行: MISSION.md + MISSION/ + Teams/                        │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
@@ -232,8 +233,8 @@ $$E = M \times C^2 \times AI$$
 
 | 维度 | 说明 | 位置 |
 |------|------|------|
-| **作为 TAES 实体** | E队是 TAES 生态中的"操作单元" | `CONTEXT/TAES/Parties/EdgeTeam/` |
-| **作为产品定义** | E队的 Playbook（生命周期、托举关系、毕业目标） | `CONTEXT/TAES/Products/EdgeTeam-playbook.md` |
+| **作为 TAES 实体** | E队是 TAES 生态中的"操作单元" | `CONTEXT/Parties/EdgeTeam/` |
+| **作为产品定义** | E队的 Playbook（生命周期、托举关系、毕业目标） | `CONTEXT/Products/EdgeTeam-playbook.md` |
 | **作为 MAR 主体** | E队是 MAR 实例仓库的 Owner | `Teams/` 产出归属于 E队 |
 
 E队不是软件，而是**被软件服务的主体**：
@@ -262,11 +263,13 @@ E队不是软件，而是**被软件服务的主体**：
 
 ```
 taes-framework/
-├── CONTEXT/TAES/        # 从当前 Repo 复制
-├── CONNECTION/          # 基础设施模板
-├── AI/                  # Agent 定义模板
-├── E=MC2AI.md           # 价值方程
-├── .github/skills/      # CLEAR/ICE/MAR 技能包
+├── Framework/               # 框架方法论
+├── CONTEXT/                 # 业务语境模板
+├── CONNECTION/              # 基础设施模板
+├── AI/                      # Agent 定义模板
+├── TAES.md                  # TAES 四字定义
+├── E=MC2AI.md               # 价值方程
+├── .github/skills/          # CLEAR/ICE/MAR 技能包
 └── .github/copilot-instructions.md  # AI 宪法
 ```
 
@@ -285,7 +288,7 @@ taes-framework (权威)    →    mar-template (引用)    →    mar-instance (
 ```
 
 - taes-framework 成为 TAES 的权威来源
-- 当前 Repo 删除 CONTEXT/TAES/，改为 submodule 或文档引用
+- 当前 Repo 删除重复内容，改为 submodule 或文档引用
 - 当前 Repo 正式成为 mar-template
 
 ---
@@ -294,7 +297,8 @@ taes-framework (权威)    →    mar-template (引用)    →    mar-instance (
 
 | 归属 | 目录/文件 | 说明 |
 |------|-----------|------|
-| **TAES** | `CONTEXT/TAES/` | 框架方法论（Parties/Products/Strategy/TeamsEdge...） |
+| **TAES** | `Framework/` | 框架方法论（Augment/Team-Augment/Playbooks...） |
+| **TAES** | `CONTEXT/` | 业务语境（Parties/Products/Strategy/TeamsEdge...） |
 | **TAES** | `CONNECTION/` | 基础设施定义模板 |
 | **TAES** | `AI/` | Agent 定义模板 |
 | **TAES** | `E=MC2AI.md` | 价值方程核心文档 |

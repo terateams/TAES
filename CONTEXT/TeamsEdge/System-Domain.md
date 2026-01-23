@@ -194,7 +194,7 @@ Domain 是 TeamsEdge 系统运行的**基础锚点**：
 
 | Context 类型 | 路径 / 来源 | 说明 |
 | :--- | :--- | :--- |
-| **TAES 方法论** | `CONTEXT/TAES/Framework/Taes.md` | 指导系统设计的核心方法论 |
+| **TAES 方法论** | `TAES.md` | 指导系统设计的核心方法论 |
 | **Menu 导航定义** | `CONNECTION/Workplane/TeamsEdge/Task/Menu.md` | 菜单结构与 PM Intent |
 | **Mission Repo 模板** | GitHub Template Repo | E队 Repo 初始化模板 |
 | **Copilot Instructions** | `.github/copilot-instructions.md` | AI 协同约束注入 |
