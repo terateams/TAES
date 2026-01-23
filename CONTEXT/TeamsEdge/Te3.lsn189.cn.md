@@ -272,18 +272,21 @@
 
 ---
 
-### ⚪ [—] 系统治理 — Notification / System / Data
+### ⚪ [—] 系统治理 — Notify / System / Data
 
 > **权限**: T营专属 | **定位**: 平台运维 | **地址段**: `T3.5.x.x`
+>
+> 📖 **[N] Notify 深层洞见与 V1 设计**：见 [Te3.lsn189.cn.N.explainer.md](Te3.lsn189.cn.N.explainer.md)
 
-#### Notification — 通知
+#### Notify — 通知（V1）
 
-| L1 菜单 | L2 子菜单 | 路由 | TAES地址 | Te3.lsn189.cn (admin) |
-|---------|-----------|------|:--------:|----------------------|
-| **Notification** | Users 用户通知 | /admin/users | T3.5.1.1 | TeamsEdge Support.Users |
-| | Operation Log | /admin/oplog | T3.5.1.2 | TeamsEdge System.Operation Log |
+| L1 菜单 | L2 子菜单 | 路由 | TAES地址 | 说明 |
+|---------|-----------|------|:--------:|------|
+| **Notify** | Inbox | /notifications | T3.5.1.1 | 站内信列表 |
+| | Preferences | /notifications/settings | T3.5.1.2 | 用户订阅偏好 |
 
 #### System — 系统
+
 
 | L1 菜单 | L2 子菜单 | 路由 | TAES地址 | Te3.lsn189.cn (admin) |
 |---------|-----------|------|:--------:|----------------------|
@@ -373,7 +376,7 @@
 | `T3.4.3.x` | 1-7 | WorkSpace 工位 |
 | `T3.4.4.x` | 1-12 | AI Intelligence 认知 |
 | `T3.4.5.x` | 1-4 | Credits & Billing 权益 |
-| `T3.5.1.x` | 1-2 | Notification 通知 |
+| `T3.5.1.x` | 1-2 | Notify 通知（Inbox/Preferences） |
 | `T3.5.2.x` | 1-5 | System 系统设置 |
 | `T3.5.3.x` | 1-2 | Data 数据管理 |
 | `T3.6.1.x` | 1-12 | TeamsEdge Support 平台支持 |
@@ -392,7 +395,7 @@
 | **S** | The Foundry | ✅ 审计 | ✅ 自助 | ❌ |
 | **S** | AI Intelligence | ✅ 审计 | ✅ 自助 | ✅ Knowledge |
 | **S** | Credits & Billing（S=只读投影；写在T：Invoice/Entitlement；看在S：Usage） | ✅ 管理 | 👁️ 只读 | ❌ |
-| **—** | Notification | ✅ 管理 | 👁️ 只读 | ✅ 只读 |
+| **—** | Notify | ✅ 管理 | 👁️ 只读 | ✅ 只读 |
 | **—** | System | ✅ 专属 | ❌ | ✅ 受限 |
 | **—** | Data | ✅ 专属 | ❌ | ❌ |
 | **R** | TeamsEdge Support | ✅ 专属 | ❌ | ❌ |
