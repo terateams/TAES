@@ -188,7 +188,7 @@ Copilot Enterprise 提供的不是"一个 AI"，而是**认知民主化**：
 
 E队 Player 可以根据任务**选择思维伙伴**，而不是被单一 AI 的偏见锁定。
 
-> 📋 **深度展开**：详见 [CONNECTION/Augment.md](CONNECTION/Augment.md) — A 的组织化实现
+> 📋 **深度展开**：详见 [CONTEXT/TAES/Framework/Augment.md](CONTEXT/TAES/Framework/Augment.md) — A 的组织化实现
 
 ---
 

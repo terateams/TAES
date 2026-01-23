@@ -73,7 +73,7 @@ T营 持有基础设施 → 托举 E队 使用 AI → E队 产出 Mission 交付
 
 > **托举 = 让 E队 的生产力基于可依赖的基础设施运转。**
 >
-> 📋 **深度展开**：[CONNECTION/Augment.md](../../../CONNECTION/Augment.md) — TAES 四字之 A 的组织化实现
+> 📋 **深度展开**：[CONTEXT/TAES/Framework/Augment.md](../Framework/Augment.md) — TAES 四字之 A 的组织化实现
 
 ```
 托举效应 = 网络可靠 × AI可用

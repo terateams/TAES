@@ -215,7 +215,7 @@ $$
 |------|------|
 | [TAES 方法论](../Framework/Taes.md) | TAES 完整框架 |
 | [E=MC²AI 公式](../../../E=MC2AI.md) | 价值方程完整解析 |
-| [托举效应](../../../CONNECTION/Augment.md) | A 的组织化实现 |
+| [托举效应](../Framework/Augment.md) | A 的组织化实现 |
 
 ---
 

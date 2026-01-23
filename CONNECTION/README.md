@@ -6,20 +6,24 @@
 
 ---
 
-## 🏗️ Augment：A 的核心文档
+## 🏗️ 定位：T营 造的"桥"
 
-> **托举效应 = Workplane × AITa = 网络可靠 × AI可用**
+> **CONNECTION 是 T营 提供的基础设施——桥可以买，路必须自己走。**
 
-本目录是 TAES 中 **A (Augment)** 的物理实现。核心文档：
+本目录包含 TAES 中 **A (Augment)** 的**物理配置**（Workplane、AITa 等）。
 
-| 文档 | 说明 |
-|------|------|
-| **[Augment.md](Augment.md)** | A 的组织化实现——T营如何建设托举基座 |
+框架文档已迁移至 `CONTEXT/TAES/Framework/`：
+
+| 文档 | 位置 | 说明 |
+|------|------|------|
+| **Augment.md** | [Framework/Augment.md](../CONTEXT/TAES/Framework/Augment.md) | A 的组织化实现 |
+| **Team-Augment.md** | [Framework/Team-Augment.md](../CONTEXT/TAES/Framework/Team-Augment.md) | 团队托举的桥与路 |
 
 ```
 TAES 四字归位：
-T → README.md (根目录)
-A → CONNECTION/Augment.md ← 核心文档
+T → TeamsCamp.md (根目录)
+A → CONTEXT/TAES/Framework/Augment.md ← 框架文档
+    CONNECTION/*                       ← 配置实现
 E → Teams/README.md
 S → Teams/Metrics/
 ```

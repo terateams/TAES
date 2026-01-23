@@ -31,7 +31,7 @@ Gov/
 
 | 我想知道 | 去哪里看 |
 |----------|----------|
-| 托举效应的组织化实现？ | [CONNECTION/Augment.md](../../CONNECTION/Augment.md) |
+| 托举效应的组织化实现？ | [CONTEXT/TAES/Framework/Augment.md](../../CONTEXT/TAES/Framework/Augment.md) |
 | 谁能用 Copilot？ | [access.md](access.md) |
 | 能把客户数据给 AI 吗？ | [data.md](data.md) |
 | 使用记录在哪？ | [audit.md](audit.md) |
