@@ -37,18 +37,23 @@
 
 ### TAES 地址段规范
 
-> **格式**: `T3.{TAES}.{L2}` — T3=Te3站点, TAES分区=1-6, L2=子菜单序号
+> **格式**: `T3.{TAES}.{L2}` — T3=Te3站点, TAES分区=11-17, L2=子菜单序号
 > **实例**: `T3.{TAES}.{L2}.{hash}` — 具体资源实例的唯一地址
+>
+> **设计原则**：类 TCP/IP 纯数字寻址，无例外
+> - **T3.0.x ~ T3.10.x**：保留（未来探索空间，共 11 个段位）
+> - **T3.11.x ~ T3.15.x**：TAES 五分区（E-T-A-S-N）
+> - **T3.16.x ~ T3.17.x**：治理分区（System-Reserved）
 
 | TAES 分区 | 地址段 | 说明 | 实例示例 |
 |:---------:|:------:|------|----------|
-| **[E]** EdgeTeams | `T3.1.x` | 价值创造方 | T3.1.3.suibe-org |
-| **[T]** TeamsCamp | `T3.2.x` | 资源持有方 | T3.2.4.066217 |
-| **[A]** Augment | `T3.3.x` | 托举基础设施 | T3.3.3.2.acc-001 |
-| **[S]** Scale | `T3.4.x` | 增长飞轮 | T3.4.1.mar-001 |
-| **[N]** Notify | `T3.N.x` | 信息传导（TAES 神经系统） | T3.N.1.inbox |
-| **[—]** System | `T3.5.x` | 系统治理 | T3.5.2.settings |
-| **[R]** Reserved | `T3.6.x` | 保留区（平台级） | T3.6.1.support |
+| **[E]** EdgeTeams | `T3.11.x` | 价值创造方 | T3.11.3.suibe-org |
+| **[T]** TeamsCamp | `T3.12.x` | 资源持有方 | T3.12.4.066217 |
+| **[A]** Augment | `T3.13.x` | 托举基础设施 | T3.13.3.2.acc-001 |
+| **[S]** Scale | `T3.14.x` | 增长飞轮 | T3.14.1.mar-001 |
+| **[N]** Notify | `T3.15.x` | 信息传导（TAES 神经系统） | T3.15.1.inbox |
+| **[—]** System | `T3.16.x` | 系统治理 | T3.16.2.settings |
+| **[R]** Reserved | `T3.17.x` | 保留区（平台级） | T3.17.1.support |
 
 
 
@@ -56,7 +61,7 @@
 
 ### 🟢 [E] EdgeTeams — 客户是谁
 
-> **权限**: E队自助 + T营可见 | **定位**: 价值创造方 | **地址段**: `T3.1.x`
+> **权限**: E队自助 + T营可见 | **定位**: 价值创造方 | **地址段**: `T3.11.x`
 
 > **关键洞见（E 分区三件套）**：
 > - **E队（EdgeTeam）**：业务主体（“这是谁的队伍”）
@@ -67,13 +72,13 @@
 
 | L1 菜单 | L2 子菜单 | 路由 | TAES地址 | 功能说明 | 实例地址示例 |
 |---------|-----------|------|:--------:|----------|----------------|
-| **EdgeTeams** | E队 | /Teams/team | T3.1.1 | 以 E队番号 列出所有 E队 | T3.1.1.et-001 |
-| | 队员 | /Teams/player | T3.1.2 | 以 Player ID 列出所有队员 | T3.1.2.p-zhang |
-| | AO | /Teams/ao | T3.1.3 | Augmented Org（默认与 E队 1:1 绑定的信任边界） | T3.1.3.suibe-org |
-| | AR | /Teams/ar | T3.1.4 | Augmented Repo（归属 AO 的 Mission 载体，默认免费创建） | T3.1.4.mar-001 |
-| | M365组团 | /Teams/tsg | T3.1.5 | M365 Group Policy 中的 Security Group ID | T3.1.5.sg-sales |
-| | 番号域名 | /Teams/domain | T3.1.6 | E队的域名与番号（EdgeTeam Code） | T3.1.6.et001.com |
-| | Publisher | /Teams/publisher | T3.1.7 | E队软件发布者（E卡/O卡/V卡），默认个人 | T3.1.7.pub-001 |
+| **EdgeTeams** | E队 | /Teams/team | T3.11.1 | 以 E队番号 列出所有 E队 | T3.11.1.et-001 |
+| | 队员 | /Teams/player | T3.11.2 | 以 Player ID 列出所有队员 | T3.11.2.p-zhang |
+| | AO | /Teams/ao | T3.11.3 | Augmented Org（默认与 E队 1:1 绑定的信任边界） | T3.11.3.suibe-org |
+| | AR | /Teams/ar | T3.11.4 | Augmented Repo（归属 AO 的 Mission 载体，默认免费创建） | T3.11.4.mar-001 |
+| | M365组团 | /Teams/tsg | T3.11.5 | M365 Group Policy 中的 Security Group ID | T3.11.5.sg-sales |
+| | 番号域名 | /Teams/domain | T3.11.6 | E队的域名与番号（EdgeTeam Code） | T3.11.6.et001.com |
+| | Publisher | /Teams/publisher | T3.11.7 | E队软件发布者（E卡/O卡/V卡），默认个人 | T3.11.7.pub-001 |
 
 > **Publisher 说明**：
 > - **E卡**：Microsoft Edge Extension（edge://extensions）
@@ -101,7 +106,7 @@
 
 ### 🔵 [T] TeamsCamp — 资源在哪
 
-> **权限**: T营专属 | **定位**: 资源持有方 | **地址段**: `T3.2.x`
+> **权限**: T营专属 | **定位**: 资源持有方 | **地址段**: `T3.12.x`
 
 > **阅读提示**：以下仅保留 **T3.2.x 菜单清单**。与 [T] 相关的说明（洞见/依赖链/归属模型/双线汇聚）已抽离至 [Te3.lsn189.cn.T.explainer.md](Te3.lsn189.cn.T.explainer.md)。
 
@@ -109,12 +114,12 @@
 
 | L1 菜单 | L2 子菜单 | 路由 | TAES地址 | 功能说明 | 实例地址示例 |
 |---------|-----------|------|:--------:|----------|----------------|
-| **TeamsCamp** | AITC | /admin/teamscamp/aitc | T3.2.1 | Allied Intelligent Tenant Contract 协同租户 | T3.2.1.alliedai |
-| | BAS | /admin/teamscamp/bas | T3.2.2 | Benefit Azure Subscription 赢力订阅 | T3.2.2.sub-001 |
-| | AGA | /admin/teamscamp/aga | T3.2.3 | Augmented GitHub Account 托举账号 | T3.2.3.teamscamp |
-| | Teamsbox | /admin/teamscamp/teamsbox | T3.2.4 | CPE 边缘设备（L层，账单确权） | T3.2.4.066217 |
-| | Link Server | /admin/teamscamp/linkserver | T3.2.5 | VPN/Proxy 隧道服务器（S层，订阅确权） | T3.2.5.CN-SH-01 |
-| | Service Node | /admin/teamscamp/servicenode | T3.2.6 | Apps Gateway 出口节点（N层，用量确权） | T3.2.6.HK-RES |
+| **TeamsCamp** | AITC | /admin/teamscamp/aitc | T3.12.1 | Allied Intelligent Tenant Contract 协同租户 | T3.12.1.alliedai |
+| | BAS | /admin/teamscamp/bas | T3.12.2 | Benefit Azure Subscription 赢力订阅 | T3.12.2.sub-001 |
+| | AGA | /admin/teamscamp/aga | T3.12.3 | Augmented GitHub Account 托举账号 | T3.12.3.teamscamp |
+| | Teamsbox | /admin/teamscamp/teamsbox | T3.12.4 | CPE 边缘设备（L层，账单确权） | T3.12.4.066217 |
+| | Link Server | /admin/teamscamp/linkserver | T3.12.5 | VPN/Proxy 隧道服务器（S层，订阅确权） | T3.12.5.CN-SH-01 |
+| | Service Node | /admin/teamscamp/servicenode | T3.12.6 | Apps Gateway 出口节点（N层，用量确权） | T3.12.6.HK-RES |
 
 > **说明**：`T3.2.x` 的“双线汇聚（AITa × Workplane）/L-S-N/AGA/依赖链/确权与归属/分工边界”等解释，见 [Te3.lsn189.cn.T.explainer.md](Te3.lsn189.cn.T.explainer.md)。
 
@@ -122,7 +127,7 @@
 
 ### 🟡 [A] Augment — 如何连接
 
-> **权限**: T营运维 + E队只读 | **定位**: 托举基础设施 | **地址段**: `T3.3.x`
+> **权限**: T营运维 + E队只读 | **定位**: 托举基础设施 | **地址段**: `T3.13.x`
 
 > **阅读提示**：以下仅保留 **A 的菜单清单/路由/地址段与页面结构**。与 [A] 相关的说明（Augment 三支柱、AC/CA/ACD/ACC、Context Protocol、AR/MU 关系与洞见）已合并到 [Te3.lsn189.cn.explainer.md](Te3.lsn189.cn.explainer.md) 的 🟡 [A] 小节。
 
@@ -133,20 +138,20 @@
 
 | 子分区 | 地址段 | 核心菜单 | 状态 | 说明 |
 |:------:|:------:|----------|:----:|------|
-| **Workplane** | `T3.3.1.x` | Dashboard + Teamsbox | ✅ 现有 | 网络通路（bit 可靠） |
-| **AITa** | `T3.3.2.x` | Dashboard | 🔄 规划 | 算力接入（Token 可用） |
-| **AC** | `T3.3.3.x` | Dashboard + CA Registry | 🔄 规划 | 语境托举（Context 可懂） |
+| **Workplane** | `T3.13.1.x` | Dashboard + Teamsbox | ✅ 现有 | 网络通路（bit 可靠） |
+| **AITa** | `T3.13.2.x` | Dashboard | 🔄 规划 | 算力接入（Token 可用） |
+| **AC** | `T3.13.3.x` | Dashboard + CA Registry | 🔄 规划 | 语境托举（Context 可懂） |
 
 ---
-#### A1. Workplane — 网络通路 (T3.3.1)
+#### A1. Workplane — 网络通路 (T3.13.1)
 
 | L2 子菜单 | 路由 | TAES地址 | 状态 | 功能说明 |
 |-----------|------|:--------:|:----:|----------|
-| **Workplane Dashboard** | /admin/workplane | T3.3.1.1 | ✅ | 网络通路总览（含 L-S-N 拓扑） |
-| **Teamsbox** | /admin/teamsbox | T3.3.1.2 | ✅ | CPE 边缘设备管理 |
+| **Workplane Dashboard** | /admin/workplane | T3.13.1.1 | ✅ | 网络通路总览（含 L-S-N 拓扑） |
+| **Teamsbox** | /admin/teamsbox | T3.13.1.2 | ✅ | CPE 边缘设备管理 |
 
 <details>
-<summary>📁 Workplane Dashboard 内含子页面（原 T3.3.1.2-5）</summary>
+<summary>📁 Workplane Dashboard 内含子页面（原 T3.13.1.2-5）</summary>
 
 | 子页面 | 原路由 | 说明 |
 |--------|--------|------|
@@ -157,25 +162,25 @@
 </details>
 
 <details>
-<summary>📁 已归入 [R] Reserved 的运维菜单（原 T3.3.1.6-10）</summary>
+<summary>📁 已归入 [R] Reserved 的运维菜单（原 T3.13.1.6-10）</summary>
 
 | 菜单 | 路由 | 新地址 |
 |------|------|:------:|
-| Proxy Server | /admin/teamsedge/server | T3.6.1.6 |
-| Proxy Limiter | /admin/teamsedge/limiter | T3.6.1.7 |
-| Proxy Address | /admin/teamsedge/address | T3.6.1.8 |
-| Proxy Rule | /admin/teamsedge/rule | T3.6.1.9 |
-| Proxy Sessions | /admin/teamsedge/session | T3.6.1.10 |
+| Proxy Server | /admin/teamsedge/server | T3.17.1.6 |
+| Proxy Limiter | /admin/teamsedge/limiter | T3.17.1.7 |
+| Proxy Address | /admin/teamsedge/address | T3.17.1.8 |
+| Proxy Rule | /admin/teamsedge/rule | T3.17.1.9 |
+| Proxy Sessions | /admin/teamsedge/session | T3.17.1.10 |
 
 </details>
 
 ---
 
-#### A2. AITa — 算力接入 (T3.3.2)
+#### A2. AITa — 算力接入 (T3.13.2)
 
 | L2 子菜单 | 路由 | TAES地址 | 状态 | 功能说明 |
 |-----------|------|:--------:|:----:|----------|
-| **AITa Dashboard** | /admin/aita | T3.3.2.1 | 🔄 规划 | 算力管理总览 |
+| **AITa Dashboard** | /admin/aita | T3.13.2.1 | 🔄 规划 | 算力管理总览 |
 
 <details>
 <summary>📁 AITa Dashboard 内含 Tab（v2.5 实现）</summary>
@@ -190,13 +195,13 @@
 
 ---
 
-#### A3. AC — 语境托举 (T3.3.3)
+#### A3. AC — 语境托举 (T3.13.3)
 ##### AC 菜单清单
 
 | L2 子菜单 | 路由 | TAES地址 | 状态 | 功能说明 |
 |-----------|------|:--------:|:----:|----------|
-| **AC Dashboard** | /admin/ac | T3.3.3.1 | 🔄 规划 | 语境管理总览 |
-| **CA Registry** | /admin/ac/address | T3.3.3.2 | 🔄 规划 | 语境地址注册表 |
+| **AC Dashboard** | /admin/ac | T3.13.3.1 | 🔄 规划 | 语境管理总览 |
+| **CA Registry** | /admin/ac/address | T3.13.3.2 | 🔄 规划 | 语境地址注册表 |
 
 <details>
 <summary>📁 AC Dashboard 内含 Tab（v2.5 实现）</summary>
@@ -213,7 +218,7 @@
 
 ### 🟣 [S] Scale 飞轮 — Mission / Foundry / Intelligence / Usage
 
-> **权限**: E队自助 + T营审计 | **定位**: 增长引擎（MU 生命周期） | **地址段**: `T3.4.x.x`
+> **权限**: E队自助 + T营审计 | **定位**: 增长引擎（MU 生命周期） | **地址段**: `T3.14.x.x`
 >
 > 📖 **[S] 深层洞见与 MU 生命周期重构**：见 [Te3.lsn189.cn.S.explainer.md](Te3.lsn189.cn.S.explainer.md)
 >
@@ -223,38 +228,38 @@
 
 | L1 菜单 | L2 子菜单 | 路由 | TAES地址 | 说明 |
 |---------|-----------|------|:--------:|------|
-| **Mission** | Board | /admin/mission/board | T3.4.1.0 | 📊 Mission 看板（生命周期视图） |
-| | EdgeTeam ET卡 | /admin/addons_new | T3.4.1.1 | Mission 载体 |
-| | EdgeTeam VSC Kard | /admin/vsckard | T3.4.1.2 | Mission 载体 |
-| | EdgeTeam OS Kard | /admin/oskard | T3.4.1.3 | Mission 载体 |
-| | Templates | /admin/mission/templates | T3.4.1.4 | Mission 模板库 |
+| **Mission** | Board | /admin/mission/board | T3.14.1.0 | 📊 Mission 看板（生命周期视图） |
+| | EdgeTeam ET卡 | /admin/addons_new | T3.14.1.1 | Mission 载体 |
+| | EdgeTeam VSC Kard | /admin/vsckard | T3.14.1.2 | Mission 载体 |
+| | EdgeTeam OS Kard | /admin/oskard | T3.14.1.3 | Mission 载体 |
+| | Templates | /admin/mission/templates | T3.14.1.4 | Mission 模板库 |
 
-> ⚠️ **迁移**: Context Template 已迁移至 [A] AC（T3.3.3.x）
+> ⚠️ **迁移**: Context Template 已迁移至 [A] AC（T3.13.3.x）
 
 #### S2. Foundry — 交付什么（MU₂ 交付层）
 
 | L1 菜单 | L2 子菜单 | 路由 | TAES地址 | 说明 |
 |---------|-----------|------|:--------:|------|
-| **Foundry** | Workplace | /admin/task/workplace | T3.4.2.1 | 工作场所 |
-| | Workbench | /admin/task/workbench | T3.4.2.2 | 工作台 |
-| | Functions | /admin/task/functions | T3.4.2.3 | 功能模块 |
-| | Deliverables | /admin/task/deliverables | T3.4.2.4 | 交付物管理（新增） |
+| **Foundry** | Workplace | /admin/task/workplace | T3.14.2.1 | 工作场所 |
+| | Workbench | /admin/task/workbench | T3.14.2.2 | 工作台 |
+| | Functions | /admin/task/functions | T3.14.2.3 | 功能模块 |
+| | Deliverables | /admin/task/deliverables | T3.14.2.4 | 交付物管理（新增） |
 
-> ⚠️ **迁移**: WorkSpace（设备管理）已迁移至 [A] Workplane（T3.3.1.x）
+> ⚠️ **迁移**: WorkSpace（设备管理）已迁移至 [A] Workplane（T3.13.1.x）
 
 #### S3. Intelligence — 学到什么（MU₃ 沉淀层）
 
 | L1 菜单 | L2 子菜单 | 路由 | TAES地址 | 说明 |
 |---------|-----------|------|:--------:|------|
-| **Intelligence** | Knowledge | /admin/teamsbot/ragfiles | T3.4.4.1 | 知识库（RAG） |
-| | Agents | /admin/teamsbot | T3.4.4.2 | AI Agent（Teams Ta） |
-| | Apps | /admin/teamsedge/apps | T3.4.4.3 | AI 应用 |
-| | Patterns | /admin/intelligence/patterns | T3.4.4.4 | 可复用模式（新增） |
+| **Intelligence** | Knowledge | /admin/teamsbot/ragfiles | T3.14.4.1 | 知识库（RAG） |
+| | Agents | /admin/teamsbot | T3.14.4.2 | AI Agent（Teams Ta） |
+| | Apps | /admin/teamsedge/apps | T3.14.4.3 | AI 应用 |
+| | Patterns | /admin/intelligence/patterns | T3.14.4.4 | 可复用模式（新增） |
 
 > ⚠️ **迁移**:
-> - Context Prompt 已迁移至 [A] AC（T3.3.3.x）
-> - Azure AI/Globe AI/China AI 已迁移至 [A] AITa（T3.3.2.x）
-> - Tester/insight 已迁移至 [R] 保留区（T3.6.x）
+> - Context Prompt 已迁移至 [A] AC（T3.13.3.x）
+> - Azure AI/Globe AI/China AI 已迁移至 [A] AITa（T3.13.2.x）
+> - Tester/insight 已迁移至 [R] 保留区（T3.17.x）
 
 #### S4. Usage — 花了多少（只读投影层）
 
@@ -270,11 +275,11 @@
 
 | L1 菜单 | L2 子菜单 | 路由 | TAES地址 | 说明 |
 |---------|-----------|------|:--------:|------|
-| **Usage** | Dashboard 总览 | /admin/billing/usage | T3.4.5.1 | 用量看板（只读投影） |
-| | Analytics 分析 | /admin/billing/analytics | T3.4.5.2 | 趋势/预测/告警 |
+| **Usage** | Dashboard 总览 | /admin/billing/usage | T3.14.5.1 | 用量看板（只读投影） |
+| | Analytics 分析 | /admin/billing/analytics | T3.14.5.2 | 趋势/预测/告警 |
 
 > ⚠️ **迁移说明**：
-> - **Tickets 工单**：已迁移至 [N] Notify（T3.N.x）—— 工单是通知的一种形态
+> - **Tickets 工单**：已迁移至 [N] Notify（T3.15.x）—— 工单是通知的一种形态
 > - **Entitlements 权益**（写操作）：保留在 [T] 结算层 —— 涉及资产变更
 > - **Invoices 发票**（写操作）：保留在 [T] 结算层 —— 涉及财务确认
 
@@ -282,68 +287,68 @@
 
 ### 🔔 [N] Notify — 信息传导（顶级分区）
 
-> **权限**: T营管理 / E队只读 | **定位**: TAES 神经系统 | **地址段**: `T3.N.x`
+> **权限**: T营管理 / E队只读 | **定位**: TAES 神经系统 | **地址段**: `T3.15.x`
 >
 > 📖 **深层洞见与 V1 设计**：见 [Te3.lsn189.cn.N.explainer.md](Te3.lsn189.cn.N.explainer.md)
 
 | L1 菜单 | L2 子菜单 | 路由 | TAES地址 | 说明 |
 |---------|-----------|------|:--------:|------|
-| **Notify** | Inbox | /notifications | T3.N.1.1 | 站内信列表 |
-| | Preferences | /notifications/settings | T3.N.1.2 | 用户订阅偏好 |
+| **Notify** | Inbox | /notifications | T3.15.1.1 | 站内信列表 |
+| | Preferences | /notifications/settings | T3.15.1.2 | 用户订阅偏好 |
 
 ---
 
 ### ⚪ [—] 系统治理 — System / Data
 
-> **权限**: T营专属 | **定位**: 平台运维 | **地址段**: `T3.5.x.x`
+> **权限**: T营专属 | **定位**: 平台运维 | **地址段**: `T3.16.x.x`
 
 #### System — 系统
 
 
 | L1 菜单 | L2 子菜单 | 路由 | TAES地址 | Te3.lsn189.cn (admin) |
 |---------|-----------|------|:--------:|----------------------|
-| **System** | Settings | /admin/settings | T3.5.2.1 | System.Settings |
-| | Variable | /admin/variable | T3.5.2.2 | System.Variable |
-| | Operator | /admin/opr | T3.5.2.3 | System.Operator |
-| | API | /swagger/index.html | T3.5.2.4 | System.API |
-| | Logging | /admin/logging | T3.5.2.5 | System.Logging |
-| **Data** | Table Dynamic | /admin/pgdata | T3.5.3.1 | Data.Table Dynamic |
-| | JSON Static | /admin/datasource | T3.5.3.2 | Data.JSON Static |
+| **System** | Settings | /admin/settings | T3.16.2.1 | System.Settings |
+| | Variable | /admin/variable | T3.16.2.2 | System.Variable |
+| | Operator | /admin/opr | T3.16.2.3 | System.Operator |
+| | API | /swagger/index.html | T3.16.2.4 | System.API |
+| | Logging | /admin/logging | T3.16.2.5 | System.Logging |
+| **Data** | Table Dynamic | /admin/pgdata | T3.16.3.1 | Data.Table Dynamic |
+| | JSON Static | /admin/datasource | T3.16.3.2 | Data.JSON Static |
 
 ---
 
 ### 🔴 [R] 保留区 — TeamsEdge Support / TeamsEdge System
 
-> **权限**: T营专属 | **定位**: 平台级功能（V1 兼容） | **地址段**: `T3.6.x.x`
+> **权限**: T营专属 | **定位**: 平台级功能（V1 兼容） | **地址段**: `T3.17.x.x`
 
 #### TeamsEdge Support — 平台支持
 
 | L1 菜单 | L2 子菜单 | 路由 | TAES地址 | Te3.lsn189.cn (admin) |
 |---------|-----------|------|:--------:|----------------------|
-| **TeamsEdge Support** | Customers | /admin/customer | T3.6.1.1 | TeamsEdge Support.Customers |
-| | Users | /admin/users | T3.6.1.2 | TeamsEdge Support.Users |
-| | Agreements | /admin/agreement | T3.6.1.3 | TeamsEdge Support.Agreements |
-| | Workplane | /admin/workplane | T3.6.1.4 | TeamsEdge Support.Workplane |
-| | Tickets | /admin/ticket | T3.6.1.5 | TeamsEdge Support.Tickets |
-| | Proxy Server | /admin/teamsedge/server | T3.6.1.6 | TeamsEdge Support.Proxy Server |
-| | Proxy Limiter | /admin/teamsedge/limiter | T3.6.1.7 | TeamsEdge Support.Proxy Limiter |
-| | Proxy Address | /admin/teamsedge/address | T3.6.1.8 | TeamsEdge Support.Proxy Address |
-| | Proxy Rule | /admin/teamsedge/rule | T3.6.1.9 | TeamsEdge Support.Proxy Rule |
-| | Proxy Sessions | /admin/teamsedge/session | T3.6.1.10 | TeamsEdge Support.Proxy Sessions |
-| | Tester Endpoints | /admin/teamsedge/tester | T3.6.1.11 | TeamsEdge Support.Tester |
-| | insight Eggs | /admin/insightimg | T3.6.1.12 | TeamsEdge Support.insight |
+| **TeamsEdge Support** | Customers | /admin/customer | T3.17.1.1 | TeamsEdge Support.Customers |
+| | Users | /admin/users | T3.17.1.2 | TeamsEdge Support.Users |
+| | Agreements | /admin/agreement | T3.17.1.3 | TeamsEdge Support.Agreements |
+| | Workplane | /admin/workplane | T3.17.1.4 | TeamsEdge Support.Workplane |
+| | Tickets | /admin/ticket | T3.17.1.5 | TeamsEdge Support.Tickets |
+| | Proxy Server | /admin/teamsedge/server | T3.17.1.6 | TeamsEdge Support.Proxy Server |
+| | Proxy Limiter | /admin/teamsedge/limiter | T3.17.1.7 | TeamsEdge Support.Proxy Limiter |
+| | Proxy Address | /admin/teamsedge/address | T3.17.1.8 | TeamsEdge Support.Proxy Address |
+| | Proxy Rule | /admin/teamsedge/rule | T3.17.1.9 | TeamsEdge Support.Proxy Rule |
+| | Proxy Sessions | /admin/teamsedge/session | T3.17.1.10 | TeamsEdge Support.Proxy Sessions |
+| | Tester Endpoints | /admin/teamsedge/tester | T3.17.1.11 | TeamsEdge Support.Tester |
+| | insight Eggs | /admin/insightimg | T3.17.1.12 | TeamsEdge Support.insight |
 
 #### TeamsEdge System — 平台系统
 
 | L1 菜单 | L2 子菜单 | 路由 | TAES地址 | Te3.lsn189.cn (admin) |
 |---------|-----------|------|:--------:|----------------------|
-| **TeamsEdge System** | Api Token | /admin/apitoken | T3.6.2.1 | TeamsEdge System.Api Token |
-| | Backup Data | /admin/backup | T3.6.2.2 | TeamsEdge System.Backup |
-| | Translate | /admin/translate | T3.6.2.3 | TeamsEdge System.Translate |
-| | Operation Log | /admin/oplog | T3.6.2.4 | TeamsEdge System.Operation Log |
-| | File Manager | /admin/filemanager | T3.6.2.5 | TeamsEdge System.File Manager |
-| | DB Manager | /admin/tools/sqlexec | T3.6.2.6 | TeamsEdge System.DB Manager |
-| | System Status | /admin/sysstatus | T3.6.2.7 | TeamsEdge System.System Status |
+| **TeamsEdge System** | Api Token | /admin/apitoken | T3.17.2.1 | TeamsEdge System.Api Token |
+| | Backup Data | /admin/backup | T3.17.2.2 | TeamsEdge System.Backup |
+| | Translate | /admin/translate | T3.17.2.3 | TeamsEdge System.Translate |
+| | Operation Log | /admin/oplog | T3.17.2.4 | TeamsEdge System.Operation Log |
+| | File Manager | /admin/filemanager | T3.17.2.5 | TeamsEdge System.File Manager |
+| | DB Manager | /admin/tools/sqlexec | T3.17.2.6 | TeamsEdge System.DB Manager |
+| | System Status | /admin/sysstatus | T3.17.2.7 | TeamsEdge System.System Status |
 
 ---
 
@@ -351,17 +356,17 @@
 
 | TAES | L1 菜单 | L2 子菜单 | 路由 | TAES地址 |
 |:---:|---------|-----------|------|:--------:|
-| **E** | **Players** | - | /admin/user | T3.1.2 |
-| **S** | **Knowledge** | Knowledge Base | /admin/knowledge | T3.4.10 |
-| | | Index Document | /admin/idocument | T3.4.4.11 |
-| | | Search Document | /admin/knowledge/docsearch | T3.4.4.12 |
-| **—** | **System** | Settings | /admin/settings | T3.5.2.1 |
-| | | Operator | /admin/opr | T3.5.2.3 |
-| | | Translate | /admin/translate | T3.5.4.3 |
-| | | Operation Log | /admin/oplog | T3.5.1.2 |
-| | | File Manager | /admin/filemanager | T3.5.4.4 |
-| | | DB Manager | /admin/tools/sqlexec | T3.5.4.5 |
-| | | System Status | /admin/sysstatus | T3.5.4.6 |
+| **E** | **Players** | - | /admin/user | T3.11.2 |
+| **S** | **Knowledge** | Knowledge Base | /admin/knowledge | T3.14.10 |
+| | | Index Document | /admin/idocument | T3.14.4.11 |
+| | | Search Document | /admin/knowledge/docsearch | T3.14.4.12 |
+| **—** | **System** | Settings | /admin/settings | T3.16.2.1 |
+| | | Operator | /admin/opr | T3.16.2.3 |
+| | | Translate | /admin/translate | T3.16.4.3 |
+| | | Operation Log | /admin/oplog | T3.16.1.2 |
+| | | File Manager | /admin/filemanager | T3.16.4.4 |
+| | | DB Manager | /admin/tools/sqlexec | T3.16.4.5 |
+| | | System Status | /admin/sysstatus | T3.16.4.6 |
 
 ---
 
@@ -380,19 +385,19 @@
 
 | 地址段 | 范围 | 功能域 |
 |:------:|:----:|--------|
-| `T3.1.1-7` | 1-7 | EdgeTeams 团队管理（E队/队员/AO/AR/M365/域名/Publisher） |
-| `T3.2.1-6` | 1-6 | TeamsCamp 付费资产（AITC/BAS/AGA/Teamsbox/LinkServer/ServiceNode） |
-| `T3.3.1-10` | 1-10 | Augment 托举设施（技术运维） |
-| `T3.4.1.x` | 1-4 | Mission 任务定义 |
-| `T3.4.2.x` | 1-3 | The Foundry 工坊 |
-| `T3.4.3.x` | 1-7 | WorkSpace 工位 |
-| `T3.4.4.x` | 1-12 | AI Intelligence 认知 |
-| `T3.4.5.x` | 1-4 | Credits & Billing 权益 |
-| `T3.N.1.x` | 1-2 | **Notify 通知（顶级分区）** |
-| `T3.5.x.x` | 1-5 | System 系统设置 |
-| `T3.5.x.x` | 1-2 | Data 数据管理 |
-| `T3.6.1.x` | 1-12 | TeamsEdge Support 平台支持 |
-| `T3.6.2.x` | 1-7 | TeamsEdge System 平台系统 |
+| `T3.0.x ~ T3.10.x` | 保留 | 未来探索空间（11 个段位） |
+| `T3.11.1-7` | 1-7 | **[E]** EdgeTeams 团队管理（E队/队员/AO/AR/M365/域名/Publisher） |
+| `T3.12.1-6` | 1-6 | **[T]** TeamsCamp 付费资产（AITC/BAS/AGA/Teamsbox/LinkServer/ServiceNode） |
+| `T3.13.1-3.x` | 1-3 | **[A]** Augment 托举设施（Workplane/AITa/AC） |
+| `T3.14.1.x` | 0-4 | **[S]** Mission 任务定义 |
+| `T3.14.2.x` | 1-4 | **[S]** Foundry 工坊 |
+| `T3.14.4.x` | 1-4 | **[S]** Intelligence 认知 |
+| `T3.14.5.x` | 1-2 | **[S]** Usage 用量（只读投影） |
+| `T3.15.1.x` | 1-2 | **[N]** Notify 通知（顶级分区） |
+| `T3.16.2.x` | 1-5 | **[—]** System 系统设置 |
+| `T3.16.3.x` | 1-2 | **[—]** Data 数据管理 |
+| `T3.17.1.x` | 1-12 | **[R]** TeamsEdge Support 平台支持 |
+| `T3.17.2.x` | 1-7 | **[R]** TeamsEdge System 平台系统 |
 
 ---
 

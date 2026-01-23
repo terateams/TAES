@@ -207,7 +207,7 @@ TAES 四字描述的是**空间结构**（谁持有什么、谁托举谁）。N 
 N V1 = 最小可行通知系统（信噪比优先）
     │
     ├── 🔔 [已升级为顶级分区]
-    ├── 地址段：T3.N.x
+    ├── 地址段：T3.15.x
     └── 仅做高信噪比事件
 ```
 
@@ -217,8 +217,8 @@ N V1 = 最小可行通知系统（信噪比优先）
 
 | L1 菜单 | L2 子菜单 | 路由 | TAES地址 | 说明 |
 |---------|-----------|------|:--------:|------|
-| **Notify** | Inbox | `/notifications` | T3.N.1.1 | 站内信列表 |
-| | Preferences | `/notifications/settings` | T3.N.1.2 | 用户订阅偏好 |
+| **Notify** | Inbox | `/notifications` | T3.15.1.1 | 站内信列表 |
+| | Preferences | `/notifications/settings` | T3.15.1.2 | 用户订阅偏好 |
 
 ---
 

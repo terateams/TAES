@@ -172,14 +172,14 @@ MU 定义中的关键概念：
 
 | 原菜单 | 迁移方向 | 新位置 |
 |--------|----------|--------|
-| Context Template | → [A] AC | T3.3.3.x |
-| WorkSpace (全部设备) | → [A] Workplane | T3.3.1.x |
-| Context Prompt | → [A] AC | T3.3.3.x |
-| Azure AI/Globe AI/China AI | → [A] AITa | T3.3.2.x |
-| Tester Endpoints | → [R] | T3.6.x |
-| insight Eggs | → [R] | T3.6.x |
-| Tickets | → [N] | T3.N.x |
-| Entitlements/Invoices（写） | → [T] | T3.2.x |
+| Context Template | → [A] AC | T3.13.3.x |
+| WorkSpace (全部设备) | → [A] Workplane | T3.13.1.x |
+| Context Prompt | → [A] AC | T3.13.3.x |
+| Azure AI/Globe AI/China AI | → [A] AITa | T3.13.2.x |
+| Tester Endpoints | → [R] | T3.17.x |
+| insight Eggs | → [R] | T3.17.x |
+| Tickets | → [N] | T3.15.x |
+| Entitlements/Invoices（写） | → [T] | T3.12.x |
 
 ---
 

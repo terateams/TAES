@@ -147,9 +147,9 @@ AC：T营 提供框架 + E队 填充内容
 
 | 子分区 | 地址段 | 入口路由 | 核心组件 |
 |:------:|:------:|----------|----------|
-| **Workplane** | T3.3.1 | `/admin/workplane` | Dashboard + Teamsbox |
-| **AITa** | T3.3.2 | `/admin/aita` | Dashboard (含 Tab) |
-| **AC** | T3.3.3 | `/admin/ac` | Dashboard + CA Registry |
+| **Workplane** | T3.13.1 | `/admin/workplane` | Dashboard + Teamsbox |
+| **AITa** | T3.13.2 | `/admin/aita` | Dashboard (含 Tab) |
+| **AC** | T3.13.3 | `/admin/ac` | Dashboard + CA Registry |
 
 ### UI 状态设计检查清单
 

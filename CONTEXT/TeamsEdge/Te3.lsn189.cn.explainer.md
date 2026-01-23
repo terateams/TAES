@@ -174,7 +174,7 @@ Resolution:
 │                                                                 │
 │  ┌─────────────┐   ┌─────────────┐   ┌─────────────┐           │
 │  │  Workplane  │   │    AITa     │   │     AC      │           │
-│  │  (T3.3.1)   │   │   (T3.3.2)  │   │   (T3.3.3)  │           │
+│  │  (T3.13.1)  │   │  (T3.13.2)  │   │  (T3.13.3)  │           │
 │  ├─────────────┤   ├─────────────┤   ├─────────────┤           │
 │  │  bit 可靠   │   │ Token 可用  │   │ Context 可懂 │           │
 │  │  网络通路   │   │  算力接入   │   │  语境托举   │           │
@@ -191,9 +191,9 @@ Resolution:
 
 | 支柱 | 缩写 | 全称 | 核心问题 | 地址段 |
 |:----:|:----:|------|----------|:------:|
-| **网络** | Workplane | Work Plane | bit 能到达吗？ | T3.3.1 |
-| **算力** | AITa | AI Token Allocation | Token 能调用吗？ | T3.3.2 |
-| **语境** | AC | Augment Context | AI 能理解吗？ | T3.3.3 |
+| **网络** | Workplane | Work Plane | bit 能到达吗？ | T3.13.1 |
+| **算力** | AITa | AI Token Allocation | Token 能调用吗？ | T3.13.2 |
+| **语境** | AC | Augment Context | AI 能理解吗？ | T3.13.3 |
 
 > **洞见**：Workplane 解决“连得上”，AITa 解决“用得起”，AC 解决“懂得透”。三者缺一，托举效应归零。
 
