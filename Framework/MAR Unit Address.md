@@ -50,8 +50,156 @@
 > **地址定义者**：业务主体方（如 万联 / TeamsCamp / T营）拥有地址空间的分配权
 >
 > **U = Unit**（MAR 单元），数字 = MR 编号（由业务主体分配）
-> 
-> **格式**：`U{MR}.{分区}.{L2}.{hash}` — 类 TCP/IP 纯数字寻址，无例外
+
+#### 地址格式规范
+
+```
+完整格式：U{MR}.{Seg}.{L2}.{hash}
+
+┌─────┬─────┬─────┬──────────┐
+│  U  │ MR  │ Seg │   L2     │ .hash (可选)
+├─────┼─────┼─────┼──────────┤
+│ 前缀 │ 2位 │ 2位 │ 1-3位    │ 实例标识
+│ 固定 │ 00-99│ 00-99│ 子菜单号 │ 唯一哈希
+└─────┴─────┴─────┴──────────┘
+
+正则表达式：
+  ^U(\d{1,2})\.(\d{1,2})\.(\d{1,3})(?:\.([a-z0-9\-]+))?$
+
+BNF 语法：
+  <address>  ::= "U" <mr> "." <seg> "." <l2> [ "." <hash> ]
+  <mr>       ::= <digit> | <digit><digit>
+  <seg>      ::= <digit><digit>
+  <l2>       ::= <digit> | <digit><digit> | <digit><digit><digit>
+  <hash>     ::= <alphanumeric>+
+```
+
+| 字段 | 名称 | 范围 | 说明 |
+|:----:|------|------|------|
+| **U** | Unit 前缀 | 固定 | 标识为 MAR 单元地址 |
+| **MR** | Mission Repo ID | 0-99 | 由业务主体分配的 Repo 编号 |
+| **Seg** | Segment | 0-99 | 分区编号（0-10 系统保留，11+ 业务分区） |
+| **L2** | Level-2 Index | 1-999 | 分区内子菜单/资源序号 |
+| **hash** | 实例标识 | 可选 | 具体资源的唯一标识（建议：小写字母+数字+连字符） |
+
+#### Hash 生成规则
+
+```
+hash = lowercase(slugify(resource_name))
+     | sha256(resource_id)[0:8]
+     | custom_code
+
+示例：
+  - 组织名：suibe-org（slugify）
+  - 设备号：066217（原始编号）
+  - 用户ID：p-zhang（前缀+拼音）
+  - 随机ID：a3f8c2b1（sha256 截断）
+```
+
+#### Segment 保留规则
+
+| Seg 范围 | 用途 | 说明 |
+|:--------:|------|------|
+| **0** | 系统元数据 | `U{MR}.0.x` = Repo 级配置、版本、依赖声明 |
+| **1-10** | 保留 | 未来扩展（如分片） |
+| **11-19** | **[T] TeamsCamp** | 资源在哪？合同主体、算力池 |
+| **21-29** | **[A] Augment** | 如何连接？Workplane / AITa / AC |
+| **31-39** | **[E] EdgeTeams** | 客户是谁？团队、角色、站点 |
+| **41-49** | **[S] Scale** | 增长飞轮：Context / Invoice / Payment |
+| **51-59** | **[F] Foundry** | 能力工坊：Function / Workbench |
+| **61-69** | **[N] Notify** | 信息传导：Inbox / Preferences |
+| **71-79** | **[M] Management** | 系统治理：System / Data |
+| **80-90** | 保留 | 未来扩展 |
+| **91-99** | **[R] Reserved** | 保留区：Support / System |
+
+> **Segment 编号口诀**：T1-A2-E3-S4-F5-N6-M7-R9（首位数字 × 10 + 1）
+
+#### MCP 协议兼容
+
+> **MCP**（Model Context Protocol）是 AI Agent 发现和调用工具的标准协议。
+> MAR 地址方案通过 `/.well-known/mar-registry.json` 实现 MCP 兼容。
+
+```
+站点部署位置：
+  https://{site}/.well-known/mar-registry.json
+
+示例：
+  https://te3.lsn189.cn/.well-known/mar-registry.json
+```
+
+**mar-registry.json 结构**：
+
+```json
+{
+  "schema_version": "1.0",
+  "mr_id": "U12",
+  "mr_name": "Te3.lsn189.cn",
+  "github_repo": "Terateams/TeamsEdge",
+  "segments": [
+    {
+      "seg": 11,
+      "code": "T",
+      "name": "TeamsCamp",
+      "description": "资源持有方",
+      "endpoints": [
+        { "l2": 1, "path": "/admin/teamscamp/aitc", "name": "AITC" },
+        { "l2": 2, "path": "/admin/teamscamp/bas", "name": "BAS" }
+      ]
+    },
+    {
+      "seg": 31,
+      "code": "E",
+      "name": "EdgeTeams",
+      "description": "价值创造方",
+      "endpoints": [
+        { "l2": 1, "path": "/Teams/team", "name": "E队" },
+        { "l2": 2, "path": "/Teams/player", "name": "队员" }
+      ]
+    }
+  ],
+  "mcp_tools": [
+    {
+      "name": "resolve_address",
+      "description": "解析 MAR 地址为可访问的 URL",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "address": { "type": "string", "pattern": "^U\\d+\\.\\d+\\.\\d+" }
+        }
+      }
+    },
+    {
+      "name": "list_resources",
+      "description": "列出指定 Segment 下的所有资源",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "mr_id": { "type": "string" },
+          "segment": { "type": "integer" }
+        }
+      }
+    }
+  ]
+}
+```
+
+**AI Agent 使用示例**：
+
+```
+Agent 请求：解析地址 U12.31.1.suibe-org
+
+MCP 调用：
+  POST /.well-known/mar-registry.json/resolve
+  { "address": "U12.31.1.suibe-org" }
+
+返回：
+  {
+    "url": "https://te3.lsn189.cn/Teams/team/suibe-org",
+    "segment": "EdgeTeams",
+    "resource": "E队",
+    "instance": "suibe-org"
+  }
+```
 
 ### MR 编号注册表
 
@@ -59,13 +207,20 @@
 
 | MR ID | MR Name | GitHub Repo | Context |
 |:-----:|---------|-------------|---------|
-| 0-10 | 保留 | — | 未来探索空间 |
+| **U0** | **System** | — | 系统保留（元数据、版本、联邦路由） |
+| 1-10 | 保留 | — | 未来探索空间 |
 | **U11** | **TAES** | `/Terateams/TAES` | 本仓库（协力营托举E队方法论） |
 | **U12** | **Te3.lsn189.cn** | `/Terateams/TeamsEdge` | TAES 的实践站点 |
 | **U21** | **EdgeTeam** | `/Terateams/EdgeTeam` | E队 协作平台 |
 | **U22** | **T189.terateams.com** | `/Terateams/T189` | T营 管理控制台 |
 | **U23** | **i117.ilya.team** | `/Terateams/ILYA` | AI 研究员工作站 |
 | U3x+ | ... | ... | 按需分配 |
+
+> **编号规则**：
+> - **U0**：系统保留（不可分配）
+> - **U1x**：框架层 Mission Repo（如 TAES）
+> - **U2x**：实例层 App Repo（如 EdgeTeam、Te3）
+> - **U3x+**：扩展分配
 
 ---
 
@@ -91,24 +246,24 @@
 
 ### Te3 地址段规范（U12）
 
-> **格式**: `U12.{分区}.{L2}` — U12=Te3.lsn189.cn, 分区=11-18, L2=子菜单序号
-> **实例**: `U12.{分区}.{L2}.{hash}` — 具体资源实例的唯一地址
+> **格式**: `U12.{Seg}.{L2}` — U12=Te3.lsn189.cn, Seg=11/21/31/41/51/61/71/91, L2=子菜单序号
+> **实例**: `U12.{Seg}.{L2}.{hash}` — 具体资源实例的唯一地址
 >
 > **设计原则**：类 TCP/IP 纯数字寻址，无例外
-> - **U12.0.x ~ U12.10.x**：保留（未来探索空间，共 11 个段位）
-> - **U12.11.x ~ U12.17.x**：业务分区（T-A-E-S-N-F-M）
-> - **U12.18.x**：保留区（Reserved）
+> - **U12.0.x**：系统元数据（版本、依赖）
+> - **U12.1.x ~ U12.10.x**：保留（未来扩展）
+> - **U12.11-91.x**：业务分区（T-A-E-S-F-N-M-R）
 
-| 分区 | 地址段 | 说明 | 实例示例 |
-|:----:|:------:|------|----------|
+| Segment | 地址段 | 说明 | 实例示例 |
+|:-------:|:------:|------|----------|
 | **[T]** TeamsCamp | `U12.11.x` | 资源持有方 | U12.11.1.alliedai |
-| **[A]** Augment | `U12.12.x` | 托举基础设施 | U12.12.2.workplane |
-| **[E]** EdgeTeams | `U12.13.x` | 价值创造方 | U12.13.3.suibe-org |
-| **[S]** Scale | `U12.14.x` | 增长飞轮 | U12.14.1.ctx-001 |
-| **[N]** Notify | `U12.15.x` | 信息传导 | U12.15.1.inbox |
-| **[F]** Foundry | `U12.16.x` | 能力工坊 | U12.16.2.func-api |
-| **[M]** Management | `U12.17.x` | 系统治理 | U12.17.1.settings |
-| **[R]** Reserved | `U12.18.x` | 保留区 | U12.18.1.support |
+| **[A]** Augment | `U12.21.x` | 托举基础设施 | U12.21.2.workplane |
+| **[E]** EdgeTeams | `U12.31.x` | 价值创造方 | U12.31.3.suibe-org |
+| **[S]** Scale | `U12.41.x` | 增长飞轮 | U12.41.1.ctx-001 |
+| **[F]** Foundry | `U12.51.x` | 能力工坊 | U12.51.2.func-api |
+| **[N]** Notify | `U12.61.x` | 信息传导 | U12.61.1.inbox |
+| **[M]** Management | `U12.71.x` | 系统治理 | U12.71.1.settings |
+| **[R]** Reserved | `U12.91.x` | 保留区 | U12.91.1.support |
 
 
 
@@ -118,28 +273,28 @@
 
 | L1 菜单 | L2 子菜单 | 路由 | TAES地址 | 功能说明 | 实例地址示例 |
 |---------|-----------|------|:--------:|----------|----------------|
-| **EdgeTeams** | E队 | /Teams/team | U11.11.1 | 以 E队番号 列出所有 E队 | U11.11.1.et-001 |
-| | 队员 | /Teams/player | U11.11.2 | 以 Player ID 列出所有队员 | U11.11.2.p-zhang |
-| | AO | /Teams/ao | U11.11.3 | Augmented Org（默认与 E队 1:1 绑定的信任边界） | U11.11.3.suibe-org |
-| | AR | /Teams/ar | U11.11.4 | Augmented Repo（归属 AO 的 Mission 载体，默认免费创建） | U11.11.4.mar-001 |
-| | M365组团 | /Teams/tsg | U11.11.5 | M365 Group Policy 中的 Security Group ID | U11.11.5.sg-sales |
-| | 番号域名 | /Teams/domain | U11.11.6 | E队的域名与番号（EdgeTeam Code） | U11.11.6.et001.com |
-| | Publisher | /Teams/publisher | U11.11.7 | E队软件发布者（E卡/O卡/V卡），默认个人 | U11.11.7.pub-001 |
+| **EdgeTeams** | E队 | /Teams/team | U11.31.1 | 以 E队番号 列出所有 E队 | U11.31.1.et-001 |
+| | 队员 | /Teams/player | U11.31.2 | 以 Player ID 列出所有队员 | U11.31.2.p-zhang |
+| | AO | /Teams/ao | U11.31.3 | Augmented Org（默认与 E队 1:1 绑定的信任边界） | U11.31.3.suibe-org |
+| | AR | /Teams/ar | U11.31.4 | Augmented Repo（归属 AO 的 Mission 载体，默认免费创建） | U11.31.4.mar-001 |
+| | M365组团 | /Teams/tsg | U11.31.5 | M365 Group Policy 中的 Security Group ID | U11.31.5.sg-sales |
+| | 番号域名 | /Teams/domain | U11.31.6 | E队的域名与番号（EdgeTeam Code） | U11.31.6.et001.com |
+| | Publisher | /Teams/publisher | U11.31.7 | E队软件发布者（E卡/O卡/V卡），默认个人 | U11.31.7.pub-001 |
 
 
 ### 🔵 [T] TeamsCamp — 资源在哪
 
-#### U11.12.x 菜单清单
+#### U11.11.x 菜单清单
 
 | L1 菜单 | L2 子菜单 | 路由 | TAES地址 | 功能说明 | 实例地址示例 |
 |---------|-----------|------|:--------:|----------|----------------|
-| **TeamsCamp** | AITC | /admin/teamscamp/aitc | U11.12.1 | Allied Intelligent Tenant Contract 协同租户 | U11.12.1.alliedai |
-| | BAS | /admin/teamscamp/bas | U11.12.2 | Benefit Azure Subscription 赢力订阅 | U11.12.2.sub-001 |
-| | AGA | /admin/teamscamp/aga | U11.12.3 | Augmented GitHub Account 托举账号 | U11.12.3.teamscamp |
-| | Teamsbox | /admin/teamscamp/teamsbox | U11.12.4 | CPE 边缘设备（L层，账单确权） | U11.12.4.066217 |
-| | Link Server | /admin/teamscamp/linkserver | U11.12.5 | VPN/Proxy 隧道服务器（S层，订阅确权） | U11.12.5.CN-SH-01 |
-| | Service Node | /admin/teamscamp/servicenode | U11.12.6 | Apps Gateway 出口节点（N层，用量确权） | U11.12.6.HK-RES |
+| **TeamsCamp** | AITC | /admin/teamscamp/aitc | U11.11.1 | Allied Intelligent Tenant Contract 协同租户 | U11.11.1.alliedai |
+| | BAS | /admin/teamscamp/bas | U11.11.2 | Benefit Azure Subscription 赢力订阅 | U11.11.2.sub-001 |
+| | AGA | /admin/teamscamp/aga | U11.11.3 | Augmented GitHub Account 托举账号 | U11.11.3.teamscamp |
+| | Teamsbox | /admin/teamscamp/teamsbox | U11.11.4 | CPE 边缘设备（L层，账单确权） | U11.11.4.066217 |
+| | Link Server | /admin/teamscamp/linkserver | U11.11.5 | VPN/Proxy 隧道服务器（S层，订阅确权） | U11.11.5.CN-SH-01 |
+| | Service Node | /admin/teamscamp/servicenode | U11.11.6 | Apps Gateway 出口节点（N层，用量确权） | U11.11.6.HK-RES |
 
-> **说明**：`U11.12.x` 的"双线汇聚（AITa × Workplane）/L-S-N/AGA/依赖链/确权与归属/分工边界"等解释，见 [Te3.lsn189.cn.T.explainer.md](Te3.lsn189.cn.T.explainer.md)。
+> **说明**：`U11.11.x` 的"双线汇聚（AITa × Workplane）/L-S-N/AGA/依赖链/确权与归属/分工边界"等解释，见 [Te3.lsn189.cn.T.explainer.md](Te3.lsn189.cn.T.explainer.md)。
 
 ---
