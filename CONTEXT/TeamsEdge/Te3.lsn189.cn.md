@@ -108,20 +108,24 @@
 
 > **权限**: T营专属 | **定位**: 资源持有方 | **地址段**: `T3.12.x`
 
-> **阅读提示**：以下仅保留 **T3.2.x 菜单清单**。与 [T] 相关的说明（洞见/依赖链/归属模型/双线汇聚）已抽离至 [Te3.lsn189.cn.T.explainer.md](Te3.lsn189.cn.T.explainer.md)。
+> **阅读提示**：以下仅保留 **T3.12.x 菜单清单**。与 [T] 相关的说明（洞见/依赖链/归属模型/TAG×BSN）已抽离至 [Te3.lsn189.cn.T.explainer.md](Te3.lsn189.cn.T.explainer.md)。
+>
+> **命名规则**：托举效应 = **TAG × BSN**
+> - **TAG**（身份链）：**T**enant → **A**zure → **G**itHub
+> - **BSN**（路径链）：**B**ox → **S**erver → **N**ode
 
-#### T3.2.x 菜单清单
+#### T3.12.x 菜单清单
 
-| L1 菜单 | L2 子菜单 | 路由 | TAES地址 | 功能说明 | 实例地址示例 |
-|---------|-----------|------|:--------:|----------|----------------|
-| **TeamsCamp** | AITC | /admin/teamscamp/aitc | T3.12.1 | Allied Intelligent Tenant Contract 协同租户 | T3.12.1.alliedai |
-| | BAS | /admin/teamscamp/bas | T3.12.2 | Benefit Azure Subscription 赢力订阅 | T3.12.2.sub-001 |
-| | AGA | /admin/teamscamp/aga | T3.12.3 | Augmented GitHub Account 托举账号 | T3.12.3.teamscamp |
-| | Teamsbox | /admin/teamscamp/teamsbox | T3.12.4 | CPE 边缘设备（L层，账单确权） | T3.12.4.066217 |
-| | Link Server | /admin/teamscamp/linkserver | T3.12.5 | VPN/Proxy 隧道服务器（S层，订阅确权） | T3.12.5.CN-SH-01 |
-| | Service Node | /admin/teamscamp/servicenode | T3.12.6 | Apps Gateway 出口节点（N层，用量确权） | T3.12.6.HK-RES |
+| L1 菜单 | L2 子菜单 | 路由 | TAES地址 | 功能说明 | TAG/BSN |
+|---------|-----------|------|:--------:|----------|:-------:|
+| **TeamsCamp** | AITC | /admin/teamscamp/aitc | T3.12.1 | Allied Intelligent **T**enant Contract 协同租户 | **[T]** |
+| | ABS | /admin/teamscamp/abs | T3.12.2 | **A**zure Benefit Subscription 赢力订阅 | **[A]** |
+| | GAA | /admin/teamscamp/gaa | T3.12.3 | **G**ithub Augmented Account 托举账号 | **[G]** |
+| | Teamsbox | /admin/teamscamp/teamsbox | T3.12.4 | CPE 边缘设备（Teams**B**ox） | **[B]** |
+| | Link Server | /admin/teamscamp/linkserver | T3.12.5 | VPN/Proxy 隧道服务器（Link **S**erver） | **[S]** |
+| | Service Node | /admin/teamscamp/servicenode | T3.12.6 | Apps Gateway 出口节点（Service **N**ode） | **[N]** |
 
-> **说明**：`T3.2.x` 的“双线汇聚（AITa × Workplane）/L-S-N/AGA/依赖链/确权与归属/分工边界”等解释，见 [Te3.lsn189.cn.T.explainer.md](Te3.lsn189.cn.T.explainer.md)。
+> **说明**：`T3.12.x` 的 TAG×BSN 双轴模型/依赖链/确权与归属/分工边界 等解释，见 [Te3.lsn189.cn.T.explainer.md](Te3.lsn189.cn.T.explainer.md)。
 
 ---
 
@@ -387,7 +391,7 @@
 |:------:|:----:|--------|
 | `T3.0.x ~ T3.10.x` | 保留 | 未来探索空间（11 个段位） |
 | `T3.11.1-7` | 1-7 | **[E]** EdgeTeams 团队管理（E队/队员/AO/AR/M365/域名/Publisher） |
-| `T3.12.1-6` | 1-6 | **[T]** TeamsCamp 付费资产（AITC/BAS/AGA/Teamsbox/LinkServer/ServiceNode） |
+| `T3.12.1-6` | 1-6 | **[T]** TeamsCamp 付费资产（AITC/ABS/GAA/Teamsbox/LinkServer/ServiceNode） |
 | `T3.13.1-3.x` | 1-3 | **[A]** Augment 托举设施（Workplane/AITa/AC） |
 | `T3.14.1.x` | 0-4 | **[S]** Mission 任务定义 |
 | `T3.14.2.x` | 1-4 | **[S]** Foundry 工坊 |

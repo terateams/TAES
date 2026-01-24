@@ -56,7 +56,7 @@
 │                                                                 │
 │  MU 实例（与 TAES 菜单对齐）：                                  │
 │  ├── [E] Player, E队, AO, AR, Publisher                         │
-│  ├── [T] AITC, BAS, AGA, Teamsbox, Link Server                  │
+│  ├── [T] AITC [T], ABS [A], GAA [G], Teamsbox [B], Link Server [S], Service Node [N] │
 │  ├── [A] Workplane配置, AITa配额, AC实例                        │
 │  └── [S] Mission, Artifact, Intelligence                        │
 │                                                                 │
