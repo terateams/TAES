@@ -19,7 +19,7 @@
 
 ## 核心公式
 
-$$ E = M \times C^2 \times AI Measure-Object
+$$ E = M \times C^2 \times AI $$
 
 > **E**mpower = **M**ission × **C**onnection × **C**ontext × **A**llied **I**ntelligence
 
